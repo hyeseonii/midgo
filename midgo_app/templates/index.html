@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel ="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style type="text/css">
+        body{
+            height: 1000px;
+            margin: 0%;
+        }
+
+        .skip_div{
+            width:85%;
+            height:46%;
+            position: relative;
+            background-image: url("/static/image/index_image1.jpg");
+            background-size: cover;
+            background-position:center;
+            left: 50%;
+            transform: translate(-50%,0%);
+            
+        }
+
+        .skip_top{
+            width:100%;
+            height:8%; 
+            position: relative;
+            background-color: brown;
+        }
+
+        .skip_top_name{
+            width:40%;
+            height:100%;
+            position: relative;
+            text-align: center;
+            font-size: 4rem;
+            float: left;
+         }
+
+         .skip_content_div{
+            width:100%;
+            height: 20%;
+            background-color: brown;
+         }
+
+         .skip_content_cover{
+            width: 85%;
+            height: 100%;
+            position: relative;
+            background-color: blanchedalmond;
+            left: 50%;
+            transform: translate(-50%, 0%);
+            text-align: center;
+         }
+
+         .skip_top_button_div{
+             width: 30%;
+             height: 100%;
+             position: relative;
+             background-color: coral;
+             float: right;
+
+         }
+
+         .skip_top_button_cover{
+            width:80%;
+            height: auto;
+            position: relative;
+            background-color: pink;
+            top:40%;
+            left:50%;
+            transform: translate(-50%,-50%);
+         }
+
+         .skip_top_button_join{
+            width:auto;
+            height: auto;
+            position: relative;
+            float: left;
+            background-color: aliceblue;
+            margin-right:10%;
+         }
+         
+         .skip_top_button_login{
+            width: auto;
+            height: auto;
+            position: relative;
+            float: left;
+            background-color: red;
+            margin-right:10%;
+
+        }
+
+         .skip_top_button_mypage{
+            width:auto;
+            height: auto;
+            position: relative;
+            float: left;
+            background-color: bisque;
+            margin-right:10%;
+
+         }
+
+         .skip_top_button_category{
+            width: auto;
+            height: 100%;
+            position: relative;
+            float: left;
+            background-color: brown;
+            margin-right:10%;
+         }
+
+         .skip_top_left_div{
+            width: 30%;
+            height: 100%;
+            position: relative;
+            background-color:cornflowerblue;
+            float: left; 
+         }
+
+         .skip_top_left_cover{
+             width:6vw;
+             height:6vw;
+             position: relative;
+             background-color: transparent;
+             left: 40%;
+             top: 5%;
+             -webkit-animation: bounce 1s infinite;
+             
+         }
+
+         @-webkit-keyframes bounce{
+             0%, 20%, 50%, 80%, 100%{
+                 -webkit-transform: translateY(0);
+             }
+             40%{
+                -webkit-transform: translateY(-25px);
+             }
+             60%{
+                -webkit-transform: translateY(-15px);
+             }
+         }
+
+         .skip_top_left_content{
+            width:100%;
+            height: 100%;
+            position: relative;
+            border-radius: 50%;
+            
+         }
+
+         .skip_click_div{
+             width:70%;
+             height:70%;
+             background-color: darkgrey;
+             position: absolute;
+             z-index: 9999;
+             top: 50%;
+             left: 50%;
+             transform: translate(-50%,-50%);
+             display: none;
+         }
+
+         .skip_vbutton_div{
+             width:15%;
+             height:8%;
+             position: relative;
+             background-color: transparent;
+             left:50%;
+             top:92%;
+             transform: translate(-50%,0%);
+             border-radius: 20px;
+             outline: none;
+             font-weight: 700;
+         }
+
+         .skip_home_button{
+            width:3vw;
+            height:3vw;
+            position: absolute;
+            background-color: transparent;
+            left:51%;
+            bottom: 1%;
+            transform: translate(-50%,0%);
+         }
+
+         
+
+        
+
+      
+    </style>
+
+</head>
+
+<body>
+
+    <div class="skip_top">
+
+
+        <div class="skip_top_left_div">
+            <div class="skip_top_left_cover" onclick="toggle_click();">
+                <img class="skip_top_left_content" src="/static/image/left_warn.jpg">
+            </div> 
+        </div>
+
+
+       <div class="skip_top_name">
+            MIDGO<br>
+            <!-- <p style="font-size : 1rem; font-weight: 500;">
+                <font color="pink">믿</font>고알아가는<font color="pink">꼬</font>미네
+            </p> -->
+       </div>
+
+
+
+       <div class="skip_top_button_div">
+           <div class="skip_top_button_cover">
+                <div class="skip_top_button_join">
+                    join
+                </div>
+
+                <div class="skip_top_button_login">
+                    login
+                </div>
+
+                <div class="skip_top_button_mypage">
+                    My page
+                </div>
+
+                <!-- <div class="skip_top_button_category">
+                    =<br>
+                    
+                   
+                </div> -->
+           </div>
+       </div>     
+       
+       
+
+    </div>
+ 
+    <div class="skip_div">
+        <img class="skip_home_button" src="/static/image/cathome.png">
+    </div>
+
+    <div class="skip_content_div">
+        <div class="skip_content_cover">
+                <br>
+                 "믿꼬 간단 소개"<br>
+                 "꼬미"
+        </div>
+    </div>
+
+    <div class="skip_click_div">
+        
+    </div>
+
+    <script>
+        var is_click=false;
+
+        function toggle_click(){
+            if(is_click== true){
+                $(".skip_click_div").fadeOut(100);
+                is_click = false;
+            }
+            else{
+                $(".skip_click_div").fadeIn(100);
+                is_click = true;
+            }
+        }
+    </script>
+</body>
+
+</html>
