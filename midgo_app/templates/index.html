@@ -8,8 +8,12 @@
     <script src="main.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <style type="text/css">
+
+        html{
+            height:100%;
+        }
         body{
-            height: 70vw;
+            height: 100%;
             margin: 0%;
         }
 
@@ -27,9 +31,9 @@
 
         .skip_top{
             width:100%;
-            height:10%; 
+            height:12.5%; 
             position: relative;
-            background-color: brown;
+            background-color: transparent;
         }
 
         .skip_top_name{
@@ -37,21 +41,30 @@
             height:100%;
             position: relative;
             text-align: center;
-            font-size: 4rem;
             float: left;
+         }
+
+         .skip_top_name_text{
+             width: auto;
+             height: auto;
+             left: 50%;
+             top: 50%;
+             transform: translate(-50%, -50%);
+             position: relative;
+             font-size: 1.5rem;
          }
 
          .skip_content_div{
             width:100%;
-            height: 15%;
-            background-color: brown;
+            height: 12.5%;
+            background-color: transparent;
          }
 
          .skip_content_cover{
             width: 85%;
             height: 100%;
             position: relative;
-            background-color: blanchedalmond;
+            background-color: transparent;
             left: 50%;
             transform: translate(-50%, 0%);
             text-align: center;
@@ -61,18 +74,18 @@
              width: 30%;
              height: 100%;
              position: relative;
-             background-color: coral;
+             background-color:transparent;
              float: right;
 
          }
 
          .skip_top_button_cover{
-            width:80%;
+            width:100%;
             height: 100%;
             position: relative;
-            background-color: pink;
+            background-color:transparent;
             top:0%;
-            left:10%;
+            left:0%;
             transform: translate(0%,0%);
         
          }
@@ -82,10 +95,11 @@
             height: auto;
             position: relative;
             float: left;
-            background-color: aliceblue;
+            background-color:transparent;
             margin-right:10%;
             top:50%;
             transform: translate(0%,-50%);
+            font-size:1.5rem;
          }
          
          .skip_top_button_login{
@@ -93,10 +107,11 @@
             height: auto;
             position: relative;
             float: left;
-            background-color: red;
+            background-color:transparent;
             margin-right:10%;
             top:50%;
             transform: translate(0%,-50%);
+            font-size:1.5rem;
 
         }
 
@@ -105,10 +120,11 @@
             height: auto;
             position: relative;
             float: left;
-            background-color: bisque;
+            background-color:transparent;
             margin-right:10%;
             top:50%;
             transform: translate(0%,-50%);
+            font-size:1.5rem;
 
          }
 
@@ -121,25 +137,26 @@
             margin-right:10%;
             top:50%;
             transform: translate(0%,-50%);
+            font-size:1.5rem;
          }
 
          .skip_top_left_div{
             width: 30%;
             height: 100%;
             position: relative;
-            background-color:cornflowerblue;
+            background-color:transparent;
             float: left; 
          }
 
          .skip_top_left_cover{
-             width:6vw;
-             height:6vw;
-             position: relative;
+             width:7vw;
+             height:7vw;
+             position: absolute;
              background-color: transparent;
-             left: 40%;
+             left: 10%;
              top: 5%;
              -webkit-animation: bounce 1s infinite;
-             
+             z-index: 9999;
          }
 
          @-webkit-keyframes bounce{
@@ -163,13 +180,13 @@
          }
 
          .skip_click_div{
-             width:70%;
-             height:70%;
+             width:60%;
+             height:60%;
              background-color: darkgrey;
              position: absolute;
-             z-index: 9999;
-             top: 50%;
-             left: 50%;
+             z-index: 9000;
+             top: 52%;
+             left: 55%;
              transform: translate(-50%,-50%);
              display: none;
          }
@@ -212,14 +229,16 @@
 
 
         <div class="skip_top_left_div">
-            <div class="skip_top_left_cover" onclick="toggle_click();">
+            <!-- <div class="skip_top_left_cover" onclick="toggle_click();">
                 <img class="skip_top_left_content" src="/static/image/left_warn.jpg">
-            </div> 
+            </div>  -->
         </div>
 
 
        <div class="skip_top_name">
-            MIDGO<br>
+           <div class="skip_top_name_text">
+                MIDGO
+           </div>
             <!-- <p style="font-size : 1rem; font-weight: 500;">
                 <font color="pink">믿</font>고알아가는<font color="pink">꼬</font>미네
             </p> -->
@@ -238,7 +257,7 @@
                 </div>
 
                 <div class="skip_top_button_mypage">
-                    My page
+                    mypage
                 </div>
 
                 
@@ -255,7 +274,13 @@
     </div>
  
     <div class="skip_div">
-        <img class="skip_home_button" src="/static/image/cathome.png">
+        <a href="main/">
+            <img class="skip_home_button" src="/static/image/cathome.png">
+        </a>
+
+        <div class="skip_top_left_cover" onclick="toggle_click();">
+                <img class="skip_top_left_content" src="/static/image/left_warn.jpg">
+        </div> 
     </div>
 
     <div class="skip_content_div">
