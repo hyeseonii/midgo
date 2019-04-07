@@ -5,8 +5,419 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137805801-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-137805801-1');
+    </script>
+
+    <style type="text/css">
+        html{
+            height:100%;
+            overflow:hidden;
+        }
+        body{
+            height: 100%;
+            margin: 0%;
+            background-color: white;
+            overflow:hidden;
+        }
+
+        .top{
+            width:100%;
+            height:30%;
+            position: relative;
+            background-color: transparent;
+        }
+
+        .middle{
+            width:100%;
+            height:60%;
+            position: relative;
+            background-color: palevioletred;
+
+        }
+
+        .bottom{
+            width: 100%;
+            height: 10%;
+            position: relative;
+            background-color: transparent;
+            text-align: center;
+            font-size:0.85vw;
+        }
+
+        .top_fir_div{
+            width:100%;
+            height: 20%;
+            position: relative;
+            background-color: transparent;
+            border-bottom: 1px solid black;
+        }
+
+        .top_sec_div{
+            width:100%;
+            height:80%;
+            position: relative;
+            background-color: palevioletred;
+        }
+
+        .top_sec_content{
+            width:100%;
+            height:80%;
+            position: relative;
+            font-weight:500;
+            font-size:3.5rem;
+            text-align:center;
+            border-bottom:1px solid black;
+        }
+        
+        .top_right_div_cover{
+            width:30%;
+            height:100%;
+            position: relative;
+            background-color: transparent;
+            float: right;
+            margin-right:2%;
+
+        }
+
+        
+        .top_content_join{
+            width:28.3%;
+            height: auto;
+            font-size:1rem;
+            background-color:transparent;
+            position: relative;
+            float:left;
+            top:50%;
+            transform: translate(0%,-50%);
+        }
+
+        .top_content_login{
+            width:28.3%;
+            height: auto;
+            font-size:1rem;
+            background-color:transparent;
+            position: relative;
+            float:left;
+            top:50%;
+            transform: translate(0%,-50%);
+        }
+
+        .top_content_mypage{
+            width:28.3%;
+            height: auto;
+            font-size:1rem;
+            position: relative;
+            background-color: transparent;
+            float:left;
+            top:50%;
+            transform: translate(0%,-50%);
+        }
+
+        .top_content_noti{
+            width:15%;
+            height: 100%;
+            position: relative;
+            float:left;
+            background-color: transparent;
+        }
+
+        .middle_fir_div{
+            width:100%;
+            height:30%;
+            position: relative;
+            background-color:transparent;
+            
+        }
+
+        .middle_sec_div{
+            width:100%;
+            height: 70%;
+            position: relative;
+            background-color:transparent;
+        }
+
+        .middle_cate_cover{
+            width:50%;
+            height: 100%;
+            position: relative;
+            left:50%;
+            transform: translate(-50%,0%);
+            background-color: transparent;            
+        }
+
+        .middle_cate_content:hover{
+            color:white;
+        }
+
+        .middle_cate_content{
+            width: 25%;
+            height: 100%;
+            position: relative;
+            float:left;
+            text-align:center;
+        }
+
+        .middle_cate_hover{
+            width: 100%;
+            height: auto;
+            opacity: 0;
+            transition: 0.5s ease;
+            top:10%;
+            background-color:black;
+        }
+
+        .middle_cate_content:hover .middle_cate_hover{
+            opacity: 1;
+        }
+
+        .middle_sec_cover{
+            width:90%;
+            height:100%;
+            top:50%;
+            position: relative;
+            left:50%;
+            transform: translate(-50%,-50%);
+            background-color: transparent;
+        }
+
+        .middle_sec_content_cover{
+            width:25%;
+            height:100%;
+            position: relative;
+            float:left;
+            background-color: transparent;
+        }
+
+        .middle_sec_content{
+            width: 15vw;
+            height: 15vw;
+            position: relative;
+            border-radius:50%;
+            margin-right:4%;
+        }
+
+        .middle_sec_content_hover{
+            width:100%;
+            height: 100%;
+            position:absolute;
+            top:0%;
+            left:0%;
+            opacity: 0;
+            transition: 0.5s ease;
+            background-color:transparent;
+        }
+
+        .middle_sec_content_cover:hover .middle_sec_content_hover{
+            opacity: 1;
+        }
+
+        .middle_cate_subtitle{
+            width:100%;
+            height: 2vw;
+            text-align: center;
+            color:white;
+        }
+        
+        .notification_div{
+            width:20%;
+            height:50%;
+            position: absolute;
+            background-color: gray;
+            top:6%;
+            right:-20%;
+
+        }
+
+    </style>
 </head>
+
 <body>
-    main
+    <div class="top">
+        <div class="top_fir_div">
+            <div class="top_right_div_cover">
+                <div class="top_content_join">
+                    join
+                </div>
+
+                <div class="top_content_login">
+                    login
+                </div>
+
+                <div class="top_content_mypage">
+                    mypage
+                </div>
+
+                <img 
+                class="top_content_noti" 
+                src="/static/image/noti.png"
+                onclick="toggle_notification();"
+                >
+            </div>
+        </div>
+
+        <div class="top_sec_div">
+            <div class="top_sec_content">
+                MIDGO<br>
+                <p style="font-size : 1rem; font-weight: 500;">
+                <font color="white">믿</font>고알아가는<font color="white">꼬</font>미네
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="middle">
+        <div class="middle_fir_div">
+            <div class="middle_cate_cover">
+
+                <div class=" middle_cate_content">
+                    <div class="middle_cate_title">
+                        꼬집사's say              
+                    </div> 
+                    <div class="middle_cate_hover">
+                        <div class="middle_cate_subtitle">
+                                subtitle1
+                        </div>
+    
+                         <div class="middle_cate_subtitle">
+                                    subtitle2
+                        </div>
+    
+                        
+                    </div>
+                </div>
+
+
+
+                <div class="middle_cate_content">
+                    <div class="middle_cate_title">
+                        수의학
+                    </div>
+                    <div class="middle_cate_hover">
+                        <div class="middle_cate_subtitle">
+                                subtitle1
+                        </div>
+    
+                       
+                    </div>
+                </div>
+
+                <div class=" middle_cate_content">
+                    <div class="middle_cate_title">
+                        영양학
+                    </div>
+                    <div class="middle_cate_hover">
+                        <div class="middle_cate_subtitle">
+                                subtitle1
+                        </div>
+    
+                        <div class="middle_cate_subtitle">
+                                    subtitle2
+                        </div>
+    
+                        <div class="middle_cate_subtitle">
+                                    subtitle3
+                        </div>
+                    </div>
+                </div>
+
+                <div class="middle_cate_content">
+                    <div class="middle_cate_title">
+                        심리학 
+                    </div>
+
+                    <div class="middle_cate_hover">
+                        <div class="middle_cate_subtitle">
+                            subtitle1
+                        </div>
+
+                        <div class="middle_cate_subtitle">
+                                subtitle2
+                        </div>
+
+                        <div class="middle_cate_subtitle">
+                                subtitle3
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="middle_sec_div">
+            <div class="middle_sec_cover">
+                <div class="middle_sec_content_cover">
+                    <img class="middle_sec_content" src="/static/image/A.jpg" style="transform : rotate(90deg);">
+                    
+                    <div class="middle_sec_content_hover">
+
+                    </div>
+                </div>
+
+                <div class="middle_sec_content_cover">
+                    <img class="middle_sec_content" src="/static/image/index_image1.jpg" style="top:20%;" >
+                    <div class="middle_sec_content_hover">
+
+                    </div>
+                </div>
+
+                <div class="middle_sec_content_cover">
+                    <img class="middle_sec_content" src="https://img.insight.co.kr/static/2018/09/15/700/747cl3tq51cz06846r5u.jpg" >
+                
+                    <div class="middle_sec_content_hover">
+
+                    </div>
+                </div>
+
+                <div class="middle_sec_content_cover">
+                    <img class="middle_sec_content" src="http://gatoblanco.co.kr/m2/board/download.php?id=cat&no=180&div=0" style="top:20%;" >
+                
+                    <div class="middle_sec_content_hover">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="bottom">
+        COPYRIGHT (C) MIDGO <br><br>
+        <font style="font-weight:600;">Contact email</font><br>
+        kkolayun@gmail.com
+    </div>
+
+    <div class="notification_div">
+
+    </div>
+
+    <script>
+        var notification_is_open = false;
+
+        function toggle_notification(){
+            if(notification_is_open){
+                $(".notification_div").animate({
+                    'right':'-20%'
+                });
+
+                notification_is_open=false;
+            }
+
+            else{
+                $(".notification_div").animate({
+                    'right':'0%'
+                });
+
+                notification_is_open=true;
+            }
+        }
+    </script>
 </body>
 </html>
