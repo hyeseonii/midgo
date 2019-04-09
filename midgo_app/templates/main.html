@@ -32,14 +32,14 @@
             width:100%;
             height:30%;
             position: relative;
-            background-color: transparent;
+            background-color:transparent;
         }
 
         .middle{
             width:100%;
             height:60%;
             position: relative;
-            background-color: palevioletred;
+            background-color: transparent;
 
         }
 
@@ -64,12 +64,12 @@
             width:100%;
             height:80%;
             position: relative;
-            background-color: palevioletred;
+            background-color: transparent;
         }
 
         .top_sec_content{
             width:100%;
-            height:80%;
+            height:99%;
             position: relative;
             font-weight:500;
             font-size:3.5rem;
@@ -77,6 +77,24 @@
             border-bottom:1px solid black;
         }
         
+        .top_left_div_cover{
+            width:20%;
+            height:100%;
+            position: relative;
+            background-color:transparent;
+            float:left;
+            left:5%;
+        }
+
+        .top_content_search{
+            width: 70%;
+			height: 70%;
+            border:1px solid black;
+            position: relative;
+            top:10%;
+            float:left;
+        }
+
         .top_right_div_cover{
             width:30%;
             height:100%;
@@ -86,7 +104,6 @@
             margin-right:2%;
 
         }
-
         
         .top_content_join{
             width:28.3%;
@@ -122,8 +139,9 @@
         }
 
         .top_content_noti{
-            width:15%;
-            height: 100%;
+            width:10%;
+            height: 60%;
+            top: 20%;
             position: relative;
             float:left;
             background-color: transparent;
@@ -131,17 +149,49 @@
 
         .middle_fir_div{
             width:100%;
-            height:30%;
+            height:10%;
             position: relative;
-            background-color:transparent;
+            background-color:pink;
             
         }
 
         .middle_sec_div{
             width:100%;
-            height: 70%;
+            height:90%;
             position: relative;
             background-color:transparent;
+        }
+
+        .middle_cate_mycatinfo_div{
+            width: 20%;
+            height: 100%;
+            position: absolute;
+            top:0;
+            left:2%;
+            background-color:transparent;
+            float:left;
+        }
+
+        .middle_cate_mycatinfo_content{
+            width:100%;
+            height:100%;
+            position:relative;      
+        }
+
+        .middle_cate_mycatinfo_title{
+            width:40%;
+            height:100%;
+            position: relative;
+            background-color:transparent;
+            float:left;
+        }
+
+        .middle_cate_mycatinfo_img{
+            width: 3vw;
+            height:3vw;
+            position:relative;
+            border-radius: 50%;
+            float:left;
         }
 
         .middle_cate_cover{
@@ -150,11 +200,12 @@
             position: relative;
             left:50%;
             transform: translate(-50%,0%);
-            background-color: transparent;            
+            background-color:transparent; 
+
         }
 
         .middle_cate_content:hover{
-            color:white;
+            color:gray;
         }
 
         .middle_cate_content{
@@ -163,6 +214,7 @@
             position: relative;
             float:left;
             text-align:center;
+            background-color:transparent;
         }
 
         .middle_cate_hover{
@@ -197,12 +249,36 @@
         }
 
         .middle_sec_content{
-            width: 15vw;
-            height: 15vw;
+            width: 12vw;
+            height: 12vw;
             position: relative;
             border-radius:50%;
             margin-right:4%;
             left: 10%;
+        }
+
+        #middle_sec_content_1{
+            top:-120%;
+            transform: rotate(0deg);
+            opacity:0;
+        }
+
+        #middle_sec_content_2{
+            top:-150%;
+            transform: rotate(-50deg);
+            opacity:0;
+        }
+
+        #middle_sec_content_3{
+            top:-130%;
+            transform: rotate(-30deg);
+            opacity:0;
+        }
+
+        #middle_sec_content_4{
+            top:-140%;
+            transform: rotate(30deg);
+            opacity:0;
         }
 
         .middle_sec_content_hover{
@@ -229,13 +305,88 @@
         
         .notification_div{
             width:20%;
-            height:50%;
+            height:70%;
             position: absolute;
             background-color: gray;
             top:6%;
             right:-20%;
+         }
+
+         .mycatinfo_div{
+             width:20%;
+             height:40%;
+             position:absolute;
+             background-color:salmon;
+             top:36%;
+             left:-20%;
+         }
+
+
+         .notifications{
+             width:100%;
+             height:10%;
+             background-color: crimson;
+             margin-bottom: 1%;
+             position: relative;
+         }
+
+         .notification_category{
+             width:20%;
+             height:100%;
+             background-color:burlywood;
+             position:relative;
+             float:left;
+         }
+
+         .notification_content{
+             width: 80%;
+             height: 100%;
+             background-color: darkorchid;
+             position: relative;
+             float: left;
+         }
+
+        .top_content_noti_count_div{
+            width:1vw;
+            height: 1vw;
+            position: absolute;
+            bottom:0%;
+            right: 20%;
+            background-color: red;
+            border-radius:50%;
+            text-align: center;
+            font-size: 0.6rem;
+            font-weight:900;
+            color : black;
+        }
+
+        .top_content_noti_image{
+            width: 2vw;
+            height: 2vw;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .top_content_noti_shake{
+            -webkit-animation:  shake 1s infinite;
+        }
+
+        @-webkit-keyframes shake{
+            0%, 20%, 50%, 80%, 100%{
+                -webkit-transform: translate(-50%,-50%) rotate(0);
+            }
+            40%{
+                -webkit-transform: translate(-50%,-50%) rotate(30deg);
+            }
+
+            60%{
+                -webkit-transform: translate(-50%,-50%) rotate(-30deg);
+            }
 
         }
+       
 
     </style>
 </head>
@@ -243,7 +394,15 @@
 <body>
     <div class="top">
         <div class="top_fir_div">
+            <div class="top_left_div_cover">
+                    <input id="search_input" type="text" class="top_content_search">
+                    <img src="http://merryaround.co.kr/web/upload/plain79/icon_search01.png" 
+                    style="width: auto; height: auto; position: relative; float: left; top:15%;" 
+                    onclick="search();" >
+            </div>
+
             <div class="top_right_div_cover">
+
                 <div class="top_content_join">
                     join
                 </div>
@@ -256,11 +415,29 @@
                     mypage
                 </div>
 
-                <img 
-                class="top_content_noti" 
-                src="/static/image/noti.png"
-                onclick="toggle_notification();"
-                >
+                <div class="top_content_noti">
+                    {% if is_important %}
+                    <img 
+                    class="top_content_noti_image top_content_noti_shake" 
+                    src="/static/image/noti.png"
+                    onclick="toggle_notification();"
+                    >
+                    {% else %}
+
+                    <img 
+                    class="top_content_noti_image" 
+                    src="/static/image/noti.png"
+                    onclick="toggle_notification();"
+                    >
+                    {% endif %}
+
+
+                    {% if notifications_count > 0 %}
+                    <div class="top_content_noti_count_div" onclick="toggle_notification();">
+                        {{notifications_count}}
+                    </div>
+                    {% endif %}
+                </div>
             </div>
         </div>
 
@@ -268,7 +445,7 @@
             <div class="top_sec_content">
                 MIDGO<br>
                 <p style="font-size : 1rem; font-weight: 500;">
-                <font color="white">믿</font>고알아가는<font color="white">꼬</font>미네
+                <font color="pink">믿</font>고알아가는<font color="pink">꼬</font>미네
                 </p>
             </div>
         </div>
@@ -276,11 +453,18 @@
 
     <div class="middle">
         <div class="middle_fir_div">
+            <div class="middle_cate_mycatinfo_div">
+                <div class="middle_cate_mycatinfo_content">
+                    <img class="middle_cate_mycatinfo_img" src="/static/image/mycatinfo.png" style="margin-right: 22%;" onclick="toggle_mycatinfo();">
+                    <div class="middle_cate_mycatinfo_title">
+                        꼬집사 say
+                    </div>
+                </div>
+            </div>
             <div class="middle_cate_cover">
-
                 <div class=" middle_cate_content">
                     <div class="middle_cate_title">
-                        꼬집사's say              
+                        수의학            
                     </div> 
                     <div class="middle_cate_hover">
                         <div class="middle_cate_subtitle">
@@ -299,7 +483,7 @@
 
                 <div class="middle_cate_content">
                     <div class="middle_cate_title">
-                        수의학
+                        영양학
                     </div>
                     <div class="middle_cate_hover">
                         <div class="middle_cate_subtitle">
@@ -312,7 +496,7 @@
 
                 <div class=" middle_cate_content">
                     <div class="middle_cate_title">
-                        영양학
+                        심리학
                     </div>
                     <div class="middle_cate_hover">
                         <div class="middle_cate_subtitle">
@@ -331,7 +515,7 @@
 
                 <div class="middle_cate_content">
                     <div class="middle_cate_title">
-                        심리학 
+                        communication
                     </div>
 
                     <div class="middle_cate_hover">
@@ -355,7 +539,7 @@
         <div class="middle_sec_div">
             <div class="middle_sec_cover">
                 <div class="middle_sec_content_cover">
-                    <img class="middle_sec_content" src="/static/image/A.jpg" style="transform : rotate(90deg);">
+                    <img class="middle_sec_content" id="middle_sec_content_1" src="/static/image/aangkko.jpg">
                     
                     <div class="middle_sec_content_hover">
 
@@ -363,14 +547,14 @@
                 </div>
 
                 <div class="middle_sec_content_cover">
-                    <img class="middle_sec_content" src="/static/image/index_image1.jpg" style="top:20%;" >
+                    <img class="middle_sec_content"  id="middle_sec_content_2" src="/static/image/ruru.png">
                     <div class="middle_sec_content_hover">
 
                     </div>
                 </div>
 
                 <div class="middle_sec_content_cover">
-                    <img class="middle_sec_content" src="https://img.insight.co.kr/static/2018/09/15/700/747cl3tq51cz06846r5u.jpg" >
+                    <img class="middle_sec_content" id="middle_sec_content_3" src="/static/image/hhoppang.png" >
                 
                     <div class="middle_sec_content_hover">
 
@@ -378,7 +562,7 @@
                 </div>
 
                 <div class="middle_sec_content_cover">
-                    <img class="middle_sec_content" src="http://gatoblanco.co.kr/m2/board/download.php?id=cat&no=180&div=0" style="top:20%;" >
+                    <img class="middle_sec_content"  id="middle_sec_content_4" src="/static/image/kkomi.png" >
                 
                     <div class="middle_sec_content_hover">
 
@@ -396,6 +580,20 @@
     </div>
 
     <div class="notification_div">
+        {% for notification in notifications %}
+            <div class="notifications">
+                <div class="notification_category">
+                    {{notification.category}}
+                </div>
+
+                <div class="notification_content">
+                    {{notification.content}}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="mycatinfo_div">
 
     </div>
 
@@ -419,6 +617,118 @@
                 notification_is_open=true;
             }
         }
+
+
+        var mycatinfo_is_open =false;
+
+        function toggle_mycatinfo(){
+            if(mycatinfo_is_open){
+                $(".mycatinfo_div").animate({
+                    'left':'-20%'
+                });
+
+                mycatinfo_is_open=false;
+            }
+         
+
+            else{
+                $(".mycatinfo_div").animate({
+                        'left':'0%'
+                });
+
+                mycatinfo_is_open=true;
+            }
+        }
+
+
+        function search(){
+			var search_button = document.getElementById("search_input");
+			alert(search_button.value);
+		}
+
+        $(document).ready(function(){
+           setTimeout(function(){
+                $("#middle_sec_content_1").css({
+                    'transition': 'transform 2s',
+                    'transform' : 'rotate(0deg)',
+                    'opacity' : '1'
+                });
+
+                $("#middle_sec_content_1")
+                .animate({
+                    'top': '50%'
+                },500)
+                .animate({
+                    'top': '30%'
+                },500)
+                .animate({
+                    'top': '40%'
+                },500);
+                
+           },600); 
+
+           setTimeout(function(){
+                $("#middle_sec_content_2").css({
+                    'transition': 'transform 2s',
+                    'transform' : 'rotate(0deg)',
+                    'opacity' : '1'
+                });
+
+                $("#middle_sec_content_2")
+                .animate({
+                    'top': '50%'
+                },500)
+                .animate({
+                    'top': '30%'
+                },500)
+                .animate({
+                    'top': '40%'
+                },500);
+                
+           },800); 
+
+           setTimeout(function(){
+                $("#middle_sec_content_3").css({
+                    'transition': 'transform 2s',
+                    'transform' : 'rotate(0deg)',
+                    'opacity' : '1'
+                });
+
+                $("#middle_sec_content_3")
+                .animate({
+                    'top': '50%'
+                },500)
+                .animate({
+                    'top': '30%'
+                },500)
+                .animate({
+                    'top': '40%'
+                },500);
+                
+           },700); 
+
+           setTimeout(function(){
+                $("#middle_sec_content_4").css({
+                    'transition': 'transform 2s',
+                    'transform' : 'rotate(0deg)',
+                    'opacity' : '1'
+                });
+
+                $("#middle_sec_content_4")
+                .animate({
+                    'top': '50%'
+                },500)
+                .animate({
+                    'top': '30%'
+                },500)
+                .animate({
+                    'top': '40%'
+                },500);
+                
+           },900); 
+        });
     </script>
+
+
 </body>
 </html>
