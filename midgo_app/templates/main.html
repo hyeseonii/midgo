@@ -520,11 +520,11 @@
 
                     <div class="middle_cate_hover">
                         <div class="middle_cate_subtitle">
-                            subtitle1
+                            영양제 리뷰
                         </div>
 
                         <div class="middle_cate_subtitle">
-                                subtitle2
+                                와글와글
                         </div>
 
                         <div class="middle_cate_subtitle">
@@ -602,7 +602,7 @@
 
         function toggle_notification(){
             if(notification_is_open){
-                $(".notification_div").animate({
+                $(".notification_div").stop().animate({
                     'right':'-20%'
                 });
 
@@ -610,12 +610,24 @@
             }
 
             else{
-                $(".notification_div").animate({
+                $(".notification_div").stop().animate({
                     'right':'0%'
                 });
 
                 notification_is_open=true;
             }
+
+            $(".top_content_noti_image").removeClass("top_content_noti_shake");
+
+
+            fetch("./check_notification/")
+                .then(e => e.json())
+                .then(e =>{
+                    console.log(e);
+                    $(".top_content_noti_count_div").css({
+                        'display':'none'
+                    });
+                });
         }
 
 
@@ -623,7 +635,7 @@
 
         function toggle_mycatinfo(){
             if(mycatinfo_is_open){
-                $(".mycatinfo_div").animate({
+                $(".mycatinfo_div").stop().animate({
                     'left':'-20%'
                 });
 
@@ -632,7 +644,7 @@
          
 
             else{
-                $(".mycatinfo_div").animate({
+                $(".mycatinfo_div").stop()   .animate({
                         'left':'0%'
                 });
 
