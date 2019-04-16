@@ -72,7 +72,7 @@
             transform: translate(-50%,-50%);
             border-radius: 10%;
             top:50%;
-
+            display:none;
         }
 
         .middle_owner_info_div{
@@ -154,7 +154,7 @@
         }
 
         .middle_owner_info_domain{
-            width:20%;
+            width:25%;
             height:100%;
             position: relative;
             float:left;
@@ -162,7 +162,7 @@
         }
 
         .middle_owner_info_value{
-            width:80%;
+            width:75%;
             height:100%;
             position: relative;
             float:left;
@@ -174,6 +174,7 @@
             height:10%;
             position: absolute;
             background-color:tomato;
+            display:none;
             
         }
 
@@ -199,8 +200,6 @@
             display: none;
             
         }
-
-        
         
 
         .middle_cat_info_div{
@@ -373,13 +372,217 @@
         outline: none;
         font-size:0.8rem;
         position: relative;
-        left:50%;
-        transform: translate(-50%,0%);
-        display: none;
+        float: left;
+        margin-left: 1vw;
        }
 
-       
+       #before_button{
+        width: 8vw;
+        height: 1.5vw;
+        border-radius: 5%;
+        background-color: orange;
+        border:none;
+        outline: none;
+        font-size:0.8rem;
+        position: relative;
+        float: left;
+       }
 
+       #next_button{
+        width: 8vw;
+        height: 1.5vw;
+        border-radius: 5%;
+        background-color: orange;
+        border:none;
+        outline: none;
+        font-size:0.8rem;
+        position: relative;
+        left:50%;
+        transform: translate(-50%,0%);
+       }
+
+       .middle_agree_div{
+           width:50%;
+           height:40%;
+           position:relative;
+           top: 55%;
+           left:50%;
+           transform: translate(-50%,-50%);
+           background-color: rosybrown;
+        }
+
+        .middle_agree_top_div{
+            width:100%;
+            height:20%;
+            position: relative;
+            background-color: brown;
+        }
+
+        .middle_agree_top_text{
+            width:auto;
+            height:auto;
+            top:50%;
+            transform: translateY(-50%);
+            position: relative;
+            text-align: center;
+            background-color: blueviolet;
+        }
+
+        .middle_agree_content_div{
+            width:100%;
+            height:65%;
+            position: relative;
+            background-color: lightcoral;
+        }
+
+    
+        .middle_agree_button_div{
+            width:100%;
+            height:15%;
+            position: relative;
+            background-color: aqua;
+        }
+
+        .middle_agree_content{
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            position:relative;
+            width:80%;
+            height: 80%;
+            background-color: white;
+            overflow: scroll;
+            overflow-x: hidden;
+        }
+
+        .container{
+            display:block;
+            position:relative;
+            padding-left:35px;
+            margin-bottom:12px;
+            cursor:pointer;
+            font-size:1rem;
+            -webkit-user-select:none;
+            -moz-user-select:none;
+            -ms-user-select:none;
+            user-select:none;
+            width:20%;
+            height:auto;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            background-color: yellowgreen;
+        }
+
+        .container input{
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height:0;
+            width:0;
+        }
+
+        .checkmark{
+            position: absolute;
+            top:0;
+            left:0;
+            height:25px;
+            width:25px;
+            background-color:tomato;
+        }
+
+        .container:hover input ~ .checkmark{
+            background-color: gray;
+        }
+
+        .checkmark:after{
+            content:"";
+            position:absolute;
+            display:none;
+        }
+
+        .container input:checked ~ .checkmark:after{
+            display:block;
+        }
+
+        .container .checkmark:after{
+            left:9px;
+            top:5px;
+            width:5px;
+            height:10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+        .middle_alert_div{
+            position:absolute;
+            width:45%;
+            height:20%;
+            background-color: blue;
+            top:10%;
+            left:50%;
+            transform: translate(-50%,0%);
+        }
+
+        .middle_alert_text_div{
+            float:left;
+            position:relative;
+            width:85%;
+            height:100%;
+            background-color: teal;
+        }
+
+        .middle_alert_img_div{
+            float:left;
+            position:relative;
+            width:15%;
+            height:100%;
+            background-color: orange;
+        }
+
+        .middle_alert_text{
+            top:50%;
+            transform:translateY(-50%);
+            position: relative;
+        }
+
+        .middle_alert_img{
+            border-radius:50%;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);
+            position: relative;
+            widows: 6vw;
+            height:6vw;
+        }
+
+        .middle_join_button{
+            width:10%;
+            height:8%;
+            position: absolute;
+            background-color:green;
+            top:82%;
+            left:50%;
+            transform:translate(-50%,-50%);
+            border:none;
+            outline:none;
+            font-size:1rem;
+            cursor: pointer;
+            display: none;
+        }
+
+        .middle_form_button_div{
+            width:17vw;
+            height:auto;
+            position:relative;
+            left:50%;
+            transform:translate(-50%,0%);
+            display:none;
+        }
+    
     </style>
 </head>
 
@@ -397,21 +600,60 @@
 
     <div class="middle">
 
-        <div class="middle_select_div">
+        <!-- <div class="middle_select_div">
             <button onclick="open_owner();">집사</button>
             <button onclick="open_cat();">냥이</button>
+        </div> -->
+
+        <div class="middle_alert_div">
+            <div class="middle_alert_text_div">
+                <div class="middle_alert_text">
+                    ※가입 심사 절차가 있을 예정이오니 예민하신 분들은 나가주세요!※
+                </div>
+            </div>
+            <div class="middle_alert_img_div">
+                <img class="middle_alert_img" src="/static/image/join_img.png">
+            </div>
         </div>
 
+        <div class="middle_agree_div">
+            <div class="middle_agree_top_div">
+                <div class="middle_agree_top_text">
+                    개인정보 수집 및 이용에 대한 안내
+                </div>
+            </div>
 
+            <div class="middle_agree_content_div">
+                <div class="middle_agree_content">
+                    정보통신망법 규정에 따라 네이버에 회원가입 신청하시는 분께 수집하는 개인정보의 항목, 개인정보의 수집 및 이용목적, <br>
+                    개인정보의 보유 및 이용기간을 안내 드리오니 자세히 읽은 후 동의하여 주시기 바랍니다.정보통신망법 규정에 따라 네이버에 회원가입 신청하시는 분께 수집하는 개인정보의 항목, 개인정보의 수집 및 이용목적, <br>
+                    개인정보의 보유 및 이용기간을 안내 드리오니 자세히 읽은 후 동의하여 주시기 바랍니다.정보통신망법 규정에 따라 네이버에 회원가입 신청하시는 분께 수집하는 개인정보의 항목, 개인정보의 수집 및 이용목적, <br>
+                    개인정보의 보유 및 이용기간을 안내 드리오니 자세히 읽은 후 동의하여 주시기 바랍니다.정보통신망법 규정에 따라 네이버에 회원가입 신청하시는 분께 수집하는 개인정보의 항목, 개인정보의 수집 및 이용목적, <br>
+                    개인정보의 보유 및 이용기간을 안내 드리오니 자세히 읽은 후 동의하여 주시기 바랍니다.정보통신망법 규정에 따라 네이버에 회원가입 신청하시는 분께 수집하는 개인정보의 항목, 개인정보의 수집 및 이용목적, <br>
+                    개인정보의 보유 및 이용기간을 안내 드리오니 자세히 읽은 후 동의하여 주시기 바랍니다.
+                </div>
+            </div>
+            <div class="middle_agree_button_div">
+                <label class="container">동의합니다
+                    <input type="checkbox" class="agree_checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                    
+            </div>
+        </div>
 
-        <form class="middle_form_div"method="POST" name="frm" action="./check_join/" enctype="multipart/form-data">
+        <button class="middle_join_button" onclick="go_join();">
+            가입하기
+        </button>
+
+        <form class="middle_form_div"method="POST" name="frm" action="./check_join/" enctype="multipart/form-data" onsubmit="return join_check();">
             {% csrf_token %}
             <div class="middle_direction1_div">
-                    <button onclick="open_before();"><</button>
+                    <button type="button" onclick="open_before();"><</button>
             </div>
     
             <div class="middle_direction2_div">
-                <button onclick="open_next();">></button>
+                <button type="button" onclick="open_next();">></button>
             </div>
 
             <div class="middle_owner_info_div">
@@ -429,18 +671,20 @@
 
                         <div class="middle_owner_info_value">
                             <input type="text" id="owner_id" name="owner_id" required>
+                            <button type="button" onclick="user_id_check();">중복확인</button>
                         </div>
                     </div>
 
                     <div class="middle_owner_info_password">
                         <div class="middle_owner_info_domain">
-                            PASSWORD
+                            PASSWORD<br>
+                            REPASSWORD
                         </div>
 
                         <div class="middle_owner_info_value">
-                            <input type="password" id="owner_password" name="owner_password" required>
+                            <input type="password" id="owner_password" name="owner_password" required placeholder="숫자/영어 혼합 8~15자리">
                             <br>
-                            <input type="password" id="owner_repassword" name="owner_repassword" required>
+                            <input type="password" id="owner_repassword" name="owner_repassword" required placeholder="숫자/영어 혼합 8~15자리">
                             <br>
                             
                             <div class="middle_owner_info_check_password">
@@ -514,7 +758,7 @@
                                 이름
                             </div>
                             <div class="middle_cat_info_value"  style="width:60%;">
-                                <input  class ="middle_cat_info_input" type="text" id="cat_name1" name="cat_name" required>
+                                <input  class ="middle_cat_info_input" type="text" id="cat_name" name="cat_name" required>
                             </div>
                         </div>
 
@@ -847,14 +1091,23 @@
             </div>
         </div>
 
-        <button type="submit" id="join_button" >
-            가입하기 
+        <div class="middle_form_button_div">
+            <button type="button" onclick="open_owner();" id="before_button">
+                집사정보
+            </button>
+            <button type="submit" id="join_button" >
+                가입하기 
+            </button>
+        </div>    
+        <button type="button" onclick="open_cat();" id="next_button">
+            다음
         </button>
-    </form>
 
+    </form>
+</div>
     <script>
         function open_owner(){
-            $(".middle_cat_info_div").css({
+            $(".middle_cat_info_div, .middle_form_button_div").css({
                 'display':'none'
             });
 
@@ -866,18 +1119,37 @@
                 'display':'none'
             });
 
-            $(".middle_owner_info_div").fadeIn(300);
+            $(".middle_owner_info_div, #next_button").fadeIn(300);
         }
 
         function open_cat(){
-            $(".middle_owner_info_div").css({
-                'display':'none'
-            });
+            if(!user_id_is_valid){
+                alert("아이디 중복 체크를 확인해주세요");
+                return false;
+            }
+            
 
-            $("#middle_cat_info_div1").fadeIn(300);
-            $(".middle_direction1_div").fadeIn(300);
-            $(".middle_direction2_div").fadeIn(300);
-            $("#join_button").fadeIn(300);
+            var password = $("#owner_password").val();
+            var repassword = $("#owner_repassword").val();
+
+            if(password == repassword){
+                if(!/^[a-zA-Z0-9]{8,15}$/.test(password)){
+                    alert('비밀번호를 숫자와 영문자 조합 8~15자리로 입력해주세요');
+                }
+                else{
+                    $(".middle_owner_info_div, #next_button").css({
+                        'display':'none'
+                    });
+
+                    $("#middle_cat_info_div1").fadeIn(300);
+                    $(".middle_direction1_div").fadeIn(300);
+                    $(".middle_direction2_div").fadeIn(300);
+                    $(".middle_form_button_div").fadeIn(300);
+                }
+            }
+            else{
+                alert("비밀번호가 다릅니다.");
+            }
 
         }
 
@@ -926,7 +1198,133 @@
             }
         });
 
+        var check_agreement = false;
 
+        jQuery(function($){
+            $('.middle_agree_content').on('scroll', function(){
+                // console.log($(this).scrollTop() + $(this).innerHeight());
+                // console.log($(this)[0].scrollHeight);
+                if($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight-5){
+                    check_agreement=true;
+                }
+            })
+        });
+
+        $('.agree_checkbox').click(function(){
+            if ($(this).is(':checked')){
+                $(".middle_join_button").css({
+                    'display':'block'
+                });
+            }
+
+            else{
+                $(".middle_join_button").css({
+                    'display':'none'
+                });
+            }
+        });
+
+        function go_join(){
+            if(check_agreement){
+                $(".middle_alert_div, .middle_join_button, .middle_agree_div").css({
+                    'display':'none'
+                });
+                // $(".middle_join_button").css({
+                //     'display':'none'
+                // });
+                // $(".middle_agree_div").css({
+                //     'display':'none'
+                // });
+
+                $(".middle_select_div, .middle_form_div").fadeIn(300);
+            }
+            else{
+                alert("주의사항을 모두 읽어주세요!");
+            }
+
+        }
+
+
+        var user_id_is_valid = false;
+
+        function user_id_check(){
+            var user_id = $("#owner_id").val();
+
+            if(user_id == ''){
+                alert("아이디를 입력해주세요")
+                return;
+            }
+
+            var formdata= new FormData();
+            formdata.append('user_id',user_id);
+
+            fetch("./join_check_id/",{
+                method:'POST',
+                body:formdata,
+                credentials:'same-origin',
+            })
+            .then(e => e.json())
+            .then(e => {
+                if(e.result == 'failed'){
+                    alert("이미 사용중인 ID입니다");
+                    user_id_is_valid = false;
+                }
+                else if(e.result == 'success'){
+                    alert("사용가능한 ID입니다");
+                    user_id_is_valid=true;
+                }
+            });
+        }
+
+    
+        $('#owner_password, #owner_repassword').change(function(){
+            const psw= $("#owner_password").val();
+            const repsw = $("#owner_repassword").val();
+
+            if(psw == repsw) {
+                $(".middle_owner_info_check_password")
+                .html("비밀번호가 일치합니다")
+                .css({
+                    'color':'green'
+                });
+            }
+
+            else {
+                $(".middle_owner_info_check_password")
+                .html("비밀번호가 다릅니다")
+                .css({
+                    'color':'red'
+                });
+            }
+        });
+
+        function join_check(){
+            if(!user_id_is_valid){
+                alert("아이디 중복 체크를 확인해주세요");
+                return false;
+            }
+            
+
+            var password = $("#owner_password").val();
+            var repassword = $("#owner_repassword").val();
+
+            if(password == repassword){
+                if(!/^[a-zA-Z0-9]{8,15}$/.test(password)){
+                    alert('비밀번호를 숫자와 영문자 조합 8~15자리로 입력해주세요');
+                    return false;
+                }
+                else{
+                    alert("회원가입이 완료되었습니다.");
+                    return true;
+                }
+            }
+            else{
+                alert("비밀번호가 다릅니다.");
+                return false;
+            }
+        }
+      
+        
     </script>
 
 

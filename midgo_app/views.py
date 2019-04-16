@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import *
 import datetime
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 def index(request):
@@ -78,16 +79,43 @@ def check_join(request) :
 
                 images=request.FILES.getlist("cat_img")
 
-                # for idx in range(len(images)):
-                #         new_cat= Cat.objects.create(
-                #            image=Images(idx),
-                #         )
-
+                for idx,cat_image in enumerate(images) :
+                        new_cat = Cat.objects.create(
+                                image=cat_image,
+                                name=request.POST.getlist('cat_name')[idx],
+                                gender = request.POST['cat_gender' + str(idx+1)],
+                                birth= request.POST.getlist('cat_birth')[idx],
+                                breed= request.POST.getlist('cat_breed')[idx],
+                                owner=request.user,
+                                eatinghabit = request.POST['cat_eatinghabit'+ str(idx+1)],
+                                health= request.POST['cat_health'+str(idx+1)],
+                                route=request.POST.getlist('cat_route')[idx],
+                                meet=request.POST.getlist('cat_meet')[idx],
+                        )
+                        new_cat.save()
+                
 
                 print(new_user)
                 print(request.POST)
                 print(request.FILES)
 
-                return render(request,'./main.html')
+                return redirect('/main/')
 
+@csrf_exempt
+def join_check_id(request) :
 
+        if request.method =='POST' :
+                
+                user_id = request.POST['user_id']
+
+                try:
+                        user = User.objects.get(username = user_id)
+                        result = {"result":"failed"}
+                except:
+                        result = {"result":"success"}
+
+                return JsonResponse(result)
+
+def login_page(request):
+        
+        return render(request,"./login_page.html")
