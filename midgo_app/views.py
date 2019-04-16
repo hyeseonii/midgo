@@ -3,6 +3,7 @@ from .models import *
 import datetime
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.shortcuts import redirect
 # Create your views here.
 
 def index(request):
@@ -84,7 +85,7 @@ def check_join(request) :
                                 gender = request.POST['cat_gender' + str(idx+1)],
                                 birth= request.POST.getlist('cat_birth')[idx],
                                 breed= request.POST.getlist('cat_breed')[idx],
-                                owner=request.user,
+                                owner= new_user,
                                 eatinghabit = request.POST['cat_eatinghabit'+ str(idx+1)],
                                 health= request.POST['cat_health'+str(idx+1)],
                                 route=request.POST.getlist('cat_route')[idx],
