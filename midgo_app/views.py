@@ -6,8 +6,6 @@ from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 def index(request):
-    user= User.objects.get(username='hyeseonii')
-    print(user.cats.all())
     
     return render(request,"./index.html")
 
@@ -117,5 +115,5 @@ def join_check_id(request) :
                 return JsonResponse(result)
 
 def login_page(request):
-        
+
         return render(request,"./login_page.html")
