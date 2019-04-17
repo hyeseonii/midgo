@@ -6,8 +6,9 @@ class User(AbstractUser) :
     
     name= models.CharField(blank=True, max_length=255, default='')
     phone = models.CharField(max_length=40, null=True)
-    address= models.CharField(max_length=100, null=True)
+    address= models.CharField(max_length=200, null=True)
     check_notification = models.DateTimeField(auto_now_add=True)
+    is_recognized = models.CharField(max_length=40, default='in_progress')
 
 
 class Cat(models.Model) :
@@ -23,6 +24,7 @@ class Cat(models.Model) :
     health= models.TextField(default='')
     route=models.TextField(default='')
     meet=models.TextField(default='')
+    is_recognized = models.CharField(max_length=40, default='in_progress')
     
 
 

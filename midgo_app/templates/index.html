@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- <link rel ="stylesheet" type="text/css" media="screen" href="main.css">
     <script src="main.js"></script> -->
+
+    <link href="https://fonts.googleapis.com/css?family=Niconne" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script" rel="stylesheet"> 
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137805801-1"></script>
@@ -25,18 +29,17 @@
         body{
             height: 100%;
             margin: 0%;
+            position: relative;
+            background-image: url(/static/image/index_image2.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow: hidden;
         }
 
         .skip_div{
-            width:85%;
-            height:75%;
-            position: relative;
-            background-image: url("/static/image/index_image1.jpg");
-            background-size: cover;
-            background-position:center;
-            left: 50%;
-            transform: translate(-50%,0%);
-            
+            width:100%;
+            height:80%;
+            position: relative;           
         }
 
         .skip_top{
@@ -61,7 +64,9 @@
              top: 50%;
              transform: translate(-50%, -50%);
              position: relative;
-             font-size: 1.5rem;
+             font-size: 48px;
+             font-weight:600;
+             color: white;
          }
 
          .skip_content_div{
@@ -95,7 +100,7 @@
             position: relative;
             background-color:transparent;
             top:0%;
-            left:0%;
+            left:30%;
             transform: translate(0%,0%);
         
          }
@@ -109,10 +114,10 @@
             margin-right:10%;
             top:50%;
             transform: translate(0%,-50%);
-            font-size:1.5rem;
+            font-size:1.25rem;
          }
          
-         .skip_top_button_login{
+         .skip_top_button_login, .skip_top_button_logout{
             width: auto;
             height: auto;
             position: relative;
@@ -121,9 +126,10 @@
             margin-right:10%;
             top:50%;
             transform: translate(0%,-50%);
-            font-size:1.5rem;
-
+            font-size:1.25rem;
         }
+
+        
 
          .skip_top_button_mypage{
             width:auto;
@@ -134,7 +140,7 @@
             margin-right:10%;
             top:50%;
             transform: translate(0%,-50%);
-            font-size:1.5rem;
+            font-size:1.25rem;
 
          }
 
@@ -163,8 +169,8 @@
              height:7vw;
              position: absolute;
              background-color: transparent;
-             left: 8%;
-             top: 10%;
+             left: 4%;
+             top: -10%;
              -webkit-animation: bounce 1s infinite;
              z-index: 9999;
          }
@@ -190,13 +196,13 @@
          }
 
          .skip_click_div{
-             width:60%;
-             height:60%;
+             width:35%;
+             height:40%;
              background-color: darkgrey;
              position: absolute;
              z-index: 9000;
-             top: 52%;
-             left: 55%;
+             top: 35%;
+             left: 28%;
              transform: translate(-50%,-50%);
              display: none;
          }
@@ -224,9 +230,138 @@
             transform: translate(-50%,0%);
          }
 
-         
+         .skip_middle_div{
+             width:40%;
+             height:50%;
+             position: absolute;
+             left:50%;
+             bottom:10%;
+             transform:translate(-50%,0%);
+             background-color:transparent;
+         }
 
-        
+        .skip_middle_fir_div{
+            width:100%;
+            height:70%;
+            position:relative;
+            background-color:transparent;
+        }
+
+         .skip_middle_sec_div{
+             width:100%;
+             height:30%;
+             position: relative;
+             background-color:transparent;
+        }
+
+        .skip_middle_fir_content_div{
+            width:100%;
+            height:auto;
+            text-align:center;
+            position:relative;
+            top:50%;
+            transform: translateY(-50%);
+            font-size:64px;
+            color:white;
+            font-weight:500;
+            font-family: 'Niconne', cursive;
+            letter-spacing: 1px;
+
+
+        }
+
+        .skip_middle_sec_content_div{
+            width:100%;
+            height:auto;
+            text-align:center;
+            position:relative;
+            top:50%;
+            transform: translateY(-50%);
+            font-family: 'Nanum Pen Script', cursive;
+            font-size:24px;
+            letter-spacing: 1px;
+        }
+
+        .skip_middle_moon_div{
+            width:100%;
+            height:100%;
+            position: absolute;
+            top:0%;
+            left:0%;
+            background-color: transparent;
+        }
+
+        .skip_middle_moon_img{
+            border-radius:50%;
+            position: relative;
+            width:12vw;
+            height:12vw;
+        }
+
+        .middle_go_main_div{
+            width:auto;
+            height: auto;
+            position: absolute;
+            left:50%;
+            transform:translate(-50%,0%);
+            bottom:-5%;
+            cursor:pointer;
+        }
+
+        .middle_go_main_img{
+            width:3vw;
+            height:3vw;
+        }
+
+        .skip_middle_moon_img_cover{
+            width:auto;
+            height:auto;
+            position: absolute;
+            background-color: transparent;
+        }
+
+        #skip_middle_moon_img_cover1{
+            bottom:0%;
+            left:10%;
+        }
+
+        #skip_middle_moon_img_cover2{
+            left:20%;
+            bottom:45%;
+        }
+
+        #skip_middle_moon_img_cover3{
+            top:3%;
+            left:50%;
+            transform: translateX(-50%);
+        }
+
+        #skip_middle_moon_img_cover4{
+            right:20%;
+            bottom:45%;
+        }
+
+        #skip_middle_moon_img_cover5{
+            bottom:0%;
+            right:10%;
+        }
+
+        .skip_middle_moon_hover{
+            width:100%;
+            height:100%;
+            position: absolute;
+            top:0;
+            left:0;
+            background-color: beige;
+            opacity: 0;
+            transition: 0.3s ease;
+            z-index:1000;
+            border-radius:50%;
+        }
+         
+        .skip_middle_moon_img_cover:hover .skip_middle_moon_hover{
+            opacity: 1;
+        }
 
       
     </style>
@@ -255,51 +390,105 @@
        </div>
 
 
-
+<!-- 
        <div class="skip_top_button_div">
            <div class="skip_top_button_cover">
-                <div class="skip_top_button_join">
-                    join
+                {% if login == 'true' %}
+                <div class="skip_top_button_logout">
+                        logout
                 </div>
-
-                <div class="skip_top_button_login">
-                    login
-                </div>
-
                 <div class="skip_top_button_mypage">
-                    mypage
+                        mypage
                 </div>
+
+                {% else %}
+                <div class="skip_top_button_join">
+                        join
+                </div>
+    
+                <div class="skip_top_button_login">
+                        login
+                </div>
+                {% endif %}
 
                 
-                <!-- <div class="skip_top_button_category">
-                    =<br>
-                    
-                   
-                </div> -->
+                <div class="skip_top_button_category">
+                    =<br>     
+                </div>
            </div>
-       </div>     
-       
-       
-
+       </div>     -->
+        
     </div>
  
     <div class="skip_div">
-        <a href="./main/">
+        <!-- <a href="./main/">
             <img class="skip_home_button" src="/static/image/cathome.png">
-        </a>
+        </a> -->
 
         <div class="skip_top_left_cover" onclick="toggle_click();">
                 <img class="skip_top_left_content" src="/static/image/left_warn.jpg">
         </div> 
+        <div class="skip_middle_div">
+            <div class="skip_middle_fir_div">
+                <div class="skip_middle_fir_content_div">
+                    The precious life<br>
+                    with a cat.
+                </div>
+            </div>
+            <div class="skip_middle_sec_div">
+                <div class="skip_middle_sec_content_div">
+                    '믿고 알아가는 꼬미네'를 방문해주셔서 감사합니다.
+                </div>
+            </div>
+        </div>
+        
+        <div class="middle_go_main_div">
+            <img class="middle_go_main_img" src="/static/image/mian.gif" onclick="go_main();">
+        </div>
+
+        <div class="skip_middle_moon_div">
+            <div class="skip_middle_moon_img_cover" id="skip_middle_moon_img_cover1">
+                <img class="skip_middle_moon_img"  id="moon_img1" src="/static/image/aangkko.jpg" >
+                <div class="skip_middle_moon_hover">
+
+                </div>
+            </div>
+
+            <div class="skip_middle_moon_img_cover" id="skip_middle_moon_img_cover2">
+                    <img class="skip_middle_moon_img" id="moon_img2" src="/static/image/index_image1.jpg" >
+                    <div class="skip_middle_moon_hover">
+    
+                    </div>
+            </div> 
+            <div class="skip_middle_moon_img_cover" id="skip_middle_moon_img_cover3">
+                    <img class="skip_middle_moon_img" id="moon_img3" src="/static/image/kkomi.png" >
+                    <div class="skip_middle_moon_hover">
+    
+                    </div>
+            </div>
+            <div class="skip_middle_moon_img_cover" id="skip_middle_moon_img_cover4">
+                    <img class="skip_middle_moon_img" id="moon_img4" src="/static/image/ruru.png" >
+                    <div class="skip_middle_moon_hover">
+    
+                    </div>
+            </div>
+            <div class="skip_middle_moon_img_cover" id="skip_middle_moon_img_cover5">
+                    <img class="skip_middle_moon_img" id="moon_img5" src="/static/image/hhoppang.png">
+                    <div class="skip_middle_moon_hover">
+    
+                    </div>
+            </div>   
+      
+        </div> 
     </div>
 
-    <div class="skip_content_div">
+    <!-- <div class="skip_content_div">
         <div class="skip_content_cover">
                 <br>
                  "믿꼬 간단 소개"<br>
                  "꼬미"
         </div>
-    </div>
+    </div> -->
 
     <div class="skip_click_div">
         
@@ -317,6 +506,20 @@
                 $(".skip_click_div").fadeIn(100);
                 is_click = true;
             }
+        }
+
+        function go_main(){
+            $("body")
+            .animate({
+                'top':'5%'
+            },500)
+            .animate({
+                'top':'-100%'
+            },200);
+
+            setTimeout(function(){
+                window.location.href='/main/';
+            },650);
         }
     </script>
 </body>

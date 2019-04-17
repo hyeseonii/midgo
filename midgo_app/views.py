@@ -8,7 +8,17 @@ from django.shortcuts import redirect
 
 def index(request):
     
-    return render(request,"./index.html")
+        user=request.user
+
+        if not user.is_anonymous :
+                
+                context= {'user': user, 'login': 'true'}
+
+                return render(request,"./index.html", context)
+
+        else :
+                context ={ 'login': 'false'}
+                
 
 def main(request):
     
@@ -73,7 +83,7 @@ def check_join(request) :
                         name=owner_name,
                         email=owner_email, 
                 )
-
+                new_user.set_password(owner_password)
                 new_user.save()
 
                 images=request.FILES.getlist("cat_img")
@@ -118,3 +128,11 @@ def join_check_id(request) :
 def login_page(request):
 
         return render(request,"./login_page.html")
+
+def recognizeUser(request):
+
+        users=User.objects.filter(is_recognized='in_progress')
+
+        context ={'users':users}
+
+        return render(request, "./recognizeUser.html",context)
