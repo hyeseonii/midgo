@@ -18,6 +18,8 @@ def index(request):
 
         else :
                 context ={ 'login': 'false'}
+
+                return render(request,"./index.html", context)
                 
 
 def main(request):
