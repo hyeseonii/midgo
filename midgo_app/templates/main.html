@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Short+Stack" rel="stylesheet">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137805801-1"></script>
@@ -30,14 +34,14 @@
 
         .top{
             width:100%;
-            height:30%;
+            height:25%;
             position: relative;
             background-color:transparent;
         }
 
         .middle{
             width:100%;
-            height:60%;
+            height:65%;
             position: relative;
             background-color: transparent;
 
@@ -54,10 +58,10 @@
 
         .top_fir_div{
             width:100%;
-            height: 20%;
+            height: 100%;
             position: relative;
             background-color: transparent;
-            border-bottom: 1px solid black;
+          /* border-bottom: 1px solid black; */
         }
 
         .top_sec_div{
@@ -69,34 +73,55 @@
 
         .top_sec_content{
             width:100%;
-            height:99%;
+            height:80%;
             position: relative;
-            font-weight:600;
-            font-size:48px;
+            font-weight:500;
+            font-size:50px;
             text-align:center;
-            border-bottom:1px solid black;
+            /* border-bottom:1px solid black; */
+            font-family: 'Short Stack', cursive;
         }
         
         .top_left_div_cover{
-            width:20%;
+            width:30%;
             height:100%;
+            top:0%;
             position: relative;
             background-color:transparent;
             float:left;
-            left:5%;
+            left:2%;
+            
+        }
+
+        .top_content_search_cover{
+            width: 50%;
+            height: 20%;
+            background-color: transparent;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 20%;
         }
 
         .top_content_search{
-            width: 70%;
-			height: 70%;
+            width: 80%;
+			height: 90%;
             border:1px solid black;
             position: relative;
-            top:10%;
+            float:right;
+        }
+
+        .top_mid_div_cover{
+            width:40%;
+            height:100%;
+            position:relative;
             float:left;
+            background-color:transparent;
+            top:20%;
         }
 
         .top_right_div_cover{
-            width:30%;
+            width:25%;
             height:100%;
             position: relative;
             background-color: transparent;
@@ -140,19 +165,18 @@
 
         .top_content_noti{
             width:10%;
-            height: 60%;
-            top: 20%;
-            position: relative;
-            float:left;
+            height: 100%;
+            top: 0%;
+            right: 0;
+            position: absolute;
             background-color: transparent;
         }
 
         .middle_fir_div{
             width:100%;
-            height:10%;
+            height:30%;
             position: relative;
-            background-color:pink;
-            
+            background-color:transparent;
         }
 
         .middle_sec_div{
@@ -197,14 +221,14 @@
         .middle_cate_cover{
             width:30%;
             height: 100%;
-            position: relative;
+            position: absolute;
+            top: 0;
             left:50%;
             transform: translate(-50%,0%);
             background-color:transparent; 
-
         }
 
-        .middle_cate_content:hover{
+        .middle_cate_title:hover{
             color:gray;
         }
 
@@ -221,7 +245,7 @@
             width: 100%;
             height: auto;
             opacity: 0;
-            transition: 0.5s ease;
+            transition: 0.3s ease;
             top:10%;
             background-color:black;
         }
@@ -308,16 +332,16 @@
             height:70%;
             position: absolute;
             background-color: gray;
-            top:6%;
+            top:15%;
             right:-20%;
          }
 
          .mycatinfo_div{
              width:20%;
-             height:40%;
+             height:100%;
              position:absolute;
              background-color:salmon;
-             top:36%;
+             top:0;
              left:-20%;
          }
 
@@ -371,8 +395,8 @@
 
         .middle_cate_title{
             width:100%;
-            height:100%;
-            background-color: pink;
+            height:35%;
+            background-color: #ff7e97;
             position: relative;
         }
 
@@ -386,6 +410,15 @@
 
         .top_content_noti_shake{
             -webkit-animation:  shake 1s infinite;
+        }
+
+        .middle_fir_band_div{
+            width: 100%;
+            height: 35%;
+            position: absolute;
+            background-color: #ff7e97;
+            top: 0;
+            left: 0;
         }
 
         @-webkit-keyframes shake{
@@ -412,10 +445,24 @@
     <div class="top">
         <div class="top_fir_div">
             <div class="top_left_div_cover">
-                    <input id="search_input" type="text" class="top_content_search">
-                    <img src="http://merryaround.co.kr/web/upload/plain79/icon_search01.png" 
-                    style="width: auto; height: auto; position: relative; float: left; top:15%;" 
-                    onclick="search();" >
+                    <div class="top_content_search_cover">
+                        <img src="http://merryaround.co.kr/web/upload/plain79/icon_search01.png" 
+                        style="width: auto; height: auto; position: relative; float: right; top:15%;" 
+                        onclick="search();" >
+                        <input id="search_input" type="text" class="top_content_search">
+                    </div>  
+                    <img src="/static/image/menu.png" style=" width:1.5vw; height:1.5vw; position: absolute; left: 0%; top: 50%; transform: translateY(-50%);" onclick="toggle_mycatinfo();">  
+            </div>
+
+            <div class="top_mid_div_cover">
+                 <div class="top_sec_content">
+                    <div style="width:100%; height:auto; margin-bottom:7px;">
+                       MIDGO 
+                    </div>
+                    <div style="width:100%; height:auto; font-size : 1.5rem; font-weight: 500; font-family: 'Gamja Flower', cursive; color:#ff7e97;" > 
+                         믿고 알아가는 꼬미네
+                    </div>
+                </div>
             </div>
 
             <div class="top_right_div_cover">
@@ -458,14 +505,14 @@
             </div>
         </div>
 
-        <div class="top_sec_div">
+        <!-- <div class="top_sec_div">
             <div class="top_sec_content">
                 MIDGO<br>
-                <p style="font-size : 1rem; font-weight: 500;">
+                <p style="font-size : 1.5rem; font-weight: 500; font-family: 'Gamja Flower', cursive;">
                 <font color="pink">믿</font>고알아가는<font color="pink">꼬</font>미네
                 </p>
             </div>
-        </div>
+        </div> -->
     </div>
 
     <div class="middle">
@@ -478,6 +525,9 @@
                     </div>
                 </div>
             </div> -->
+            <div class="middle_fir_band_div">
+
+            </div>
             <div class="middle_cate_cover">
                 <div class=" middle_cate_content">
                     <div class="middle_cate_title">
@@ -489,15 +539,11 @@
                         <div class="middle_cate_subtitle">
                                 subtitle1
                         </div>
-    
                          <div class="middle_cate_subtitle">
                                     subtitle2
                         </div>
-    
-                        
                     </div>
                 </div>
-
 
 
                 <div class="middle_cate_content">
@@ -556,9 +602,33 @@
                                 subtitle3
                         </div>
                     </div>
-                </div>
 
+                </div>
             </div>
+
+            <!-- <div class="top_content_noti">
+                {% if is_important %}
+                <img 
+                class="top_content_noti_image top_content_noti_shake" 
+                src="/static/image/noti.png"
+                onclick="toggle_notification();"
+                >
+                {% else %}
+
+                <img 
+                class="top_content_noti_image" 
+                src="/static/image/noti.png"
+                onclick="toggle_notification();"
+                >
+                {% endif %}
+
+
+                {% if notifications_count > 0 %}
+                <div class="top_content_noti_count_div" onclick="toggle_notification();">
+                    {{notifications_count}}
+                </div>
+                {% endif %}
+            </div> -->
         </div>
 
         <div class="middle_sec_div">
@@ -669,8 +739,8 @@
          
 
             else{
-                $(".mycatinfo_div").stop()   .animate({
-                        'left':'0%'
+                $(".mycatinfo_div").stop().animate({
+                    'left':'0%'
                 });
 
                 mycatinfo_is_open=true;

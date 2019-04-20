@@ -42,7 +42,7 @@
             height:85%;
             position: relative;
             background-color:pink;
-            border-top:1px solid black;
+            /* border-top:1px solid black; */
         }
       
 
@@ -51,7 +51,7 @@
             height:100%;
             position: relative;
             background-color: transparent;
-            border-top:1px solid black;
+            /* border-top:1px solid black; */
         }
 
         .top_sec_content{
@@ -75,12 +75,12 @@
 
         .middle_login_input_div{
             width:100%;
-            height:auto;
+            height:25%;
             position: relative;
             text-align:center;
-            top:60%;
+            top:55%;
             transform:translateY(-50%);
-            background-color:tomato;
+            background-color:transparent;
             font-size:1rem;
         }
 
@@ -90,36 +90,46 @@
             width:9vw;
             height:9vw;
             left:50%;
-            top:10%;
+            top:5%;
             transform:translate(-50%,0%);
         }
 
         .middle_login_id_div{
-            width: 100%;
-            height:auto;
+            width: 80%;
+            height:50%;
             position: relative;
-            margin-bottom:2vw;
+            /* margin-bottom:2vw; */
+            background-color:transparent;
+            border: 0.7px solid gray;
+            border-bottom: 0px;
+            left:50%;
+            transform: translate(-50%,0%);
         }
 
         .middle_login_password_div{
-            width: 100%;
-            height:auto;
+            width: 80%;
+            height:50%;
             position: relative;
+            background-color:transparent;
+            border: 0.7px solid gray;
+            left:50%;
+            transform: translate(-50%,0%);
         }
 
         .middle_form_input{
             margin-left:1%;
             border:none;
-            border-bottom:1px solid black;
             outline: none;
             background-color: transparent;
+            width: 90%;
+            height:90%;
         }
 
         #middle_login_button{
-            width:8vw;
-            height:1.5vw;
+            width:80%;
+            height:10%;
             border-radius:5%;
-            background-color: orange;
+            background-color: skyblue;
             border:none;
             outline:none;
             font-size: 0.8rem;
@@ -149,19 +159,49 @@
             <img class="middle_login_logo" src="/static/image/left_warn.jpg">
             <div class="middle_login_input_div">
                 <div class="middle_login_id_div">
-                    <label for ="middle_form_id">아이디</label>
-                    <input class="middle_form_input" id="middle_form_id" name="user_id" type="text">
+                    <!-- <label for ="middle_form_id">아이디</label> -->
+                    <input class="middle_form_input" id="middle_form_id" name="user_id" type="text" placeholder="ID">
                 </div>
                 <div class="middle_login_password_div">
-                    <label for ="middle_form_password">비밀번호</label>
-                    <input class="middle_form_input" id="middle_form_password" name="user_password" type="text">
+                    <!-- <label for ="middle_form_password">비밀번호</label> -->
+                    <input class="middle_form_input" id="middle_form_password" name="user_password" type="password" placeholder="PW">
                 </div>
             </div>
 
-            <button type="button" id="middle_login_button">
+            <button type="button" id="middle_login_button" onclick="check_login();">
                 로그인
             </button>
         </div>    
     </div>
+
+    <script>
+        function check_login(){
+            var user_id=$("#middle_form_id").val();
+            var user_password=$("#middle_form_password").val();
+            var formdata= new FormData();
+            formdata.append('user_id',user_id);
+            formdata.append('user_password', user_password);
+
+            fetch("/login_check/",{
+                method:'POST',
+                body:formdata,
+            })
+            .then(e => e.json())
+            .then(e => {
+                if(e.result == 'failed'){
+                    alert('아이디 혹은 비밀번호가 틀렸습니다.');
+                }
+                else if(e.result == 'unrecognized'){
+                    alert('승인이 반려된 사용자입니다.');
+                }
+                else if(e.result == 'recognized'){
+                    window.location.href='/main/';
+                }
+                else if(e.result == 'in_progress'){
+                    alert('아직 심사중인 사용자입니다.');
+                }
+            });
+        }
+    </script>
 </body>
 </html>

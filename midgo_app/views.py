@@ -94,12 +94,12 @@ def check_join(request) :
                         new_cat = Cat.objects.create(
                                 image=cat_image,
                                 name=request.POST.getlist('cat_name')[idx],
-                                gender = request.POST['cat_gender' + str(idx+1)],
+                                gender = request.POST.getlist('cat_gender' + str(idx+1)),
                                 birth= request.POST.getlist('cat_birth')[idx],
                                 breed= request.POST.getlist('cat_breed')[idx],
                                 owner= new_user,
-                                eatinghabit = request.POST['cat_eatinghabit'+ str(idx+1)],
-                                health= request.POST['cat_health'+str(idx+1)],
+                                eatinghabit = request.POST.getlist('cat_eatinghabit'+ str(idx+1)),
+                                health= request.POST.getlist('cat_health'+str(idx+1)),
                                 route=request.POST.getlist('cat_route')[idx],
                                 meet=request.POST.getlist('cat_meet')[idx],
                         )
@@ -131,10 +131,56 @@ def login_page(request):
 
         return render(request,"./login_page.html")
 
-def recognizeUser(request):
+def recognizeUserlist(request):
 
         users=User.objects.filter(is_recognized='in_progress')
 
         context ={'users':users}
 
-        return render(request, "./recognizeUser.html",context)
+        return render(request, "./recognizeUserlist.html",context)
+
+def recognizeUser(request,user_id) :
+
+        user= User.objects.get(username=user_id)
+        cats=user.cats.all()
+
+        cat1= user.cats.all
+ 
+        context={'user' : user}
+
+        return render(request, "./recognizeUser.html", context) 
+
+from django.contrib.auth import authenticate, login
+@csrf_exempt
+def login_check(request) :
+
+        if(request.method =='POST') :
+
+                username = request.POST['user_id']
+                password = request.POST['user_password']
+                user = authenticate(request, username=username, password=password)
+
+                if user is not None :
+                        if user.is_recognized =='unrecognized' :
+                                print("승인이 반려된 사용자입니다.")
+
+                                result = {"result" : "unrecognized"}
+                                return JsonResponse(result)
+
+                        elif user.is_recognized == 'recognized' :
+                                print("승인 완료된 사용자입니다.")
+                                login(request, user)
+                                print(request.user)
+
+                                result ={"result":"recognized"}
+                                return JsonResponse(result)
+
+                        elif user.is_recognized == 'in_progress' :
+                                print("심사 중인 사용자입니다.")
+
+                                result={"result":"in_progress"}
+                                return JsonResponse(result)
+                else :
+
+                        result = {"result" :"failed"}
+                        return JsonResponse(result)

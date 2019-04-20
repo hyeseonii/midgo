@@ -63,36 +63,344 @@
             text-align:center;
         }
 
-        .middle_joininfo_div{
-            width:100%;
-            height:25%;
-            position: relative;
-            background-color: blueviolet;
-            margin-bottom:1%;
+        .middle_user_list_div{
+            width:10%;
+            height:auto;
+            border: 1px solid black;
+            display:none;
         }
 
-        .middle_joininfo_user_div{
+        .middle_form_div{
+            width:40%;
+            height:90%;
+            position: relative;
+            background-color: beige;
+            left:50%;
+            transform: translate(-50%,-50%);
+            border-radius: 10%;
+            top:50%;
+        }
+
+        .middle_owner_info_div{
+            width:90%;
+            height:90%;
+            position: relative;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            background-color: aqua; 
+        }
+
+        .middle_owner_info_title{
+            width:100%;
+            height:10%;
+            position: relative;
+            background-color: brown;
+            
+        }
+
+        .middle_owner_info_title_text{
+            width:100%;
+            height:auto;
+            text-align: center;
+            position: relative;
+            font-size: 1.5rem;
+            font-weight: 400;
+            top:50%;
+            transform: translate(0%,-50%);
+        }
+        
+        .middle_owner_info_content{
+            width:100%;
+            height:80%;
+            position: relative;
+            background-color: violet;
+        }
+
+        .middle_owner_info_id{
+            width:100%;
+            height:10%;
+            position: relative;
+            background-color: blue;
+        }
+
+        .middle_owner_info_password{
+            width:100%;
+            height:20%;
+            position: relative;
+            background-color:red;
+        }
+
+        .middle_owner_info_name{
+            width:100%;
+            height:10%;
+            position: relative;
+            background-color:orange;
+        }
+
+        .middle_owner_info_address{
+            width:100%;
+            height:10%;
+            position: relative;
+            background-color:yellowgreen;
+        }
+
+        .middle_owner_info_phonenum{
+            width:100%;
+            height:10%;
+            position: relative;
+            background-color: teal;
+        }
+
+        .middle_owner_info_email{
+            width:100%;
+            height:10%;
+            position: relative;
+            background-color:lemonchiffon;
+        }
+
+        .middle_owner_info_domain{
             width:25%;
             height:100%;
             position: relative;
+            float:left;
+            background-color: blueviolet;
+        }
+
+        .middle_owner_info_value{
+            width:75%;
+            height:100%;
+            position: relative;
+            float:left;
+            background-color: gold;            
+        }
+
+        .middle_select_div{
+            width:10%;
+            height:10%;
+            position: absolute;
+            background-color:tomato;
+            display:none;
+            
+        }
+
+        .middle_direction1_div{
+            width:auto;
+            height:auto;
+            position: absolute;
+            background-color: yellow;
+            left: 0%;
+            top:50%;
+            transform:translate(0%,-50%);
+            display:none;
+        }
+
+        .middle_direction2_div{
+            width: auto;
+            height: auto;
+            position: absolute;
+            background-color: yellowgreen;
+            right:0%;
+            top:50%;
+            transform:translate(0%,-50%);
+            display: none;
+            
+        }
+        
+
+        .middle_cat_info_div{
+            width:90%;
+            height:90%;
+            position: relative;
+            background-color: hotpink;
+            display: none;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+        }
+        
+        .middle_cat_info_title{
+            width:100%;
+            height:10%;
+            position: relative;
             background-color: brown;
-            float: left;
+            
         }
 
-        .middle_joininfo_cat_div{
-            width:70%;
-            height:100%;
+        .middle_cat_info_title_text{
+            width:100%;
+            height:auto;
+            text-align: center;
             position: relative;
-            background-color: blue;
-            float: left;
+            font-size: 1.5rem;
+            font-weight: 400;
+            top:50%;
+            transform: translate(0%,-50%);
         }
 
-        .middle_joininfo_button_div{
-            width:5%;
+        .middle_cat_info_content{
+            width:100%;
+            height:80%;
+            position: relative;
+            background-color: violet;
+       }
+        
+        .middle_cat_info_img{
+            width:100%;
+            height:25%;
+            position: relative;
+            background-color: aqua;
+       }
+       
+         .middle_cat_info_domain{
+            width:20%;
             height:100%;
             position: relative;
-            background-color:yellow;
+            float:left;
+            background-color: olive;
+       }
+
+        .middle_cat_info_value{
+            width:80%;
+            height:100%;
+            position: relative;
+            float:left;
+            background-color: yellow;
+       }
+
+         #cat_img_preview1,#cat_img_preview2,#cat_img_preview3{
+            widows: 5vw;
+            height: 5vw;
+            display:none;
+       }
+
+        .middle_cat_info_sec{
+           width:100%;
+           height:10%;
+           position:relative;
+       }
+
+        .middle_cat_info_name{
+            width:50%;
+            height:100%;
+            position: relative;
+            background-color:red;
+            float:left;
+       }
+
+        .middle_cat_info_gender{
+            width:50%;
+            height:100%;
+            position: relative;
+            background-color:blue;
+            float:left;
+       }
+
+        .middle_cat_info_third{
+           width:100%;
+           height:10%;
+           position:relative;
+       }
+
+        .middle_cat_info_birth{
+            width:50%;
+            height:100%;
+            position: relative;
+            float:left;
+       }
+
+        .middle_cat_info_input{
+            width:80%;
+            height:60%;
+            position: relative;
+       }
+
+        .middle_cat_info_breed{
+            width:50%;
+            height:100%;
+            position: relative;
+            float:left;
+       }
+
+         .middle_cat_info_eatinghabit{
+            width:100%;
+            height:10%;
+            position: relative;
+       }
+
+        .middle_cat_info_health{
+            width:100%;
+            height:10%;
+            position: relative;
+       }
+
+        .middle_cat_info_neutral{
+            width:100%;
+            height:10%;
+            position: relative;
+       }
+
+        .middle_cat_info_route{
+             width:100%;
+            height:10%;
+            position: relative;
+       }
+
+        .middle_cat_info_reason{
+            width:100%;
+            height:10%;
+            position: relative;
+       }
+
+        .middle_cat_info_genderimg{
+           width:2vw;
+           height:2vw;
+           position: relative;
+       }
+
+        .middle_cat_info_meet{
+            width:100%;
+            height:20%;
+         position: relative;
+      }
+       
+        .middle_cat_info_textarea{
+           width:95%;
+           height:80%;
+       }
+
+       #before_button{
+            width: 8vw;
+            height: 1.5vw;
+            border-radius: 5%;
+            background-color: orange;
+            border:none;
+            outline: none;
+            font-size:0.8rem;
+            position: relative;
             float: left;
+       }
+
+        #next_button{
+            width: 8vw;
+            height: 1.5vw;
+            border-radius: 5%;
+            background-color: orange;
+            border:none;
+            outline: none;
+            font-size:0.8rem;
+            position: relative;
+            left:50%;
+            transform: translate(-50%,0%);
+       }
+
+        .middle_form_button_div{
+            width:17vw;
+            height:auto;
+            position:relative;
+            left:50%;
+            transform:translate(-50%,0%);
+            display:none;
         }
 
 
@@ -112,20 +420,515 @@
     </div>
 
     <div class="middle">
-        {% for user in users %}
-            <div class="middle_joininfo_div">
-                <div class="middle_joininfo_user_div">
+    
+        <div class="middle_form_div">
+            <div class="middle_direction1_div">
+                    <button type="button" onclick="open_before();"><</button>
+            </div>
+    
+            <div class="middle_direction2_div">
+                <button type="button" onclick="open_next();">></button>
+            </div>
 
+            <div class="middle_owner_info_div">
+                <div class="middle_owner_info_title">
+                    <div class="middle_owner_info_title_text">
+                        집사 정보 
+                    </div>
                 </div>
-                <div class="middle_joininfo_cat_div">
 
-                </div>
-                <div class="middle_joininfo_button_div">
+                <div class="middle_owner_info_content">
+                    <div class="middle_owner_info_id">
+                        <div class="middle_owner_info_domain">
+                            ID
+                        </div>
 
+                        <div class="middle_owner_info_value">
+                            <input type="text" id="owner_id" name="owner_id" readonly value={{user.username}}>
+                        </div>
+                    </div>
+
+                    <div class="middle_owner_info_password">
+                        <div class="middle_owner_info_domain">
+                            PASSWORD<br>
+                            REPASSWORD
+                        </div>
+
+                        <div class="middle_owner_info_value">
+                            <input type="password" id="owner_password" name="owner_password" readonly placeholder="숫자/영어 혼합 8~15자리">
+                            <br>
+                            <input type="password" id="owner_repassword" name="owner_repassword" readonly placeholder="숫자/영어 혼합 8~15자리">
+                            <br>
+                            
+                            <div class="middle_owner_info_check_password">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="middle_owner_info_name">
+                        <div class="middle_owner_info_domain">
+                            NAME
+                        </div>
+                        <div class="middle_owner_info_value">
+                            <input type="text" id="owner_name" name="owner_name" readonly value={{user.name}}>
+                        </div>
+                    </div>
+
+                    <div class="middle_owner_info_address">
+                        <div class="middle_owner_info_domain">
+                            ADDRESS
+                        </div>
+
+                        <div class="middle_owner_info_value">
+                            <input type="text" id="owner_address" name="owner_address" readonly value={{user.address}}>
+                        </div>
+                    </div>
+                    <div class="middle_owner_info_phonenum">
+                        <div class="middle_owner_info_domain">
+                            PHONE
+                        </div>
+
+                        <div class="middle_owner_info_value">
+                            <input type="text" id="owner_phonenum" name="owner_phonenum" readonly value={{user.phone}}>
+                        </div>
+                    </div>
+
+                    <div class="middle_owner_info_email">
+                        <div class="middle_owner_info_domain">
+                            E-MAIL
+                        </div>
+
+                        <div class="middle_owner_info_value">
+                            <input type="text" id="owner_email" name="owner_email" readonly value={{user.email}}>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
-        {% endfor %}
+
+            <div id="middle_cat_info_div1" class="middle_cat_info_div">
+                <div class="middle_cat_info_title">
+                    <div class="middle_cat_info_title_text">
+                        냥이1 정보 
+                    </div>
+                </div>
+
+                <div class="middle_cat_info_content">
+                    <div class="middle_cat_info_img">
+                        <div class="middle_cat_info_domain">
+                            사진
+                        </div>
+                        <div class="middle_cat_info_value">
+                            <input type="file" id="cat_img1" name="cat_img">
+                            <img id="cat_img_preview1" src="">
+                        </div>
+                    </div>
+
+                    <div class="middle_cat_info_sec">
+                        <div class="middle_cat_info_name" >
+                            <div class="middle_cat_info_domain" style="width:40%;">
+                                이름
+                            </div>
+                            <div class="middle_cat_info_value"  style="width:60%;">
+                                <input  class ="middle_cat_info_input" type="text" id="cat_name" name="cat_name" required>
+                            </div>
+                        </div>
+
+                        <div class="middle_cat_info_gender">
+                            <div class="middle_cat_info_domain" style="width:40%;">
+                                성별
+                            </div>
+
+                            <div class="middle_cat_info_value" style="width:60%;">
+                                <input type="radio" name="cat_gender1" checked="checked" value="남아"/><img class="middle_cat_info_genderimg" src="/static/image/men.png">
+                                <input type="radio" name="cat_gender1" value="여아"/><img class="middle_cat_info_genderimg" src="/static/image/women.png">
+                            </div>
+
+                         </div>
+                     </div>
+                   
+                     <div class="middle_cat_info_third">
+                        <div class="middle_cat_info_birth">
+                            <div class="middle_cat_info_domain"  style="width:40%;">
+                                생일
+                            </div> 
+                            <div class="middle_cat_info_value"  style="width:60%;">
+                                <input class ="middle_cat_info_input" type= "date" id="cat_birth" name="cat_birth"  required>
+                            </div>   
+                        </div>
+
+                        <div class="middle_cat_info_breed">
+                            <div class="middle_cat_info_domain" style="width:40%;">
+                                종류
+                            </div>
+                            <div class="middle_cat_info_value" style="width:60%;">
+                                <input  class ="middle_cat_info_input" type="text" id="cat_breed" name="cat_breed" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="middle_cat_info_eatinghabit">
+                        <div class="middle_cat_info_domain">
+                            식습관 
+                        </div>
+                        <div class="middle_cat_info_value">
+                            <input type="checkbox" name="cat_eatinghabit1" value="A"/>A
+                            <input type="checkbox" name="cat_eatinghabit1" value="B"/>B
+                            <input type="checkbox" name="cat_eatinghabit1" value="C"/>C
+                            <input type="checkbox" name="cat_eatinghabit1" value="D"/>D
+                            <input type="checkbox" name="cat_eatinghabit1" value="E"/>E
+                            <input type="checkbox" name="cat_eatinghabit1" value="F"/>해당사항 없음
+                        </div>
+                    </div>
+
+                    <div class="middle_cat_info_health">
+                        <div class="middle_cat_info_domain">
+                            건강사항
+                        </div>
+                        <div class="middle_cat_info_value">
+                            <input type="checkbox" name="cat_health1" value="A"/>A
+                            <input type="checkbox" name="cat_health1" value="B"/>B
+                            <input type="checkbox" name="cat_health1" value="C"/>C
+                            <input type="checkbox" name="cat_health1" value="D"/>D
+                            <input type="checkbox" name="cat_health1" value="E"/>E
+                            <input type="checkbox" name="cat_health1" value="F"/>해당사항 없음
+                        </div>
+                    </div>
+
+                    <div class="middle_cat_info_neutral">
+                        <div class="middle_cat_info_domain">
+                            중성화 유무
+                        </div>
+                        <div class="middle_cat_info_value">
+                            <input type="radio" name="cat_neutral" value="찬성"/>찬성
+                            <input type="radio" name="cat_neutral" value="반대"/>반대
+                        </div>
+                    </div>
+
+                    <div class="middle_cat_info_route">
+                        <div class="middle_cat_info_domain">
+                            입양 경로
+                        </div>
+                        <div class="middle_cat_info_value">
+                            <input class="middle_cat_info_input" type="text" name="cat_route" >
+                        </div>
+                    </div>
+
+                    <div class="middle_cat_info_meet">
+                        <div class="middle_cat_info_domain">
+                             냥이와의 <br>
+                             연결고리
+                        </div>
+                        <div class="middle_cat_info_value">
+                            <textarea class="middle_cat_info_textarea" name="cat_meet" rows="5" cols="20" required></textarea>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+        <div  id="middle_cat_info_div2" class="middle_cat_info_div">
+                <div class="middle_cat_info_title">
+                    <div class="middle_cat_info_title_text">
+                        냥이2 정보 
+                    </div>
+                </div>
+
+                <div class="middle_cat_info_content">
+                    <div class="middle_cat_info_img">
+                        <div class="middle_cat_info_domain">
+                            사진
+                        </div>
+                        <div class="middle_cat_info_value">
+                            <input type="file" id="cat_img2" name="cat_img">
+                            <img id="cat_img_preview2" src="">
+                        </div>
+                    </div>
+
+                    <div class="middle_cat_info_sec">
+                        <div class="middle_cat_info_name" >
+                            <div class="middle_cat_info_domain" style="width:40%;">
+                                이름
+                            </div>
+                            <div class="middle_cat_info_value"  style="width:60%;">
+                                <input  class ="middle_cat_info_input" type="text" id="cat_name" name="cat_name">
+                            </div>
+                        </div>
+
+                        <div class="middle_cat_info_gender">
+                            <div class="middle_cat_info_domain" style="width:40%;">
+                                성별
+                            </div>
+
+                            <div class="middle_cat_info_value" style="width:60%;">
+                                <input type="radio" name="cat_gender2" checked="checked" value="남아"/><img class="middle_cat_info_genderimg" src="/static/image/men.png">
+                                <input type="radio" name="cat_gender2" value="여아"/><img class="middle_cat_info_genderimg" src="/static/image/women.png">
+                            </div>
+
+                         </div>
+                     </div>
+                   
+                     <div class="middle_cat_info_third">
+                        <div class="middle_cat_info_birth">
+                            <div class="middle_cat_info_domain"  style="width:40%;">
+                                생일
+                            </div> 
+                            <div class="middle_cat_info_value"  style="width:60%;">
+                                <input class ="middle_cat_info_input" type= "date" id="cat_birth" name="cat_birth">
+                            </div>   
+                        </div>
+
+                        <div class="middle_cat_info_breed">
+                            <div class="middle_cat_info_domain" style="width:40%;">
+                                종류
+                            </div>
+                            <div class="middle_cat_info_value" style="width:60%;">
+                                <input  class ="middle_cat_info_input" type="text" id="cat_breed" name="cat_breed">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="middle_cat_info_eatinghabit">
+                        <div class="middle_cat_info_domain">
+                            식습관 
+                        </div>
+                        <div class="middle_cat_info_value">
+                            <input type="checkbox" name="cat_eatinghabit2" value="A"/>A
+                            <input type="checkbox" name="cat_eatinghabit2" value="B"/>B
+                            <input type="checkbox" name="cat_eatinghabit2" value="C"/>C
+                            <input type="checkbox" name="cat_eatinghabit2" value="D"/>D
+                            <input type="checkbox" name="cat_eatinghabit2" value="E"/>E
+                            <input type="checkbox" name="cat_eatinghabit2" value="F"/>해당사항 없음
+                        </div>
+                    </div>
+
+                    <div class="middle_cat_info_health">
+                        <div class="middle_cat_info_domain">
+                            건강사항
+                        </div>
+                        <div class="middle_cat_info_value">
+                            <input type="checkbox" name="cat_health2" value="A"/>A
+                            <input type="checkbox" name="cat_health2" value="B"/>B
+                            <input type="checkbox" name="cat_health2" value="C"/>C
+                            <input type="checkbox" name="cat_health2" value="D"/>D
+                            <input type="checkbox" name="cat_health2" value="E"/>E
+                            <input type="checkbox" name="cat_health2" value="F"/>해당사항 없음
+                        </div>
+                    </div>
+
+                    <div class="middle_cat_info_neutral">
+                        <div class="middle_cat_info_domain">
+                            중성화 유무
+                        </div>
+                        <div class="middle_cat_info_value">
+                            <input type="radio" name="cat_neutral" value="찬성"/>찬성
+                            <input type="radio" name="cat_neutral" value="반대"/>반대
+                        </div>
+                    </div>
+
+                    <div class="middle_cat_info_route">
+                        <div class="middle_cat_info_domain">
+                            입양 경로
+                        </div>
+                        <div class="middle_cat_info_value">
+                            <input class="middle_cat_info_input" type="text" name="cat_route">
+                        </div>
+                    </div>
+
+                    <div class="middle_cat_info_meet">
+                        <div class="middle_cat_info_domain">
+                             반려 이유 
+                        </div>
+                        <div class="middle_cat_info_value">
+                            <textarea class="middle_cat_info_textarea" name="cat_meet" rows="5" cols="20"></textarea>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+        <div  id="middle_cat_info_div3" class="middle_cat_info_div">
+                <div class="middle_cat_info_title">
+                    <div class="middle_cat_info_title_text">
+                        냥이3 정보 
+                    </div>
+                </div>
+
+                <div class="middle_cat_info_content">
+                    <div class="middle_cat_info_img">
+                        <div class="middle_cat_info_domain">
+                            사진
+                        </div>
+                        <div class="middle_cat_info_value">
+                            <input type="file" id="cat_img3" name="cat_img">
+                            <img id="cat_img_preview3" src="">
+                        </div>
+                    </div>
+
+                    <div class="middle_cat_info_sec">
+                        <div class="middle_cat_info_name" >
+                            <div class="middle_cat_info_domain" style="width:40%;">
+                                이름
+                            </div>
+                            <div class="middle_cat_info_value"  style="width:60%;">
+                                <input  class ="middle_cat_info_input" type="text" id="cat_name" name="cat_name">
+                            </div>
+                        </div>
+
+                        <div class="middle_cat_info_gender">
+                            <div class="middle_cat_info_domain" style="width:40%;">
+                                성별
+                            </div>
+
+                            <div class="middle_cat_info_value" style="width:60%;">
+                                <input type="radio" name="cat_gender3" checked="checked" value="남아"/><img class="middle_cat_info_genderimg" src="/static/image/men.png">
+                                <input type="radio" name="cat_gender3" value="여아"/><img class="middle_cat_info_genderimg" src="/static/image/women.png">
+                            </div>
+
+                         </div>
+                     </div>
+                   
+                     <div class="middle_cat_info_third">
+                        <div class="middle_cat_info_birth">
+                            <div class="middle_cat_info_domain"  style="width:40%;">
+                                생일
+                            </div> 
+                            <div class="middle_cat_info_value"  style="width:60%;">
+                                <input class ="middle_cat_info_input" type= "date" id="cat_birth" name="cat_birth">
+                            </div>   
+                        </div>
+
+                        <div class="middle_cat_info_breed">
+                            <div class="middle_cat_info_domain" style="width:40%;">
+                                종류
+                            </div>
+                            <div class="middle_cat_info_value" style="width:60%;">
+                                <input  class ="middle_cat_info_input" type="text" id="cat_breed" name="cat_breed">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="middle_cat_info_eatinghabit">
+                        <div class="middle_cat_info_domain">
+                            식습관 
+                        </div>
+                        <div class="middle_cat_info_value">
+                            <input type="checkbox" name="cat_eatinghabit3" value="A"/>건사료
+                            <input type="checkbox" name="cat_eatinghabit3" value="B"/>습식
+                            <input type="checkbox" name="cat_eatinghabit3" value="C"/>생식
+                            <input type="checkbox" name="cat_eatinghabit3" value="D"/>D
+                            <input type="checkbox" name="cat_eatinghabit3" value="E"/>E
+                            <input type="checkbox" name="cat_eatinghabit3" value="F"/>해당사항 없음
+                        </div>
+                    </div>
+
+                    <div class="middle_cat_info_health">
+                        <div class="middle_cat_info_domain">
+                            건강사항
+                        </div>
+                        <div class="middle_cat_info_value">
+                            <input type="checkbox" name="cat_health3" value="A"/>A
+                            <input type="checkbox" name="cat_health3" value="B"/>B
+                            <input type="checkbox" name="cat_health3" value="C"/>C
+                            <input type="checkbox" name="cat_health3" value="D"/>D
+                            <input type="checkbox" name="cat_health3" value="E"/>E
+                            <input type="checkbox" name="cat_health3" value="F"/>해당사항 없음
+                        </div>
+                    </div>
+
+                    <div class="middle_cat_info_neutral">
+                        <div class="middle_cat_info_domain">
+                            중성화 유무
+                        </div>
+                        <div class="middle_cat_info_value">
+                            <input type="radio" name="cat_neutral" value="찬성"/>찬성
+                            <input type="radio" name="cat_neutral" value="반대"/>반대
+                        </div>
+                    </div>
+
+                    <div class="middle_cat_info_route">
+                        <div class="middle_cat_info_domain">
+                            입양 경로
+                        </div>
+                        <div class="middle_cat_info_value">
+                            <input class="middle_cat_info_input" type="text" name="cat_route">
+                        </div>
+                    </div>
+
+                    <div class="middle_cat_info_meet">
+                        <div class="middle_cat_info_domain">
+                             냥이와의<br> 연결고리 
+                        </div>
+                        <div class="middle_cat_info_value">
+                            <textarea class="middle_cat_info_textarea" name="cat_meet" rows="5" cols="20"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="middle_form_button_div">
+                <button type="button" onclick="open_owner();" id="before_button">
+                    집사정보
+                </button>
+            </div>    
+            <button type="button" onclick="open_cat();" id="next_button">
+                다음
+            </button>
+
+        </div>
     </div>
-    
+
+    <script>
+        function open_owner(){
+            $(".middle_cat_info_div, .middle_form_button_div").css({
+                'display':'none'
+            });
+
+            $(".middle_direction1_div").css({
+                'display':'none'
+            });
+
+            $(".middle_direction2_div").css({
+                'display':'none'
+            });
+
+            $(".middle_owner_info_div, #next_button").fadeIn(300);
+        }
+
+        function open_cat(){
+
+                    $(".middle_owner_info_div, #next_button").css({
+                        'display':'none'
+                    });
+
+                    $("#middle_cat_info_div1").fadeIn(300);
+                    $(".middle_direction1_div").fadeIn(300);
+                    $(".middle_direction2_div").fadeIn(300);
+                    $(".middle_form_button_div").fadeIn(300);
+        }
+
+        var current_idx = 1;
+
+        function open_before(){
+            if(current_idx >=2){
+                $("#middle_cat_info_div" + String(current_idx)).css({
+                    'display':'none'
+                });
+                $("#middle_cat_info_div" + String(current_idx-1)).fadeIn(300);
+                current_idx--;
+            }
+        }
+
+        function open_next(){
+            if(current_idx <=2){
+                $("#middle_cat_info_div" + String(current_idx)).css({
+                    'display':'none'
+                });
+                $("#middle_cat_info_div" + String(current_idx+1)).fadeIn(300);
+                current_idx++;
+            }
+            
+        }
+
+    </script>
 </body>
 </html>

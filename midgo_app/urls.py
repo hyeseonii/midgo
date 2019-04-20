@@ -12,7 +12,9 @@ urlpatterns = [
     path('login_page/',views.login_page),
     path('join/check_join/', views.check_join ),
     path('join/join_check_id/', views.join_check_id),
-    path('recognizeUser/', views.recognizeUser)
+    path('recognizeUserlist/', views.recognizeUserlist),
+    path('recognizeUser/<str:user_id>/', views.recognizeUser),
+    path('login_check/', views.login_check),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
