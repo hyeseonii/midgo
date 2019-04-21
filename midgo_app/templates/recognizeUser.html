@@ -271,7 +271,6 @@
          #cat_img_preview1,#cat_img_preview2,#cat_img_preview3{
             widows: 5vw;
             height: 5vw;
-            display:none;
        }
 
         .middle_cat_info_sec{
@@ -395,11 +394,23 @@
        }
 
         .middle_form_button_div{
-            width:17vw;
+            width:8vw;
             height:auto;
             position:relative;
             left:50%;
             transform:translate(-50%,0%);
+            display:none;
+        }
+
+        /* 가입승인*/
+        .check_recognize_div{
+            width:30%;
+            height:45%;
+            position:absolute;
+            top:55%;
+            left:50%;
+            transform:translate(-50%,-50%);
+            background-color: white;
             display:none;
         }
 
@@ -420,6 +431,7 @@
     </div>
 
     <div class="middle">
+        <input type="text" id="cats_num" value="{{cats_num}}" hidden>
     
         <div class="middle_form_div">
             <div class="middle_direction1_div">
@@ -520,8 +532,7 @@
                             사진
                         </div>
                         <div class="middle_cat_info_value">
-                            <input type="file" id="cat_img1" name="cat_img">
-                            <img id="cat_img_preview1" src="">
+                            <img id="cat_img_preview1" src="{{cat1.image.url}}">
                         </div>
                     </div>
 
@@ -531,7 +542,7 @@
                                 이름
                             </div>
                             <div class="middle_cat_info_value"  style="width:60%;">
-                                <input  class ="middle_cat_info_input" type="text" id="cat_name" name="cat_name" required>
+                                <input  class ="middle_cat_info_input" type="text" id="cat_name" name="cat_name" readonly value="{{cat1.name}}">
                             </div>
                         </div>
 
@@ -541,8 +552,9 @@
                             </div>
 
                             <div class="middle_cat_info_value" style="width:60%;">
-                                <input type="radio" name="cat_gender1" checked="checked" value="남아"/><img class="middle_cat_info_genderimg" src="/static/image/men.png">
-                                <input type="radio" name="cat_gender1" value="여아"/><img class="middle_cat_info_genderimg" src="/static/image/women.png">
+                                <input type="radio" id="cat1_gender_boy" name="cat_gender1" value="남아"/><img class="middle_cat_info_genderimg" src="/static/image/men.png">
+                                <input type="radio" id="cat1_gender_girl" name="cat_gender1" value="여아"/><img class="middle_cat_info_genderimg" src="/static/image/women.png">
+                                <input type='text' id="cat1_gender_tmp" value={{cat1.gender}} hidden>
                             </div>
 
                          </div>
@@ -554,7 +566,7 @@
                                 생일
                             </div> 
                             <div class="middle_cat_info_value"  style="width:60%;">
-                                <input class ="middle_cat_info_input" type= "date" id="cat_birth" name="cat_birth"  required>
+                                <input class ="middle_cat_info_input" type= "text" id="cat_birth" name="cat_birth"  readonly value="{{cat1.birth}}">
                             </div>   
                         </div>
 
@@ -563,7 +575,7 @@
                                 종류
                             </div>
                             <div class="middle_cat_info_value" style="width:60%;">
-                                <input  class ="middle_cat_info_input" type="text" id="cat_breed" name="cat_breed" required>
+                                <input  class ="middle_cat_info_input" type="text" id="cat_breed" name="cat_breed" readonly value="{{cat1.breed}}">
                             </div>
                         </div>
                     </div>
@@ -573,12 +585,13 @@
                             식습관 
                         </div>
                         <div class="middle_cat_info_value">
-                            <input type="checkbox" name="cat_eatinghabit1" value="A"/>A
-                            <input type="checkbox" name="cat_eatinghabit1" value="B"/>B
-                            <input type="checkbox" name="cat_eatinghabit1" value="C"/>C
-                            <input type="checkbox" name="cat_eatinghabit1" value="D"/>D
-                            <input type="checkbox" name="cat_eatinghabit1" value="E"/>E
-                            <input type="checkbox" name="cat_eatinghabit1" value="F"/>해당사항 없음
+                            <input type="checkbox" id="cat1_eatinghabit_A" name="cat_eatinghabit1" value="A"/>A
+                            <input type="checkbox" id="cat1_eatinghabit_B"  name="cat_eatinghabit1" value="B"/>B
+                            <input type="checkbox" id="cat1_eatinghabit_C"  name="cat_eatinghabit1" value="C"/>C
+                            <input type="checkbox" id="cat1_eatinghabit_D"  name="cat_eatinghabit1" value="D"/>D
+                            <input type="checkbox" id="cat1_eatinghabit_E"  name="cat_eatinghabit1" value="E"/>E
+                            <input type="checkbox" id="cat1_eatinghabit_F"  name="cat_eatinghabit1" value="F"/>해당사항 없음
+                            <input type="text" id ="cat1_eatinghabit_tmp" value="{{cat1.eatinghabit}}" hidden>
                         </div>
                     </div>
 
@@ -587,12 +600,13 @@
                             건강사항
                         </div>
                         <div class="middle_cat_info_value">
-                            <input type="checkbox" name="cat_health1" value="A"/>A
-                            <input type="checkbox" name="cat_health1" value="B"/>B
-                            <input type="checkbox" name="cat_health1" value="C"/>C
-                            <input type="checkbox" name="cat_health1" value="D"/>D
-                            <input type="checkbox" name="cat_health1" value="E"/>E
-                            <input type="checkbox" name="cat_health1" value="F"/>해당사항 없음
+                            <input type="checkbox" id="cat1_health_A" name="cat_health1" value="A"/>A
+                            <input type="checkbox" id="cat1_health_B" name="cat_health1" value="B"/>B
+                            <input type="checkbox" id="cat1_health_C" name="cat_health1" value="C"/>C
+                            <input type="checkbox" id="cat1_health_D" name="cat_health1" value="D"/>D
+                            <input type="checkbox" id="cat1_health_E" name="cat_health1" value="E"/>E
+                            <input type="checkbox" id="cat1_health_F" name="cat_health1" value="F"/>해당사항 없음
+                            <input type="text" id ="cat1_health_tmp" value="{{cat1.health}}" hidden>
                         </div>
                     </div>
 
@@ -601,8 +615,9 @@
                             중성화 유무
                         </div>
                         <div class="middle_cat_info_value">
-                            <input type="radio" name="cat_neutral" value="찬성"/>찬성
-                            <input type="radio" name="cat_neutral" value="반대"/>반대
+                            <input type="radio" id="cat1_neutral_O" name="cat_neutral" value="O"/>O
+                            <input type="radio" id="cat1_neutral_X" name="cat_neutral" value="X"/>X
+                            <input type="text" id="cat1_neutral_tmp" value="{{cat1.neutral}}" hidden>
                         </div>
                     </div>
 
@@ -611,7 +626,7 @@
                             입양 경로
                         </div>
                         <div class="middle_cat_info_value">
-                            <input class="middle_cat_info_input" type="text" name="cat_route" >
+                            <input class="middle_cat_info_input" type="text" name="cat_route" readonly value="{{cat1.route}}">
                         </div>
                     </div>
 
@@ -621,7 +636,7 @@
                              연결고리
                         </div>
                         <div class="middle_cat_info_value">
-                            <textarea class="middle_cat_info_textarea" name="cat_meet" rows="5" cols="20" required></textarea>
+                            <textarea class="middle_cat_info_textarea" name="cat_meet" rows="5" cols="20" readonly>{{cat1.meet}}</textarea>
                         </div>
                     </div>
             </div>
@@ -640,8 +655,7 @@
                             사진
                         </div>
                         <div class="middle_cat_info_value">
-                            <input type="file" id="cat_img2" name="cat_img">
-                            <img id="cat_img_preview2" src="">
+                            <img id="cat_img_preview2" src="{{cat2.image.url}}">
                         </div>
                     </div>
 
@@ -651,7 +665,7 @@
                                 이름
                             </div>
                             <div class="middle_cat_info_value"  style="width:60%;">
-                                <input  class ="middle_cat_info_input" type="text" id="cat_name" name="cat_name">
+                                <input  class ="middle_cat_info_input" type="text" id="cat_name" name="cat_name" readonly value="{{cat2.name}}">
                             </div>
                         </div>
 
@@ -661,8 +675,11 @@
                             </div>
 
                             <div class="middle_cat_info_value" style="width:60%;">
-                                <input type="radio" name="cat_gender2" checked="checked" value="남아"/><img class="middle_cat_info_genderimg" src="/static/image/men.png">
-                                <input type="radio" name="cat_gender2" value="여아"/><img class="middle_cat_info_genderimg" src="/static/image/women.png">
+                                <input type="radio" id="cat2_gender_boy" name="cat_gender2" value="남아"/><img class="middle_cat_info_genderimg" src="/static/image/men.png">
+                                <input type="radio"  id="cat2_gender_girl" name="cat_gender2" value="여아"/><img class="middle_cat_info_genderimg" src="/static/image/women.png">
+                                {% if cat2 %}
+                                <input type="text" id="cat2_gender_tmp" value="{{cat2.gender}}" hidden>
+                                {% endif %}
                             </div>
 
                          </div>
@@ -674,7 +691,7 @@
                                 생일
                             </div> 
                             <div class="middle_cat_info_value"  style="width:60%;">
-                                <input class ="middle_cat_info_input" type= "date" id="cat_birth" name="cat_birth">
+                                <input class ="middle_cat_info_input" type= "text" id="cat_birth" name="cat_birth" readonly value="{{cat2.birth}}">
                             </div>   
                         </div>
 
@@ -683,7 +700,7 @@
                                 종류
                             </div>
                             <div class="middle_cat_info_value" style="width:60%;">
-                                <input  class ="middle_cat_info_input" type="text" id="cat_breed" name="cat_breed">
+                                <input  class ="middle_cat_info_input" type="text" id="cat_breed" name="cat_breed" readonly value="{{cat2.breed}}">
                             </div>
                         </div>
                     </div>
@@ -693,12 +710,15 @@
                             식습관 
                         </div>
                         <div class="middle_cat_info_value">
-                            <input type="checkbox" name="cat_eatinghabit2" value="A"/>A
-                            <input type="checkbox" name="cat_eatinghabit2" value="B"/>B
-                            <input type="checkbox" name="cat_eatinghabit2" value="C"/>C
-                            <input type="checkbox" name="cat_eatinghabit2" value="D"/>D
-                            <input type="checkbox" name="cat_eatinghabit2" value="E"/>E
-                            <input type="checkbox" name="cat_eatinghabit2" value="F"/>해당사항 없음
+                            <input type="checkbox" id="cat2_eatinghabit_A"name="cat_eatinghabit2" value="A"/>A
+                            <input type="checkbox" id="cat2_eatinghabit_B"name="cat_eatinghabit2" value="B"/>B
+                            <input type="checkbox" id="cat2_eatinghabit_C"name="cat_eatinghabit2" value="C"/>C
+                            <input type="checkbox" id="cat2_eatinghabit_D"name="cat_eatinghabit2" value="D"/>D
+                            <input type="checkbox" id="cat2_eatinghabit_E"name="cat_eatinghabit2" value="E"/>E
+                            <input type="checkbox" id="cat2_eatinghabit_F"name="cat_eatinghabit2" value="F"/>해당사항 없음
+                            {% if cat2 %}
+                            <input type="text" id="cat2_eatinghabit_tmp" value="{{cat2.eatinghabit}}" hidden>
+                            {% endif %}
                         </div>
                     </div>
 
@@ -707,12 +727,15 @@
                             건강사항
                         </div>
                         <div class="middle_cat_info_value">
-                            <input type="checkbox" name="cat_health2" value="A"/>A
-                            <input type="checkbox" name="cat_health2" value="B"/>B
-                            <input type="checkbox" name="cat_health2" value="C"/>C
-                            <input type="checkbox" name="cat_health2" value="D"/>D
-                            <input type="checkbox" name="cat_health2" value="E"/>E
-                            <input type="checkbox" name="cat_health2" value="F"/>해당사항 없음
+                            <input type="checkbox" id="cat2_health_A" name="cat_health2" value="A"/>A
+                            <input type="checkbox" id="cat2_health_B"name="cat_health2" value="B"/>B
+                            <input type="checkbox" id="cat2_health_C"name="cat_health2" value="C"/>C
+                            <input type="checkbox" id="cat2_health_D"name="cat_health2" value="D"/>D
+                            <input type="checkbox" id="cat2_health_E"name="cat_health2" value="E"/>E
+                            <input type="checkbox" id="cat2_health_F"name="cat_health2" value="F"/>해당사항 없음
+                            {% if cat2 %}
+                            <input type="text" id="cat2_health_tmp" value="{{cat2.health}}" hidden>
+                            {% endif %}
                         </div>
                     </div>
 
@@ -721,8 +744,11 @@
                             중성화 유무
                         </div>
                         <div class="middle_cat_info_value">
-                            <input type="radio" name="cat_neutral" value="찬성"/>찬성
-                            <input type="radio" name="cat_neutral" value="반대"/>반대
+                            <input type="radio" id="cat2_neutral_O" name="cat_neutral" value="O"/>O
+                            <input type="radio" id="cat2_neutral_X" name="cat_neutral" value="X"/>X
+                            {% if cat2 %}
+                            <input type="text" id="cat2_neutral_tmp" value="{{cat2.neutral}}" hidden>
+                            {% endif %}
                         </div>
                     </div>
 
@@ -731,7 +757,8 @@
                             입양 경로
                         </div>
                         <div class="middle_cat_info_value">
-                            <input class="middle_cat_info_input" type="text" name="cat_route">
+                            <input class="middle_cat_info_input" type="text" name="cat_route" readonly value="{{cat2.route}}">
+
                         </div>
                     </div>
 
@@ -740,7 +767,7 @@
                              반려 이유 
                         </div>
                         <div class="middle_cat_info_value">
-                            <textarea class="middle_cat_info_textarea" name="cat_meet" rows="5" cols="20"></textarea>
+                            <textarea class="middle_cat_info_textarea" name="cat_meet" rows="5" cols="20"readonly>{{cat2.meet}}</textarea>
                         </div>
                     </div>
             </div>
@@ -759,8 +786,7 @@
                             사진
                         </div>
                         <div class="middle_cat_info_value">
-                            <input type="file" id="cat_img3" name="cat_img">
-                            <img id="cat_img_preview3" src="">
+                            <img id="cat_img_preview3" src="{{cat3.image.url}}">
                         </div>
                     </div>
 
@@ -770,7 +796,7 @@
                                 이름
                             </div>
                             <div class="middle_cat_info_value"  style="width:60%;">
-                                <input  class ="middle_cat_info_input" type="text" id="cat_name" name="cat_name">
+                                <input  class ="middle_cat_info_input" type="text" id="cat_name" name="cat_name" readonly value="{{cat3.name}}">
                             </div>
                         </div>
 
@@ -780,8 +806,11 @@
                             </div>
 
                             <div class="middle_cat_info_value" style="width:60%;">
-                                <input type="radio" name="cat_gender3" checked="checked" value="남아"/><img class="middle_cat_info_genderimg" src="/static/image/men.png">
-                                <input type="radio" name="cat_gender3" value="여아"/><img class="middle_cat_info_genderimg" src="/static/image/women.png">
+                                <input type="radio" id="cat3_gender_boy" name="cat_gender3" value="남아"/><img class="middle_cat_info_genderimg" src="/static/image/men.png">
+                                <input type="radio" id="cat3_gender_girl" name="cat_gender3" value="여아"/><img class="middle_cat_info_genderimg" src="/static/image/women.png">
+                                {% if cat3 %}
+                                <input type="text" id="cat3_gender_tmp" value="{{cat3.gender}}" hidden>
+                                {% endif %}
                             </div>
 
                          </div>
@@ -793,7 +822,7 @@
                                 생일
                             </div> 
                             <div class="middle_cat_info_value"  style="width:60%;">
-                                <input class ="middle_cat_info_input" type= "date" id="cat_birth" name="cat_birth">
+                                <input class ="middle_cat_info_input" type= "text" id="cat_birth" name="cat_birth" readonly value="{{cat3.birth}}">
                             </div>   
                         </div>
 
@@ -802,7 +831,7 @@
                                 종류
                             </div>
                             <div class="middle_cat_info_value" style="width:60%;">
-                                <input  class ="middle_cat_info_input" type="text" id="cat_breed" name="cat_breed">
+                                <input  class ="middle_cat_info_input" type="text" id="cat_breed" name="cat_breed" readonly value="{{cat3.breed}}">
                             </div>
                         </div>
                     </div>
@@ -812,12 +841,15 @@
                             식습관 
                         </div>
                         <div class="middle_cat_info_value">
-                            <input type="checkbox" name="cat_eatinghabit3" value="A"/>건사료
-                            <input type="checkbox" name="cat_eatinghabit3" value="B"/>습식
-                            <input type="checkbox" name="cat_eatinghabit3" value="C"/>생식
-                            <input type="checkbox" name="cat_eatinghabit3" value="D"/>D
-                            <input type="checkbox" name="cat_eatinghabit3" value="E"/>E
-                            <input type="checkbox" name="cat_eatinghabit3" value="F"/>해당사항 없음
+                            <input type="checkbox" id="cat3_eatinghabit_A" name="cat_eatinghabit3" value="A"/>건사료
+                            <input type="checkbox" id="cat3_eatinghabit_B" name="cat_eatinghabit3" value="B"/>습식
+                            <input type="checkbox" id="cat3_eatinghabit_C" name="cat_eatinghabit3" value="C"/>생식
+                            <input type="checkbox" id="cat3_eatinghabit_D" name="cat_eatinghabit3" value="D"/>D
+                            <input type="checkbox" id="cat3_eatinghabit_E" name="cat_eatinghabit3" value="E"/>E
+                            <input type="checkbox" id="cat3_eatinghabit_F" name="cat_eatinghabit3" value="F"/>해당사항 없음
+                            {% if cat3 %}
+                            <input type="text" id="cat3_eatinghabit_tmp" value={{cat3.eatinghabit}} hidden>
+                            {% endif %}
                         </div>
                     </div>
 
@@ -826,12 +858,15 @@
                             건강사항
                         </div>
                         <div class="middle_cat_info_value">
-                            <input type="checkbox" name="cat_health3" value="A"/>A
-                            <input type="checkbox" name="cat_health3" value="B"/>B
-                            <input type="checkbox" name="cat_health3" value="C"/>C
-                            <input type="checkbox" name="cat_health3" value="D"/>D
-                            <input type="checkbox" name="cat_health3" value="E"/>E
-                            <input type="checkbox" name="cat_health3" value="F"/>해당사항 없음
+                            <input type="checkbox" id="cat3_health_A" name="cat_health3" value="A"/>A
+                            <input type="checkbox" id="cat3_health_B" name="cat_health3" value="B"/>B
+                            <input type="checkbox" id="cat3_health_C" name="cat_health3" value="C"/>C
+                            <input type="checkbox" id="cat3_health_D" name="cat_health3" value="D"/>D
+                            <input type="checkbox" id="cat3_health_E" name="cat_health3" value="E"/>E
+                            <input type="checkbox" id="cat3_health_F" name="cat_health3" value="F"/>해당사항 없음
+                            {% if cat3 %}
+                            <input type="text" id="cat3_health_tmp" value={{cat3.health}} hidden>
+                            {% endif %}
                         </div>
                     </div>
 
@@ -840,8 +875,11 @@
                             중성화 유무
                         </div>
                         <div class="middle_cat_info_value">
-                            <input type="radio" name="cat_neutral" value="찬성"/>찬성
-                            <input type="radio" name="cat_neutral" value="반대"/>반대
+                            <input type="radio" id="cat3_neutral_O" name="cat_neutral" value="O"/>O
+                            <input type="radio" id="cat3_neutral_X" name="cat_neutral" value="X"/>X
+                            {% if cat3 %}
+                            <input type="text" id="cat3_neutral_tmp" value={{cat3.neutral}} hidden>
+                            {% endif %}
                         </div>
                     </div>
 
@@ -850,7 +888,7 @@
                             입양 경로
                         </div>
                         <div class="middle_cat_info_value">
-                            <input class="middle_cat_info_input" type="text" name="cat_route">
+                            <input class="middle_cat_info_input" type="text" name="cat_route" readonly value={{cat3.route}}>
                         </div>
                     </div>
 
@@ -859,7 +897,7 @@
                              냥이와의<br> 연결고리 
                         </div>
                         <div class="middle_cat_info_value">
-                            <textarea class="middle_cat_info_textarea" name="cat_meet" rows="5" cols="20"></textarea>
+                            <textarea class="middle_cat_info_textarea" name="cat_meet" rows="5" cols="20" readonly>{{cat3.meet}}</textarea>
                         </div>
                     </div>
                 </div>
@@ -873,8 +911,13 @@
             <button type="button" onclick="open_cat();" id="next_button">
                 다음
             </button>
-
         </div>
+
+        
+    </div>
+
+    <div class="check_recognize_div">
+
     </div>
 
     <script>
@@ -895,13 +938,12 @@
         }
 
         function open_cat(){
-
                     $(".middle_owner_info_div, #next_button").css({
                         'display':'none'
                     });
 
                     $("#middle_cat_info_div1").fadeIn(300);
-                    $(".middle_direction1_div").fadeIn(300);
+                    // $(".middle_direction1_div").fadeIn(300);
                     $(".middle_direction2_div").fadeIn(300);
                     $(".middle_form_button_div").fadeIn(300);
         }
@@ -916,9 +958,20 @@
                 $("#middle_cat_info_div" + String(current_idx-1)).fadeIn(300);
                 current_idx--;
             }
+
+            if(current_idx ==1){
+                $(".middle_direction1_div").css({
+                    'display':'none'
+                });
+            }
         }
 
         function open_next(){
+            if(current_idx ==3){
+                console.log("!!")
+                $(".check_recognize_div").fadeIn(300);
+            }
+
             if(current_idx <=2){
                 $("#middle_cat_info_div" + String(current_idx)).css({
                     'display':'none'
@@ -926,8 +979,62 @@
                 $("#middle_cat_info_div" + String(current_idx+1)).fadeIn(300);
                 current_idx++;
             }
+
+            $(".middle_direction1_div").css({
+                'display':'block'
+            });
             
         }
+
+        $(document).ready(function(){
+            var cats_num =$("#cats_num").val();
+            console.log(cats_num);
+
+            for(var i=1;i<=cats_num;i++){
+
+                var cat_gender_tmp = $("#cat" + String(i) + "_gender_tmp").val();
+                console.log(cat_gender_tmp);
+
+                if(cat_gender_tmp == "남아"){
+                    $("#cat" + String(i) + "_gender_boy").attr('checked', 'true');
+                }
+                else {
+                    $("#cat" + String(i) + "_gender_girl").attr('checked', 'true');
+                }
+
+                var cat_eatinghabit_tmp =  $("#cat" + String(i) + "_eatinghabit_tmp").val();
+                console.log(cat_eatinghabit_tmp);
+
+                cat_eatinghabit_tmp = cat_eatinghabit_tmp.replace(/[^a-z]/gi,"");
+                console.log(cat_eatinghabit_tmp);
+
+                for(var j=0;j<cat_eatinghabit_tmp.length;j++){
+                    $("#cat" + String(i) + "_eatinghabit_" + cat_eatinghabit_tmp[j]).attr('checked', 'true');
+                }
+
+
+                var cat_health_tmp =  $("#cat" + String(i) + "_health_tmp").val();
+                console.log(cat_health_tmp);
+
+                cat_health_tmp = cat_health_tmp.replace(/[^a-z]/gi,"");
+                console.log(cat_health_tmp);
+
+                for(var j=0; j<cat_health_tmp.length; j++){
+                    $("#cat" + String(i) + "_health_"+ cat_health_tmp[j]).attr('checked','true');
+                }
+
+                var cat_neutral_tmp =  $("#cat" + String(i) + "_neutral_tmp").val();
+                console.log(cat_neutral_tmp);
+
+                if(cat_neutral_tmp == "O"){
+                    $("#cat" + String(i) + "_neutral_O").attr('checked', 'true');
+                }
+                else {
+                    $("#cat" + String(i) + "_neutral_X").attr('checked', 'true');
+                }
+
+            }
+        });
 
     </script>
 </body>

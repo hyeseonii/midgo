@@ -52,7 +52,7 @@
             height: 10%;
             position: relative;
             background-color: transparent;
-            text-align: center;
+            text-align:center;
             font-size:0.85vw;
         }
 
@@ -181,7 +181,7 @@
 
         .middle_sec_div{
             width:100%;
-            height:90%;
+            height:70%;
             position: relative;
             background-color:transparent;
         }
@@ -438,6 +438,15 @@
         a {
             text-decoration: none;
         }
+
+        .mycatinfo_close{
+            float:right;
+            top:3%;
+            right:3%;
+            position: absolute;
+            width:2vw;
+            height:2vw;
+         }
     </style>
 </head>
 
@@ -689,12 +698,12 @@
     </div>
 
     <div class="mycatinfo_div">
-
+        <img class="mycatinfo_close" src="/static/image/close.png" onclick="toggle_mycatinfo();">
     </div>
 
     <script>
         var notification_is_open = false;
-
+    
         function toggle_notification(){
             if(notification_is_open){
                 $(".notification_div").stop().animate({

@@ -94,7 +94,7 @@ def check_join(request) :
                         new_cat = Cat.objects.create(
                                 image=cat_image,
                                 name=request.POST.getlist('cat_name')[idx],
-                                gender = request.POST.getlist('cat_gender' + str(idx+1)),
+                                gender = request.POST['cat_gender' + str(idx+1)],
                                 birth= request.POST.getlist('cat_birth')[idx],
                                 breed= request.POST.getlist('cat_breed')[idx],
                                 owner= new_user,
@@ -102,6 +102,7 @@ def check_join(request) :
                                 health= request.POST.getlist('cat_health'+str(idx+1)),
                                 route=request.POST.getlist('cat_route')[idx],
                                 meet=request.POST.getlist('cat_meet')[idx],
+                                neutral = request.POST['cat_neutral' + str(idx+1)],
                         )
                         new_cat.save()
                 
@@ -142,11 +143,25 @@ def recognizeUserlist(request):
 def recognizeUser(request,user_id) :
 
         user= User.objects.get(username=user_id)
-        cats=user.cats.all()
 
-        cat1= user.cats.all
- 
-        context={'user' : user}
+        user_cats= user.cats.all()
+
+        print(user_cats)
+
+        print(len(user_cats))
+
+        cats_num = len(user_cats)
+
+        cats = [None] * 3
+        
+        print(cats)
+
+        for idx, cat in enumerate(user_cats) :
+                cats[idx] = cat
+
+        print(cats)         
+
+        context={'user' : user, 'cat1': cats[0], 'cat2':cats[1], 'cat3':cats[2], 'cats_num': cats_num}
 
         return render(request, "./recognizeUser.html", context) 
 
