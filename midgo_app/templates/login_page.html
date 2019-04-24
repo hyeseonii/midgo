@@ -206,6 +206,18 @@
                 }
             });
         }
+
+        $('#middle_form_id').focus();
+        document.querySelector('#middle_form_id').onkeyup = function(e){
+            if(e.keyCode === 13) {
+                document.querySelector("#middle_login_button").click();
+            }
+        };
+        document.querySelector('#middle_form_password').onkeyup = function(e){
+            if(e.keyCode === 13) {
+                document.querySelector("#middle_login_button").click();
+            }
+        };
     </script>
 </body>
 </html>

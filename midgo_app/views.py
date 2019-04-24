@@ -30,15 +30,19 @@ def main(request):
                 time_now = datetime.datetime.now()
 
                 notifications = Notification.objects.filter(created_at__range=[user.check_notification, time_now])
-                notifications_count = len(notifications)
+                notifications_count = 0
+                for notification in notifications :
+                        if not notification.is_checked :
+                                notifications_count +=1
+
                 is_important = False
                 for notification in notifications :
-                        if notification.category == 'reply' :
+                        if notification.category == 'reply' and notification.is_checked == False:
                                 is_important = True
                                 break
 
 
-                context = { 'notifications' : notifications, 'notifications_count' : notifications_count, 'is_important' : is_important }
+                context = { 'notifications' : notifications, 'notifications_count' : notifications_count, 'is_important' : is_important, 'user': user, 'login': 'true'}
                 print(context)
                 return render(request,"./main.html",context)
 
@@ -47,18 +51,46 @@ def main(request):
                 return render(request,"./main.html")
 
 
-def check_notification(request) :
+def check_notification(request,notification_id) :
 
         print(request.user)
 
         user = request.user
-        time_now = datetime.datetime.now()
-        user.check_notification = time_now
-        user.save()
+        # time_now = datetime.datetime.now()
+        # user.check_notification = time_now
+        # user.save()
+
+        checked_notification =Notification.objects.get(id=notification_id)
+        checked_notification.is_checked =True
+        checked_notification.save()
 
         result= {'result' :'true'}
 
         return JsonResponse(result)
+
+def delete_notification(request, notification_id):
+        
+        notification = Notification.objects.get(id=notification_id)
+        notification.delete()
+
+        result= {'result' :'true'}
+
+        return JsonResponse(result)
+
+def delete_all_notification(request) :
+
+        user=request.user
+
+        my_notifications= Notification.objects.filter(receiver = user)
+        print(my_notifications)
+        for my_notification in my_notifications :
+                my_notification.delete()
+
+        result ={"result":"true"}
+
+        return JsonResponse(result)
+
+
 
 def join(request) :
 
@@ -199,3 +231,41 @@ def login_check(request) :
 
                         result = {"result" :"failed"}
                         return JsonResponse(result)
+
+from django.contrib.auth import logout
+def logout_page(request) :
+        
+        logout(request)
+
+        return redirect('/main/')
+
+def recognize(request,user_id,user_grade) :
+        recognized_user = User.objects.get(username=user_id)
+        recognized_user.is_recognized = 'recognized'
+        recognized_user.grade = user_grade
+        recognized_user.save()
+
+        recognized_cats= recognized_user.cats.all()
+
+        for cat in recognized_cats :
+                cat.is_recognized = 'recognized'
+                cat.save()
+
+        return redirect('/recognizeUserlist/')
+
+def unrecognize(request,user_id) :
+        recognized_user = User.objects.get(username=user_id)
+        recognized_user.is_recognized = 'unrecognized'
+        recognized_user.save()
+
+        recognized_cats= recognized_user.cats.all()
+
+        for cat in recognized_cats :
+                cat.is_recognized = 'unrecognized'
+                cat.save()
+
+        return redirect('/recognizeUserlist/')
+
+
+
+

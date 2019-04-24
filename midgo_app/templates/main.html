@@ -54,6 +54,7 @@
             background-color: transparent;
             text-align:center;
             font-size:0.85vw;
+            font-family: 'Short Stack', cursive;
         }
 
         .top_fir_div{
@@ -94,21 +95,22 @@
         }
 
         .top_content_search_cover{
-            width: 50%;
-            height: 20%;
-            background-color: transparent;
+            width: 60%;
+            height: 18%;
+            background-color:transparent;
             position: absolute;
-            top: 50%;
+            top: 13%;
             transform: translateY(-50%);
-            right: 20%;
+            right: 5%;
         }
 
         .top_content_search{
-            width: 80%;
-			height: 90%;
-            border:1px solid black;
+            width: 70%;
+			height: 70%;
+            border:1px solid rgb(218, 217, 217);
             position: relative;
             float:right;
+            outline: none;
         }
 
         .top_mid_div_cover{
@@ -127,6 +129,7 @@
             background-color: transparent;
             float: right;
             margin-right:2%;
+            font-family: 'Short Stack', cursive;
 
         }
         
@@ -239,6 +242,7 @@
             float:left;
             text-align:center;
             background-color:transparent;
+            
         }
 
         .middle_cate_hover{
@@ -328,13 +332,88 @@
         }
         
         .notification_div{
-            width:20%;
+            width:22.5%;
             height:70%;
             position: absolute;
-            background-color: gray;
+            background-color:grey;
             top:15%;
-            right:-20%;
+            right:-22.5%;
          }
+
+         .notification_top_div{
+            width:100%;
+            height:10%;
+            position:relative;
+            background-color: transparent;
+            border-bottom: 1px solid darkgray;
+         }
+         
+         .notification_text_div{
+             width:25%;
+             height:100%;
+             position:relative;
+             float:left;
+             background-color:transparent;
+         }
+
+         .notification_text{
+             width:100%;
+             height:auto;
+             text-align:center;
+             position:relative;
+             top:50%;
+             transform: translateY(-50%);
+             font-size:0.8rem;
+             font-family: 'Gamja Flower';
+             font-size:1rem;
+         }
+
+         .notification_button_div{
+             width:75%;
+             height:100%;
+             position:relative;
+             float: left;
+             text-align:right;
+             
+         }
+         .notification_checked_delete_button{
+             width:auto;
+             height:2vw;
+             border:none;
+             outline:none;
+             border-radius: 5%;
+             background-color: pink;
+             position:relative;
+             top:50%;
+             left:5%;
+             transform:translate(0%,-50%);
+             cursor:pointer;
+             font-family: 'Gamja Flower';
+             font-size:1rem;
+         }
+
+         .notification_content_div{
+            width:100%;
+            height:90%;
+            overflow-y:scroll;
+            overflow-x:hidden;
+         }
+
+        .notification_content_div::-webkit-scrollbar-track{
+             -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+             border-radius:10px;
+             background-color:transparent;
+        }
+        .notification_content_div::-webkit-scrollbar{
+            width:12px;
+            background-color:transparent;
+        }
+
+        .notification_content_div::-webkit-scrollbar-thumb{
+            border-radius:10px;
+            -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0.3);
+            background-color: pink;
+        }
 
          .mycatinfo_div{
              width:20%;
@@ -354,28 +433,40 @@
              position: relative;
          }
 
+         .notification_checked{
+             color:gray;
+         }
+
          .notification_category{
              width:20%;
              height:100%;
-             background-color:burlywood;
+             background-color:transparent;
              position:relative;
              float:left;
          }
 
          .notification_content{
-             width: 80%;
+             width: 70%;
              height: 100%;
-             background-color: darkorchid;
+             background-color: transparent;
              position: relative;
              float: left;
          }
 
+        .notification_delete_div{
+            width:10%;
+            height:100%;
+            background-color: transparent;
+            position: relative;
+            float: left;
+        }
         .top_content_noti_count_div{
             width:1vw;
             height: 1vw;
             position: absolute;
-            bottom:0%;
-            right: 20%;
+            top: 55%;
+            right: 0%;
+            transform: translateY(-50%);
             background-color: red;
             border-radius:50%;
             text-align: center;
@@ -398,6 +489,7 @@
             height:35%;
             background-color: #ff7e97;
             position: relative;
+            font-family: 'Short Stack', cursive;
         }
 
         .middle_cate_title_text{
@@ -454,12 +546,12 @@
     <div class="top">
         <div class="top_fir_div">
             <div class="top_left_div_cover">
-                    <div class="top_content_search_cover">
+                    <!-- <div class="top_content_search_cover">
                         <img src="http://merryaround.co.kr/web/upload/plain79/icon_search01.png" 
                         style="width: auto; height: auto; position: relative; float: right; top:15%;" 
                         onclick="search();" >
                         <input id="search_input" type="text" class="top_content_search">
-                    </div>  
+                    </div>   -->
                     <img src="/static/image/menu.png" style=" width:1.5vw; height:1.5vw; position: absolute; left: 0%; top: 50%; transform: translateY(-50%);" onclick="toggle_mycatinfo();">  
             </div>
 
@@ -475,18 +567,35 @@
             </div>
 
             <div class="top_right_div_cover">
+                <div class="top_content_search_cover">
+                        <img src="http://merryaround.co.kr/web/upload/plain79/icon_search01.png" 
+                        style="width: auto; height: auto; position: relative; float: right; top:15%;" 
+                        onclick="search();" >
+                        <input id="search_input" type="text" class="top_content_search">
+                </div>  
 
-                <div class="top_content_join">
-                    <a href="/join/" >join</a>
-                </div>
+                {% if login == 'true' %}
+                    <div class="top_content_mypage" style="color: transparent;">
+                        d
+                    </div>
+                    <div class="top_content_login">
+                        <a href="/logout_page/" >logout</a>
+                    </div>
+                    <div class="top_content_mypage">
+                            mypage
+                    </div>
+                {% else %}
+                    <div class="top_content_join">
+                        <a href="/join/" >join</a>
+                    </div>
+                    <div class="top_content_login">
+                        <a href="/login_page/" >login</a>
+                    </div>
+                    <div class="top_content_mypage">
+                        mypage
+                    </div>
+                {% endif %}
 
-                <div class="top_content_login">
-                    <a href="/login_page/" >login</a>
-                </div>
-
-                <div class="top_content_mypage">
-                    mypage
-                </div>
 
                 <div class="top_content_noti">
                     {% if is_important %}
@@ -496,7 +605,6 @@
                     onclick="toggle_notification();"
                     >
                     {% else %}
-
                     <img 
                     class="top_content_noti_image" 
                     src="/static/image/noti.png"
@@ -684,17 +792,49 @@
     </div>
 
     <div class="notification_div">
-        {% for notification in notifications %}
-            <div class="notifications">
-                <div class="notification_category">
-                    {{notification.category}}
-                </div>
-
-                <div class="notification_content">
-                    {{notification.content}}
+        <div class="notification_top_div">
+            <div class="notification_text_div">
+                <div class="notification_text">
+                    전체 알림 
                 </div>
             </div>
+
+            <div class="notification_button_div">
+                
+                <button class="notification_checked_delete_button" type="button" onclick="delete_checked_notification();">읽은 알림 삭제</button>
+
+                <button class="notification_checked_delete_button" type="button" onclick="delete_all_notification();" style="margin-right:8%;">모두 삭제</button>
+            </div>
+        </div>
+        <div class="notification_content_div">
+        {% for notification in notifications %}
+            {% if notification.is_checked %}
+                <div class="notifications notification_checked" id={{notification.id}}>
+                    <div class="notification_category">
+                        {{notification.category}}
+                    </div>
+                    <div class="notification_content" onclick="check_notification( {{notification.id}});">
+                        {{notification.content}}
+                    </div>
+                    <div class="notification_delete_div" onclick="delete_notification( {{notification.id}});">
+                        X
+                    </div>
+                </div>
+            {% else %}
+                <div class="notifications" id={{notification.id}}>
+                    <div class="notification_category">
+                        {{notification.category}}
+                    </div>
+                    <div class="notification_content" onclick="check_notification( {{notification.id}});">
+                        {{notification.content}}
+                    </div>
+                    <div class="notification_delete_div" onclick="delete_notification( {{notification.id}});">
+                            X
+                    </div>
+                </div>
+            {% endif %}
         {% endfor %}
+        </div>
     </div>
 
     <div class="mycatinfo_div">
@@ -707,7 +847,7 @@
         function toggle_notification(){
             if(notification_is_open){
                 $(".notification_div").stop().animate({
-                    'right':'-20%'
+                    'right':'-22.5%'
                 });
 
                 notification_is_open=false;
@@ -724,13 +864,31 @@
             $(".top_content_noti_image").removeClass("top_content_noti_shake");
 
 
-            fetch("./check_notification/")
-                .then(e => e.json())
-                .then(e =>{
+            // fetch("./check_notification/")
+            //     .then(e => e.json())
+            //     .then(e =>{
+            //         console.log(e);
+            //         $(".top_content_noti_count_div").css({
+            //             'display':'none'
+            //         });
+            //     });
+        }
+
+        function check_notification(noti_id){
+            $("#"+String(noti_id)).addClass('notification_checked');
+            fetch("/check_notification/"+String(noti_id)+"/")
+                .then(e => e.json()) 
+                .then(e => {
                     console.log(e);
-                    $(".top_content_noti_count_div").css({
-                        'display':'none'
-                    });
+                });
+        }
+
+        function delete_notification(noti_id){
+            $("#"+String(noti_id)).hide();
+            fetch("/delete_notification/"+String(noti_id)+"/")
+                .then(e => e.json()) 
+                .then(e => {
+                    console.log(e);
                 });
         }
 
@@ -843,6 +1001,26 @@
                 
            },900); 
         });
+
+        function delete_checked_notification(){
+            $(".notification_checked").css({
+                'display':'none'
+            });
+            fetch("/delete_checked_notification/")
+             .then(e => e.json())
+             .then(e => {
+                 console.log(e);
+             });//비동기
+        }
+
+        function delete_all_notification(){
+            $(".notifications").hide();
+            fetch("/delete_all_notification/")
+             .then(e => e.json())
+             .then(e => {
+                 console.log(e);
+             });//비동기
+        }
     </script>
 
 

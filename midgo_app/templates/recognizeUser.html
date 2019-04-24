@@ -42,7 +42,7 @@
             height:85%;
             position: relative;
             background-color:pink;
-            border-top:1px solid black;
+            /* border-top:1px solid black; */
         }
       
 
@@ -51,7 +51,7 @@
             height:100%;
             position: relative;
             background-color: transparent;
-            border-top:1px solid black;
+            /* border-top:1px solid black; */
         }
 
         .top_sec_content{
@@ -406,12 +406,126 @@
         .check_recognize_div{
             width:30%;
             height:45%;
+            z-index: 9100;
             position:absolute;
             top:55%;
             left:50%;
             transform:translate(-50%,-50%);
             background-color: white;
             display:none;
+        }
+
+        #mask{
+            position:absolute;
+            left:0;
+            top:0;
+            z-index:9000;
+            background-color: #000;
+            display: none;
+            opacity: 0.5;
+        }
+
+        .check_recognize_close_div{
+            width:auto;
+            height:auto;
+            position:absolute;
+            top:2%;
+            right:3%;
+        }
+
+        .check_recognize_user_grade_div{
+            width:100%;
+            height:auto;
+            text-align:center;
+            top:20%;
+            position:relative;
+            background-color:transparent;
+        }
+
+        .check_recognize_user_grade_select{
+            color:black;
+            font-size:20px;
+            font-weight:bold;
+            text-align:left;
+            border:none;
+            border-bottom:1px solid rgb(202, 58, 82);
+            background:none;
+            border-radius:0;
+            filter:alpha(opacity=0);
+            outline:none;
+        }
+
+        .check_recognize_button_div{
+            width:100%;
+            height:auto;
+            text-align: center;
+            top:47%;
+            position:relative;
+        }
+
+        .recognize_button{
+            width:10vw;
+            height:3vw;
+            border-radius: 5%;
+            border:none;
+            outline:none;
+            background-color:pink;
+        }
+
+        .recognize_recheck_div{
+            width:30%;
+            height:45%;
+            position:fixed;
+            top:55%;
+            left:50%;
+            transform: translate(-50%, -50%);
+            background-color:violet;
+            z-index:9999;
+            display:none;
+        }
+
+        .recognize_recheck_close{
+            width:auto;
+            height:auto;
+            position:absolute;
+            background-color:aqua;
+            top: 0;
+            right:0;
+            font-size:1.5rem;
+        }
+
+        .recognize_recheck_info_div{
+            width:50%;
+            height:50%;
+            position:relative;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);
+            background-color:yellowgreen;
+        }
+
+        .recognize_recheck_info_text_div{
+            width:100%;
+            height:70%;
+            position:relative;
+            background-color:orange;
+        }
+
+        .recognize_recheck_info_text{
+            width:auto;
+            height:auto;
+            position:relative;
+            top:50%;
+            transform:translate(0%,-50%);
+            text-align:center;
+        }
+
+        .recognize_recheck_info_button_div{
+            width:100%;
+            height:30%;
+            position:relative;
+            background-color:blue;
+            text-align:center;
         }
 
 
@@ -615,8 +729,8 @@
                             중성화 유무
                         </div>
                         <div class="middle_cat_info_value">
-                            <input type="radio" id="cat1_neutral_O" name="cat_neutral" value="O"/>O
-                            <input type="radio" id="cat1_neutral_X" name="cat_neutral" value="X"/>X
+                            <input type="radio" id="cat1_neutral_O" name="cat1_neutral" value="O"/>O
+                            <input type="radio" id="cat1_neutral_X" name="cat1_neutral" value="X"/>X
                             <input type="text" id="cat1_neutral_tmp" value="{{cat1.neutral}}" hidden>
                         </div>
                     </div>
@@ -744,8 +858,8 @@
                             중성화 유무
                         </div>
                         <div class="middle_cat_info_value">
-                            <input type="radio" id="cat2_neutral_O" name="cat_neutral" value="O"/>O
-                            <input type="radio" id="cat2_neutral_X" name="cat_neutral" value="X"/>X
+                            <input type="radio" id="cat2_neutral_O" name="cat2_neutral" value="O"/>O
+                            <input type="radio" id="cat2_neutral_X" name="cat2_neutral" value="X"/>X
                             {% if cat2 %}
                             <input type="text" id="cat2_neutral_tmp" value="{{cat2.neutral}}" hidden>
                             {% endif %}
@@ -875,8 +989,8 @@
                             중성화 유무
                         </div>
                         <div class="middle_cat_info_value">
-                            <input type="radio" id="cat3_neutral_O" name="cat_neutral" value="O"/>O
-                            <input type="radio" id="cat3_neutral_X" name="cat_neutral" value="X"/>X
+                            <input type="radio" id="cat3_neutral_O" name="cat3_neutral" value="O"/>O
+                            <input type="radio" id="cat3_neutral_X" name="cat3_neutral" value="X"/>X
                             {% if cat3 %}
                             <input type="text" id="cat3_neutral_tmp" value={{cat3.neutral}} hidden>
                             {% endif %}
@@ -916,11 +1030,48 @@
         
     </div>
 
+    <div id="mask"></div>
+
     <div class="check_recognize_div">
+        <div class="check_recognize_close_div">
+            X
+        </div>
+
+        <div class="check_recognize_user_grade_div">
+            <p>{{user.username}} 님의 회원등급</p>
+            <select class="check_recognize_user_grade_select">
+                <option value="Bronze">Bronze</option>
+                <option value="Silver">Silver</option>
+                <option value="Gold">Gold</option>
+            </select>
+        </div>
+
+        <div class="check_recognize_button_div">
+            <button class="recognize_button" id={{user.username}} onclick="open_recognize_recheck(this);">승인</button>
+            <button class="recognize_button" id={{user.username}} onclick="open_unrecognize_recheck(this);">거절</button>
+
+        </div>
 
     </div>
 
+    <div class="recognize_recheck_div">
+        <div class="recognize_recheck_close">X</div>
+        <div class="recognize_recheck_info_div">
+            <div class="recognize_recheck_info_text_div">
+                <div class="recognize_recheck_info_text">
+                    
+                </div>
+            </div>
+            <div class="recognize_recheck_info_button_div">
+                <button onclick="recognize_check_confirm();">확인</button>
+                <button onclick="recognize_check_cancel();">취소</button>
+            </div>
+        </div>
+    </div>
+
     <script>
+        var f='';
+
         function open_owner(){
             $(".middle_cat_info_div, .middle_form_button_div").css({
                 'display':'none'
@@ -970,6 +1121,7 @@
             if(current_idx ==3){
                 console.log("!!")
                 $(".check_recognize_div").fadeIn(300);
+                wrapWindowByMask();
             }
 
             if(current_idx <=2){
@@ -1027,6 +1179,8 @@
                 console.log(cat_neutral_tmp);
 
                 if(cat_neutral_tmp == "O"){
+                    console.log("uuuu");
+                    console.log("#cat" + String(i) + "_neutral_O");
                     $("#cat" + String(i) + "_neutral_O").attr('checked', 'true');
                 }
                 else {
@@ -1035,6 +1189,80 @@
 
             }
         });
+
+        function wrapWindowByMask(){
+
+            var maskHeight = $(document).height();
+            var maskWidth = $(window).width();
+
+            $('#mask').css({'width':maskWidth, 'height':maskHeight});
+
+            $('#mask').fadeIn(200);
+
+        }
+
+        $(document).ready(function(){
+            //검은막 띄우기
+            $('.recognize_button').click(function(e){
+                e.preventDefault();
+                wrapWindowByMask();
+            });
+
+            //닫기 버튼 눌렀을 때 
+            $('.recognize_recheck_close').click(function (e){
+                e.preventDefault();
+                $('.recognize_recheck_div').hide();
+            });
+
+            $(".check_recognize_close_div").click(function(e){
+                e.preventDefault();
+                $('#mask, .check_recognize_div').hide();
+            });
+
+            //검은막 눌렀을 때
+            $('#mask').click(function (){
+                $(this).hide();
+                $(".check_recognize_div, .recognize_recheck_div").hide();
+            });
+        });
+
+        function open_recognize_recheck(btn){
+            //alert("승인");
+            $(".recognize_recheck_div").css({
+                'display':'block'
+            });
+            $(".recognize_recheck_info_text").html(
+                btn.id + "님을 승인하시겠습니까?"
+            );
+
+            f ='recognize';
+        }
+
+        function open_unrecognize_recheck(btn){
+            //alert("거절");
+            $(".recognize_recheck_div").css({
+                'display':'block'
+            });
+            $(".recognize_recheck_info_text").html(
+                btn.id + "님을 거절하시겠습니까?"
+            );
+            f ='unrecognize';
+        }
+
+        function recognize_check_confirm(){
+            var user_grade= $('.check_recognize_user_grade_select').val();
+
+            if(f=='recognize'){
+                window.location.href ='./recognize/'+user_grade+'/';
+            }
+            else if(f=='unrecognize'){
+                window.location.href='./unrecognize/';
+            }
+        }
+
+        function recognize_check_cancel(){
+            $('.recognize_recheck_div').hide();
+        }
 
     </script>
 </body>

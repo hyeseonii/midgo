@@ -48,7 +48,11 @@ class Notification(models.Model) :
     created_at = models.DateTimeField(auto_now_add=True)
     content = models.TextField()
     category = models.CharField(max_length = 30, choices=CATEGORY_CHOICES, null=True)
-    owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True, related_name='notifications')
+    creator = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True, related_name='create_notifications')
+    receiver = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True, related_name='receive_notifications')
+    is_checked=models.BooleanField(default=False)
+    
+
 
     def __str__(self) :
         return self.category + "-" + str(self.created_at)
