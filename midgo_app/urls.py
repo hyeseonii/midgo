@@ -7,9 +7,13 @@ from django.conf import settings
 urlpatterns = [
     path('', views.index),
     path('main/',views.main),
+    path('main/pick/',views.pick),
+    path('main/study/',views.study),
+
     path('check_notification/<int:notification_id>/', views.check_notification),
     path('delete_notification/<int:notification_id>/',views.delete_notification),
     path('delete_all_notification/',views.delete_all_notification),
+    
 
     path('join/', views.join),
     path('join/check_join/', views.check_join ),

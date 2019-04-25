@@ -23,13 +23,13 @@
     <style type="text/css">
         html{
             height:100%;
-            overflow:hidden;
+            /* overflow:hidden; */
         }
         body{
             height: 100%;
             margin: 0%;
             background-color: white;
-            overflow:hidden;
+            overflow-x:hidden;
         }
 
         .top{
@@ -41,9 +41,9 @@
 
         .middle{
             width:100%;
-            height:65%;
+            height:240%;
             position: relative;
-            background-color: transparent;
+            background-color:transparent;
 
         }
 
@@ -177,16 +177,224 @@
 
         .middle_fir_div{
             width:100%;
-            height:30%;
+            height:10%;
             position: relative;
             background-color:transparent;
         }
 
         .middle_sec_div{
             width:100%;
-            height:70%;
+            height:90%;
             position: relative;
+            background-color:navajowhite;
+        }
+
+        .middle_sec_menu_div{
+            width:100%;
+            height:10%;
+            position:relative;
+            background-color:yellow;
+        }
+
+        .middle_sec_menu_cover{
+            width:30%;
+            height:100%;
+            position: relative;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);
+            background-color:red;
+        }
+
+        .middle_sec_menu{
+            width:25%;
+            height:100%;
+            float:left;
+            position:relative;
+            background-color: grey;
+        }
+
+        .middle_sec_menu_text{
+            width:100%;
+            height:auto;
+            position:relative;
+            top:50%;
+            transform: translateY(-50%);
+            text-align:center;
+        }
+
+        .middle_sec_content_div{
+            width:100%;
+            height:90%;
+            position:relative;
+            background-color:green;
+        }
+
+        .middle_sec_content_top{
+            width:90%;
+            height:5%;
+            position:relative;
+            background-color:skyblue;
+            left:50%;
+            transform:translateX(-50%);
+        }
+
+        .middle_sec_content_top_text_div{
+            width:15%;
+            height:100%;
+            position:relative;
+            background-color:black;
+        }
+
+        .middle_sec_content_top_text_cover{
+            width:100%;
+            height:auto;
+            position:relative;
+            background-color:violet;
+            top:50%;
+            transform:translate(0%,-50%);
+            /* text-align: center; */
+        }
+
+        .middle_sec_content_bottom{
+            width:90%;
+            height:95%;
+            position:relative;
+            background-color:olive;
+            left:50%;
+            transform:translateX(-50%);
+            border-top :2px solid black;
+        }
+
+        .middle_sec_content_bottom_fir_div{
+            width:100%;
+            height:5%;
+            position:relative;
+            background-color:white;
+        }
+
+        .middle_sec_content_bottom_fir_cover1{
+            width: 5%;
+            height: 100%;
+            position:relative;
             background-color:transparent;
+            float:left;
+        }
+
+        .middle_sec_content_bottom_fir_text{
+            width:100%;
+            height:auto;
+            text-align:center;
+            background-color:transparent;
+            top: 50%;
+            transform: translateY(-50%);
+            position: relative;
+
+        }
+        .middle_sec_content_bottom_fir_cover2{
+            width: 10%;
+            height: 100%;
+            position:relative;
+            background-color:transparent;
+            float:left;
+        }
+
+        .middle_sec_content_bottom_fir_cover3{
+            width: 50%;
+            height: 100%;
+            position:relative;
+            background-color:transparent;
+            float:left;
+        }
+
+        .middle_sec_content_bottom_fir_cover4{
+            width: 10%;
+            height: 100%;
+            position:relative;
+            background-color:transparent;
+            float:left;
+        }
+
+        .middle_sec_content_bottom_fir_cover5{
+            width: 15%;
+            height: 100%;
+            position:relative;
+            background-color:transparent;
+            float:left;
+        }
+
+        .middle_sec_content_bottom_fir_cover6{
+            width: 5%;
+            height: 100%;
+            position:relative;
+            background-color:transparent;
+            float:left;
+        }
+
+        .middle_sec_content_bottom_fir_cover7{
+            width: 5%;
+            height: 100%;
+            position:relative;
+            background-color:transparent;
+            float:left;
+        }
+
+        .middle_sec_content_bottom_sec_div{
+            width:100%;
+            height:85%;
+            position:relative;
+            background-color:brown;
+        }
+
+        .middle_sec_content_bottom_notice_div{
+            width:100%;
+            height:5%;
+            position:relative;
+            background-color:orange;
+        }
+
+        .middle_sec_content_bottom_text_div{
+            width:100%;
+            height:5%;
+            position:relative;
+            background-color:purple;
+        }
+
+        .middle_sec_content_bottom_third_div{
+            width:100%;
+            height:5%;
+            position: relative;
+            background-color:plum;
+        }
+
+        #middle_sec_content_write_button{
+            width:8vw;
+            height:2vw;
+            position:absolute;
+            border:none;
+            outline:none;
+            cursor:pointer;
+            background-color:pink;
+            border-radius:5%;
+            top:50%;
+            transform:translateY(-50%);
+            right:2%;
+        }
+
+        .middle_sec_content_bottom_pagenate_div{
+            width:100%;
+            height:5%;
+            position: relative;
+            background-color:blue;
+        }
+
+        .middle_sec_content_bottom_pagenate{
+            width:100%;
+            height:auto;
+            position:relative;
+            top:50%;
+            transform:translateY(-50%);
+            text-align:center;
         }
 
         .middle_cate_mycatinfo_div{
@@ -255,72 +463,6 @@
         }
 
         .middle_cate_content:hover .middle_cate_hover{
-            opacity: 1;
-        }
-
-        .middle_sec_cover{
-            width:100%;
-            height:100%;
-            top:50%;
-            position: relative;
-            left:50%;
-            transform: translate(-50%,-50%);
-            background-color: transparent;
-        }
-
-        .middle_sec_content_cover{
-            width:25%;
-            height:100%;
-            position: relative;
-            float:left;
-            background-color: transparent;
-        }
-
-        .middle_sec_content{
-            width: 12vw;
-            height: 12vw;
-            position: relative;
-            border-radius:50%;
-            margin-right:4%;
-            left: 10%;
-        }
-
-        #middle_sec_content_1{
-            top:-120%;
-            transform: rotate(0deg);
-            opacity:0;
-        }
-
-        #middle_sec_content_2{
-            top:-150%;
-            transform: rotate(-50deg);
-            opacity:0;
-        }
-
-        #middle_sec_content_3{
-            top:-130%;
-            transform: rotate(-30deg);
-            opacity:0;
-        }
-
-        #middle_sec_content_4{
-            top:-140%;
-            transform: rotate(30deg);
-            opacity:0;
-        }
-
-        .middle_sec_content_hover{
-            width:100%;
-            height: 100%;
-            position:absolute;
-            top:0%;
-            left:0%;
-            opacity: 0;
-            transition: 0.5s ease;
-            background-color:sienna;
-        }
-
-        .middle_sec_content_cover:hover .middle_sec_content_hover{
             opacity: 1;
         }
 
@@ -529,7 +671,6 @@
        
         a {
             text-decoration: none;
-            color:inherit;
         }
 
         .mycatinfo_close{
@@ -539,9 +680,16 @@
             position: absolute;
             width:2vw;
             height:2vw;
-         }
+        }
+
+        
 
        
+
+        
+
+    
+
     </style>
 </head>
 
@@ -652,7 +800,7 @@
                 <div class=" middle_cate_content">
                     <div class="middle_cate_title">
                         <div class="middle_cate_title_text">
-                            <a href="./pick/" >PICK'</a>
+                            PICK'
                         </div>            
                     </div> 
                     <div class="middle_cate_hover">
@@ -660,7 +808,7 @@
                                 subtitle1
                         </div>
                          <div class="middle_cate_subtitle">
-                                 subtitle2
+                                    subtitle2
                         </div>
                     </div>
                 </div>
@@ -684,7 +832,7 @@
                 <div class=" middle_cate_content">
                     <div class="middle_cate_title">
                         <div class="middle_cate_title_text">
-                                <a href="./study/" >STUDY</a>
+                        STUDY
                         </div>
                     </div>
                     <div class="middle_cate_hover">
@@ -752,42 +900,166 @@
         </div>
 
         <div class="middle_sec_div">
-            <div class="middle_sec_cover">
-                <div class="middle_sec_content_cover">
-                    <img class="middle_sec_content" id="middle_sec_content_1" src="/static/image/aangkko.jpg">
-                    
-                    <!-- <div class="middle_sec_content_hover">
-
-                    </div> -->
-                </div>
-
-                <div class="middle_sec_content_cover">
-                    <img class="middle_sec_content"  id="middle_sec_content_2" src="/static/image/ruru.png">
-                    <!-- <div class="middle_sec_content_hover">
-
-                    </div> -->
-                </div>
-
-                <div class="middle_sec_content_cover">
-                    <img class="middle_sec_content" id="middle_sec_content_3" src="/static/image/hhoppang.png" >
-                
-                    <!-- <div class="middle_sec_content_hover">
-
-                    </div> -->
-                </div>
-
-                <div class="middle_sec_content_cover">
-                    <img class="middle_sec_content"  id="middle_sec_content_4" src="/static/image/kkomi.png" >
-<!--                 
-                    <div class="middle_sec_content_hover">
-
-                    </div> -->
+            <div class="middle_sec_menu_div">
+                <div class="middle_sec_menu_cover">
+                    <div class="middle_sec_menu">
+                        <div class="middle_sec_menu_text">
+                            전체
+                        </div>
+                    </div>
+                    <div class="middle_sec_menu">
+                        <div class="middle_sec_menu_text">
+                            수의학
+                        </div>
+                    </div>
+                    <div class="middle_sec_menu">
+                        <div class="middle_sec_menu_text">
+                            영양학
+                        </div>
+                    </div>
+                    <div class="middle_sec_menu">
+                        <div class="middle_sec_menu_text">
+                            심리학
+                        </div>
+                    </div>
                 </div>
             </div>
-
+            <div class="middle_sec_content_div">
+                <div class="middle_sec_content_top">
+                    <div class="middle_sec_content_top_text_div">
+                       <div class="middle_sec_content_top_text_cover">
+                           공부하는 집사  12
+                       </div> 
+                    </div>
+                </div>
+                <div class="middle_sec_content_bottom">
+                    <div class="middle_sec_content_bottom_fir_div">
+                        <div class="middle_sec_content_bottom_fir_cover1">
+                            <div class="middle_sec_content_bottom_fir_text">
+                                NO
+                            </div>
+                        </div>
+                        <div class="middle_sec_content_bottom_fir_cover2">
+                            <div class="middle_sec_content_bottom_fir_text">
+                                카테고리
+                            </div>
+                        </div>
+                        <div class="middle_sec_content_bottom_fir_cover3">
+                            <div class="middle_sec_content_bottom_fir_text">
+                                제목
+                            </div>
+                        </div>
+                        <div class="middle_sec_content_bottom_fir_cover4">
+                            <div class="middle_sec_content_bottom_fir_text">
+                                글쓴이
+                            </div>
+                        </div>
+                        <div class="middle_sec_content_bottom_fir_cover5">
+                            <div class="middle_sec_content_bottom_fir_text">
+                                작성시간
+                            </div>
+                        </div>
+                        <div class="middle_sec_content_bottom_fir_cover6">
+                            <div class="middle_sec_content_bottom_fir_text">
+                                조회수
+                            </div>
+                        </div>
+                        <div class="middle_sec_content_bottom_fir_cover7">
+                            <div class="middle_sec_content_bottom_fir_text">
+                                좋아요
+                            </div>
+                        </div>
+                    </div>
+                    <div class="middle_sec_content_bottom_sec_div">
+                        <div class="middle_sec_content_bottom_notice_div">
+                            <div class="middle_sec_content_bottom_fir_cover1">
+                                <div class="middle_sec_content_bottom_fir_text">
+                                    17
+                                </div>
+                            </div>
+                            <div class="middle_sec_content_bottom_fir_cover2">
+                                <div class="middle_sec_content_bottom_fir_text">
+                                    영양학
+                                </div>
+                            </div>
+                            <div class="middle_sec_content_bottom_fir_cover3">
+                                <div class="middle_sec_content_bottom_fir_text">
+                                    고양이 사상체질
+                                </div>
+                            </div>
+                            <div class="middle_sec_content_bottom_fir_cover4">
+                                <div class="middle_sec_content_bottom_fir_text">
+                                    꼬집사
+                                </div>
+                            </div>
+                            <div class="middle_sec_content_bottom_fir_cover5">
+                                <div class="middle_sec_content_bottom_fir_text">
+                                    2010-04-25
+                                </div>
+                            </div>
+                            <div class="middle_sec_content_bottom_fir_cover6">
+                                <div class="middle_sec_content_bottom_fir_text">
+                                    7
+                                </div>
+                            </div>
+                            <div class="middle_sec_content_bottom_fir_cover7">
+                                <div class="middle_sec_content_bottom_fir_text">
+                                    0
+                                </div>
+                            </div>
+                        </div>
+                        <div class="middle_sec_content_bottom_text_div">
+                                <div class="middle_sec_content_bottom_fir_cover1">
+                                    <div class="middle_sec_content_bottom_fir_text">
+                                        17
+                                    </div>
+                                </div>
+                                <div class="middle_sec_content_bottom_fir_cover2">
+                                    <div class="middle_sec_content_bottom_fir_text">
+                                        영양학
+                                    </div>
+                                </div>
+                                <div class="middle_sec_content_bottom_fir_cover3">
+                                    <div class="middle_sec_content_bottom_fir_text">
+                                        고양이 사상체질
+                                    </div>
+                                </div>
+                                <div class="middle_sec_content_bottom_fir_cover4">
+                                    <div class="middle_sec_content_bottom_fir_text">
+                                        꼬집사
+                                    </div>
+                                </div>
+                                <div class="middle_sec_content_bottom_fir_cover5">
+                                    <div class="middle_sec_content_bottom_fir_text">
+                                        2010-04-25
+                                    </div>
+                                </div>
+                                <div class="middle_sec_content_bottom_fir_cover6">
+                                    <div class="middle_sec_content_bottom_fir_text">
+                                        7
+                                    </div>
+                                </div>
+                                <div class="middle_sec_content_bottom_fir_cover7">
+                                    <div class="middle_sec_content_bottom_fir_text">
+                                        0
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="middle_sec_content_bottom_third_div">
+                        <button type="button" id="middle_sec_content_write_button">
+                            글쓰기
+                        </button>
+                    </div>
+                    <div class="middle_sec_content_bottom_pagenate_div">
+                        <div class="middle_sec_content_bottom_pagenate">
+                            < 1 / 2 >
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-       
     </div>
 
     <div class="bottom">

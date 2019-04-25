@@ -267,5 +267,13 @@ def unrecognize(request,user_id) :
         return redirect('/recognizeUserlist/')
 
 
+def pick(request):
+
+        return render(request, "./pick.html")
+
+def study(request):
+
+        return render(request, "./study.html")
+
 
 
