@@ -79,8 +79,10 @@
             font-weight:500;
             font-size:50px;
             text-align:center;
+            letter-spacing: 8px;
             /* border-bottom:1px solid black; */
             font-family: 'Short Stack', cursive;
+            
         }
         
         .top_left_div_cover{
@@ -169,8 +171,8 @@
         .top_content_noti{
             width:10%;
             height: 100%;
-            top: 0%;
-            right: 0;
+            top: -30%;
+            right: 18%;
             position: absolute;
             background-color: transparent;
         }
@@ -336,7 +338,7 @@
             height:70%;
             position: absolute;
             background-color:grey;
-            top:15%;
+            top:31%;
             right:-22.5%;
          }
 
@@ -419,7 +421,7 @@
              width:20%;
              height:100%;
              position:absolute;
-             background-color:salmon;
+             background-color:beige;
              top:0;
              left:-20%;
          }
@@ -476,8 +478,8 @@
         }
 
         .top_content_noti_image{
-            width: 2vw;
-            height: 2vw;
+            width: 1.5vw;
+            height: 1.5vw;
             position: absolute;
             top: 50%;
             left: 50%;
@@ -563,7 +565,7 @@
                     <div style="width:100%; height:auto; margin-bottom:7px;">
                        MIDGO 
                     </div>
-                    <div style="width:100%; height:auto; font-size : 1.5rem; font-weight: 500; font-family: 'Gamja Flower', cursive; color:#ff7e97;" > 
+                    <div style="width:100%; height:auto; font-size : 1.5rem; font-weight: 500; font-family: 'Gamja Flower', cursive; color:#ff7e97; letter-spacing:4px;" > 
                          믿고 알아가는 꼬미네
                     </div>
                 </div>
@@ -600,7 +602,7 @@
                 {% endif %}
 
 
-                <div class="top_content_noti">
+                <!-- <div class="top_content_noti">
                     {% if is_important %}
                     <img 
                     class="top_content_noti_image top_content_noti_shake" 
@@ -621,7 +623,7 @@
                         {{notifications_count}}
                     </div>
                     {% endif %}
-                </div>
+                </div> -->
             </div>
         </div>
 
@@ -726,7 +728,7 @@
                 </div>
             </div>
 
-            <!-- <div class="top_content_noti">
+            <div class="top_content_noti">
                 {% if is_important %}
                 <img 
                 class="top_content_noti_image top_content_noti_shake" 
@@ -748,7 +750,7 @@
                     {{notifications_count}}
                 </div>
                 {% endif %}
-            </div> -->
+            </div>
         </div>
 
         <div class="middle_sec_div">
