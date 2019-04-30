@@ -671,6 +671,7 @@
        
         a {
             text-decoration: none;
+            color:inherit;
         }
 
         .mycatinfo_close{
@@ -837,15 +838,15 @@
                     </div>
                     <div class="middle_cate_hover">
                         <div class="middle_cate_subtitle">
-                                수의학
+                                질병사전
                         </div>
     
                         <div class="middle_cate_subtitle">
-                                영양학
+                                영양사전
                         </div>
     
                         <div class="middle_cate_subtitle">
-                                심리학
+                                행동/심리
                         </div>
                     </div>
                 </div>
@@ -909,17 +910,17 @@
                     </div>
                     <div class="middle_sec_menu">
                         <div class="middle_sec_menu_text">
-                            수의학
+                            질병사전
                         </div>
                     </div>
                     <div class="middle_sec_menu">
                         <div class="middle_sec_menu_text">
-                            영양학
+                            영양사전
                         </div>
                     </div>
                     <div class="middle_sec_menu">
                         <div class="middle_sec_menu_text">
-                            심리학
+                            행동/심리
                         </div>
                     </div>
                 </div>
@@ -928,7 +929,7 @@
                 <div class="middle_sec_content_top">
                     <div class="middle_sec_content_top_text_div">
                        <div class="middle_sec_content_top_text_cover">
-                           공부하는 집사  12
+                           {{category}} {{article_count}}
                        </div> 
                     </div>
                 </div>
@@ -1008,43 +1009,53 @@
                                 </div>
                             </div>
                         </div>
+
+
+                        {% for article in articles %}
                         <div class="middle_sec_content_bottom_text_div">
                                 <div class="middle_sec_content_bottom_fir_cover1">
                                     <div class="middle_sec_content_bottom_fir_text">
-                                        17
+                                        {{article.id}}
                                     </div>
                                 </div>
                                 <div class="middle_sec_content_bottom_fir_cover2">
                                     <div class="middle_sec_content_bottom_fir_text">
-                                        영양학
+                                        {{article.category}}
                                     </div>
                                 </div>
                                 <div class="middle_sec_content_bottom_fir_cover3">
                                     <div class="middle_sec_content_bottom_fir_text">
-                                        고양이 사상체질
+                                        {{article.title}}
                                     </div>
                                 </div>
                                 <div class="middle_sec_content_bottom_fir_cover4">
                                     <div class="middle_sec_content_bottom_fir_text">
-                                        꼬집사
+                                        {{article.creator}}
                                     </div>
                                 </div>
                                 <div class="middle_sec_content_bottom_fir_cover5">
                                     <div class="middle_sec_content_bottom_fir_text">
-                                        2010-04-25
+                                        {{article.created_at}}
                                     </div>
                                 </div>
                                 <div class="middle_sec_content_bottom_fir_cover6">
                                     <div class="middle_sec_content_bottom_fir_text">
-                                        7
+                                        {{article.view}}
                                     </div>
                                 </div>
                                 <div class="middle_sec_content_bottom_fir_cover7">
                                     <div class="middle_sec_content_bottom_fir_text">
-                                        0
+                                        {{article.like_count}}
                                     </div>
                                 </div>
                         </div>
+                        {% endfor %}
+
+                        
+
+
+
+
                     </div>
                     <div class="middle_sec_content_bottom_third_div">
                         <button type="button" id="middle_sec_content_write_button">
@@ -1053,7 +1064,23 @@
                     </div>
                     <div class="middle_sec_content_bottom_pagenate_div">
                         <div class="middle_sec_content_bottom_pagenate">
-                            < 1 / 2 >
+                            {% if page_idx > 1 %}
+                                <a href="/main/study/{{category}}/{{prev_page_idx}}/">
+                                <
+                                </a>
+                            {% endif %}
+
+                            {% for i in page_range %}
+                                <a href="/main/study/{{category}}/{{i}}/">
+                                {{i}}
+                                </a>
+                            {% endfor %}
+
+                            {% if page_idx < num_pages %}
+                                <a href ="/main/study/{{category}}/{{next_page_idx}}/">
+                                >
+                                </a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>

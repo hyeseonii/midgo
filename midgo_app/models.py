@@ -56,3 +56,81 @@ class Notification(models.Model) :
 
     def __str__(self) :
         return self.category + "-" + str(self.created_at)
+
+class Article(models.Model) :
+
+    ARTICLE_CATEGORY_CHOICES ={
+        ('veterinary_medicine','veterinary_medicine'),
+        ('nutrition','nutrition'),
+        ('psychology','psychology')
+    }
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    creator = models.ForeignKey(User,on_delete=models.CASCADE, null=True, blank=True, related_name='articles')
+    title = models.CharField(max_length=100,default='')
+    category= models.CharField(max_length=20, choices=ARTICLE_CATEGORY_CHOICES, default='veterinary_medicine')
+    view=models.IntegerField(default=0)
+    content=models.TextField()
+
+    def __str__(self) :
+        return self.title + " - " + str(self.creator.username)
+
+    @property
+    def like_count(self) :
+        return self.likes.all().count()
+
+    @property
+    def comment_count(self) :
+        return self.comments.all().count()
+
+    class Meta :
+        ordering = ['-created_at']
+
+
+class ArticleImage(models.Model) :
+    
+    file = models.ImageField(upload_to = 'articleImage/')
+    article = models.ForeignKey(Article, on_delete=models.CASCADE, null=True, blank=True, related_name='aricleImages'),
+
+    def __str__(self) :
+        return self.article.title
+
+class Like(models.Model) :
+  
+    creator= models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    article= models.ForeignKey(Article, on_delete=models.CASCADE, null=True, blank=True, related_name='likes')
+
+    def __str__(self) :
+        return self.creator.username + " - " + self.article.title
+
+class Comment(models.Model) :
+    
+    creator = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    article = models.ForeignKey(Article, on_delete=models.CASCADE, null=True, blank=True, related_name='comments')
+    content = models.CharField(max_length=300, default='')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self) :
+        return self.creator.username +" - "+self.article.title+ " - "+self.content
+
+    class Meta :
+        ordering = ['created_at']
+
+
+class ReComment(models.Model) :
+    creator = models.ForeignKey(User,on_delete=models.CASCADE, null=True, blank=True)
+    comment = models.ForeignKey(Comment, on_delete=models.CASCADE, null=True, blank=True, related_name='recomments')
+    content = models.CharField(max_length=300, default='')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self) :
+        return self.creator.username + " - "+self.comment.article.title+ " - " + self.content
+    
+    class Meta :
+        ordering = ['created_at']
+
+class SummerNoteImage(models.Model) :
+
+    file = models.ImageField(upload_to='summernoteImage/')
+    url = models.TextField(default='', null=True, blank=True)

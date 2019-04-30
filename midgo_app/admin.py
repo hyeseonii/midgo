@@ -5,3 +5,4 @@ from .models import *
 admin.site.register(User)
 admin.site.register(Cat)
 admin.site.register(Notification)
+admin.site.register(Article)

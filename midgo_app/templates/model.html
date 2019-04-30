@@ -10,8 +10,6 @@
     <link href="https://fonts.googleapis.com/css?family=Short+Stack" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137805801-1"></script>
     <script>
@@ -25,17 +23,13 @@
     <style type="text/css">
         html{
             height:100%;
-            overflow:hidden;
+            /* overflow:hidden; */
         }
         body{
-            width: 90%;
             height: 100%;
             margin: 0%;
             background-color: white;
-            overflow:hidden;
-            position: relative;
-            left: 50%;
-            transform: translateX(-50%);
+            overflow-x:hidden;
         }
 
         .top{
@@ -47,9 +41,9 @@
 
         .middle{
             width:100%;
-            height:65%;
+            height:240%;
             position: relative;
-            background-color: transparent;
+            background-color: navy;
 
         }
 
@@ -65,10 +59,10 @@
 
         .top_fir_div{
             width:100%;
-            height: 20%;
+            height: 100%;
             position: relative;
             background-color: transparent;
-            border-bottom: 1px solid rgba(180, 175, 175, 0.3);
+          /* border-bottom: 1px solid black; */
         }
 
         .top_sec_div{
@@ -76,7 +70,6 @@
             height:80%;
             position: relative;
             background-color: transparent;
-           
         }
 
         .top_sec_content{
@@ -86,51 +79,30 @@
             font-weight:500;
             font-size:50px;
             text-align:center;
-            letter-spacing: 8px;
             /* border-bottom:1px solid black; */
             font-family: 'Short Stack', cursive;
-            
+            letter-spacing: 8px;
         }
         
         .top_left_div_cover{
             width:30%;
             height:100%;
+            top:-32%;
             position: relative;
             background-color:transparent;
             float:left;
-            left:0%;       
-        }
-
-        .top_left_content_img_cover{
-            width:20%;
-            height:100%;
-            position: relative;
-            background-color:transparent;
             left:8%;
-            z-index: 9999;
-        }
-
-        .top_left_content_img{
-            width:1.5vw;
-            height:1.5vw;
-            position: relative;
-            top:50%;
-            transform: translateY(-50%);
-            margin-right:0.6vw;
+            
         }
 
         .top_content_search_cover{
-            width: 55%;
-            height: 100%;
+            width: 60%;
+            height: 18%;
             background-color:transparent;
-            position: relative;
-            float:left;
-        }
-
-        #search_input{
-            position: relative;
-            top: 50%;
+            position: absolute;
+            top: 13%;
             transform: translateY(-50%);
+            right: 5%;
         }
 
         .top_content_search{
@@ -148,7 +120,7 @@
             position:relative;
             float:left;
             background-color:transparent;
-            /* border-top:1px solid black; */
+            top:20%;
         }
 
         .top_right_div_cover{
@@ -159,12 +131,13 @@
             float: right;
             margin-right:2%;
             font-family: 'Short Stack', cursive;
+
         }
         
         .top_content_join{
-            width:15%;
+            width:28.3%;
             height: auto;
-            font-size:0.5rem;
+            font-size:1rem;
             background-color:transparent;
             position: relative;
             float:left;
@@ -173,9 +146,9 @@
         }
 
         .top_content_login{
-            width:15%;
+            width:28.3%;
             height: auto;
-            font-size:0.5rem;
+            font-size:1rem;
             background-color:transparent;
             position: relative;
             float:left;
@@ -184,9 +157,9 @@
         }
 
         .top_content_mypage{
-            width:15%;
+            width:28.3%;
             height: auto;
-            font-size:0.5rem;
+            font-size:1rem;
             position: relative;
             background-color: transparent;
             float:left;
@@ -205,26 +178,16 @@
 
         .middle_fir_div{
             width:100%;
-            height:30%;
+            height:15%;
             position: relative;
             background-color:transparent;
-        }
-
-        .middle_fir_left_div{
-            width:30%;
-            height:100%;
-            top:-32%;
-            position: relative;
-            background-color:transparent;
-            float:left;
-            left:2%;
         }
 
         .middle_sec_div{
             width:100%;
-            height:70%;
+            height:85%;
             position: relative;
-            background-color:transparent;
+            background-color:navajowhite;
         }
 
         .middle_cate_mycatinfo_div{
@@ -260,7 +223,7 @@
         }
 
         .middle_cate_cover{
-            width:40%;
+            width:30%;
             height: 100%;
             position: absolute;
             top: 0;
@@ -293,72 +256,6 @@
         }
 
         .middle_cate_content:hover .middle_cate_hover{
-            opacity: 1;
-        }
-
-        .middle_sec_cover{
-            width:100%;
-            height:100%;
-            top:50%;
-            position: relative;
-            left:50%;
-            transform: translate(-50%,-50%);
-            background-color: transparent;
-        }
-
-        .middle_sec_content_cover{
-            width:25%;
-            height:100%;
-            position: relative;
-            float:left;
-            background-color: transparent;
-        }
-
-        .middle_sec_content{
-            width: 12vw;
-            height: 12vw;
-            position: relative;
-            border-radius:50%;
-            margin-right:4%;
-            left: 10%;
-        }
-
-        #middle_sec_content_1{
-            top:-120%;
-            transform: rotate(0deg);
-            opacity:0;
-        }
-
-        #middle_sec_content_2{
-            top:-150%;
-            transform: rotate(-50deg);
-            opacity:0;
-        }
-
-        #middle_sec_content_3{
-            top:-130%;
-            transform: rotate(-30deg);
-            opacity:0;
-        }
-
-        #middle_sec_content_4{
-            top:-140%;
-            transform: rotate(30deg);
-            opacity:0;
-        }
-
-        .middle_sec_content_hover{
-            width:100%;
-            height: 100%;
-            position:absolute;
-            top:0%;
-            left:0%;
-            opacity: 0;
-            transition: 0.5s ease;
-            background-color:sienna;
-        }
-
-        .middle_sec_content_cover:hover .middle_sec_content_hover{
             opacity: 1;
         }
 
@@ -454,7 +351,7 @@
         }
 
          .mycatinfo_div{
-             width:22.5%;
+            width:22.5%;
              height:70%;
              position:absolute;
              background-color:beige;
@@ -514,8 +411,8 @@
         }
 
         .top_content_noti_image{
-            width: 1.5vw;
-            height: 1.5vw;
+            width: 2vw;
+            height: 2vw;
             position: absolute;
             top: 50%;
             left: 50%;
@@ -528,7 +425,6 @@
             background-color: #ff7e97;
             position: relative;
             font-family: 'Short Stack', cursive;
-          
         }
 
         .middle_cate_title_text{
@@ -537,7 +433,6 @@
             top:50%;
             transform: translateY(-50%);
             position:relative;
-           
         }
 
         .top_content_noti_shake{
@@ -569,7 +464,6 @@
        
         a {
             text-decoration: none;
-            color:inherit;
         }
 
         .mycatinfo_close{
@@ -581,7 +475,126 @@
             height:2vw;
          }
 
-       
+        .middle_pick_div{
+            width:100%;
+            height:85%;
+            position: relative;
+            background-color:orange;
+        }
+
+        .middle_pick_fir_div{
+            width:100%;
+            height:15%;
+            position: relative;
+            background-color:transparent;
+        }
+
+        .middle_pick_sec_div{
+            width:100%;
+            height:85%;
+            position: relative;
+            background-color:rgb(103, 197, 103);
+        }
+
+        .middle_pick_text{
+            width:100%;
+            height:auto;
+            top:50%;
+            transform:translate(0%,-50%);
+            text-align: center;
+            position:relative;
+        }
+
+        .middle_pick_text_img{
+            width:2vw;
+            height:2vw;
+            position:relative;
+        }
+        .middle_pick_text_english{
+            width:100%;
+            height:auto;
+            font-family: 'Short Stack', cursive;
+            font-weight:500;
+            font-size:1.2rem;
+            margin-bottom:1.5%;
+        }
+
+        .middle_pick_text_korean{
+            width:100%;
+            height:auto;
+            font-family: 'Gamja Flower';
+            font-size:1rem;
+        }
+
+        .middle_pick_sec_cats_cover{
+            width:100%;
+            height:30%;
+            margin-bottom:2%;
+            position: relative;
+            background-color: blanchedalmond;
+        }
+
+        .middle_pick_sec_cats{
+            width:25%;
+            height:100%;
+            position: relative;
+            float:left;
+            background-color:coral;
+        }
+
+        .middle_pick_sec_cats_img_div{
+            width:100%;
+            height:70%;
+            position: relative;
+            background-color: transparent;
+        }
+
+        .middle_pick_sec_cats_img_div:hover .middle_pick_sec_cats_img{
+            width:15vw;
+            height:15vw;
+            transition: 0.15s linear;
+        }
+
+        .middle_pick_sec_cats_info_div{
+            width:100%;
+            height:30%;
+            position: relative;
+            background-color: transparent;
+        }
+
+        .middle_pick_sec_cats_img{
+            width:14vw;
+            height:14vw;
+            position: relative;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            border-radius: 50%;
+        }
+
+        .middle_pick_sec_cats_info{
+            width:100%;
+            height:auto;
+            position: relative;
+            text-align: center;
+            top:50%;
+            transform: translateY(-50%);
+            font-family: 'Gamja Flower', cursive;
+        }
+
+        .middle_pick_sec_cats_info_name{
+            font-weight:500;
+            font-size:1.2rem;
+        }
+
+
+
+    
+
+
+
+    
+
     </style>
 </head>
 
@@ -589,24 +602,33 @@
     <div class="top">
         <div class="top_fir_div">
             <div class="top_left_div_cover">
-                <div class="top_left_content_img_cover">
-                   <img class="top_left_content_img" src="/static/image/instagram.png">
-                   <img class="top_left_content_img" id="kakao_icon" src="/static/image/kakaotalk.png" onclick="open_kakao_chat();">
-                </div>
+                    <!-- <div class="top_content_search_cover">
+                        <img src="http://merryaround.co.kr/web/upload/plain79/icon_search01.png" 
+                        style="width: auto; height: auto; position: relative; float: right; top:15%;" 
+                        onclick="search();" >
+                        <input id="search_input" type="text" class="top_content_search">
+                    </div>   -->
+                    <!-- <img src="/static/image/menu.png" style=" width:1.5vw; height:1.5vw; position: absolute; left: 0%; top: 50%; transform: translateY(-50%);" onclick="toggle_mycatinfo();">   -->
             </div>
 
             <div class="top_mid_div_cover">
-                 <!-- <div class="top_sec_content">
+                 <div class="top_sec_content">
                     <div style="width:100%; height:auto; margin-bottom:7px;">
                        MIDGO 
                     </div>
-                    <div style="width:100%; height:auto; font-size : 1.5rem; font-weight: 500; font-family: 'Gamja Flower', cursive; color:#ff7e97; letter-spacing:4px;" > 
+                    <div style="width:100%; height:auto; font-size : 1.5rem; font-weight: 500; font-family: 'Gamja Flower', cursive; color:#ff7e97; letter-spacing:4px;">
                          믿고 알아가는 꼬미네
                     </div>
-                </div> -->
+                </div>
             </div>
 
             <div class="top_right_div_cover">
+                <div class="top_content_search_cover">
+                        <img src="http://merryaround.co.kr/web/upload/plain79/icon_search01.png" 
+                        style="width: auto; height: auto; position: relative; float: right; top:15%;" 
+                        onclick="search();" >
+                        <input id="search_input" type="text" class="top_content_search">
+                </div>  
 
                 {% if login == 'true' %}
                     <div class="top_content_mypage" style="color: transparent;">
@@ -629,13 +651,6 @@
                         mypage
                     </div>
                 {% endif %}
-
-                <div class="top_content_search_cover">
-                    <img src="http://merryaround.co.kr/web/upload/plain79/icon_search01.png" 
-                    style="width: auto; height: auto; position: relative; float: right; top:15%;" 
-                    onclick="search();" >
-                    <input id="search_input" type="text" class="top_content_search">
-                </div>  
 
 
                 <!-- <div class="top_content_noti">
@@ -663,16 +678,14 @@
             </div>
         </div>
 
-        <div class="top_sec_div">
+        <!-- <div class="top_sec_div">
             <div class="top_sec_content">
-                <div style="width:100%; height:auto; margin-bottom:7px;">
-                    MIDGO 
-                </div>
-                <div style="width:100%; height:auto; font-size : 1.5rem; font-weight: 500; font-family: 'Gamja Flower', cursive; color:#ff7e97; letter-spacing:4px;">
-                    믿고 알아가는 꼬미네
-                </div>
+                MIDGO<br>
+                <p style="font-size : 1.5rem; font-weight: 500; font-family: 'Gamja Flower', cursive;">
+                <font color="pink">믿</font>고알아가는<font color="pink">꼬</font>미네
+                </p>
             </div>
-        </div>
+        </div> -->
     </div>
 
     <div class="middle">
@@ -688,17 +701,15 @@
             <div class="middle_fir_band_div">
 
             </div>
-
-            <div class="middle_fir_left_div">
+            <div class="top_left_div_cover">
                 
                 <img src="/static/image/menu.png" style=" width:1.5vw; height:1.5vw; position: absolute; left: 0%; top: 50%; transform: translateY(-50%);" onclick="toggle_mycatinfo();">  
             </div>
-
             <div class="middle_cate_cover">
-                <div class="middle_cate_content">
+                <div class=" middle_cate_content">
                     <div class="middle_cate_title">
                         <div class="middle_cate_title_text">
-                            <a href="./pick/" >INTRO</a>
+                            INTRO
                         </div>            
                     </div> 
                     <div class="middle_cate_hover">
@@ -706,7 +717,7 @@
                                 subtitle1
                         </div>
                          <div class="middle_cate_subtitle">
-                                 subtitle2
+                                    subtitle2
                         </div>
                     </div>
                 </div>
@@ -722,13 +733,15 @@
                         <div class="middle_cate_subtitle">
                                 subtitle1
                         </div>
+    
+                       
                     </div>
                 </div>
 
                 <div class=" middle_cate_content">
                     <div class="middle_cate_title">
                         <div class="middle_cate_title_text">
-                                <a href="./study/" >STUDY</a>
+                        STUDY
                         </div>
                     </div>
                     <div class="middle_cate_hover">
@@ -767,11 +780,10 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="middle_cate_content">
                     <div class="middle_cate_title">
                         <div class="middle_cate_title_text">
-                            <a href="./model/" >MODEL</a>
+                                MODEL
                         </div>
                     </div>
                 </div>
@@ -779,7 +791,6 @@
 
             <div class="top_content_noti">
                 {% if is_important %}
-                
                 <img 
                 class="top_content_noti_image top_content_noti_shake" 
                 src="/static/image/noti.png"
@@ -803,48 +814,86 @@
             </div>
         </div>
 
-        <div class="middle_sec_div">
-            <div class="middle_sec_cover">
-                <div class="middle_sec_content_cover">
-                    <img class="middle_sec_content" id="middle_sec_content_1" src="/static/image/aangkko.jpg">
+        <div class="middle_pick_div">
+            <div class="middle_pick_fir_div">
+                <div class="middle_pick_text">
+                    <img class="middle_pick_text_img" src="/static/image/pick_text.png">
+                    <div class="middle_pick_text_english" >
+                        Lovely cats of precious daily life
+                    </div>
+                    <div class="middle_pick_text_korean">
+                        소중한 일상의 사랑스러운 모습들 
+                    </div>
                     
-                    <!-- <div class="middle_sec_content_hover">
-
-                    </div> -->
-                </div>
-
-                <div class="middle_sec_content_cover">
-                    <img class="middle_sec_content"  id="middle_sec_content_2" src="/static/image/ruru.png">
-                    <!-- <div class="middle_sec_content_hover">
-
-                    </div> -->
-                </div>
-
-                <div class="middle_sec_content_cover">
-                    <img class="middle_sec_content" id="middle_sec_content_3" src="/static/image/hhoppang.png" >
-                
-                    <!-- <div class="middle_sec_content_hover">
-
-                    </div> -->
-                </div>
-
-                <div class="middle_sec_content_cover">
-                    <img class="middle_sec_content"  id="middle_sec_content_4" src="/static/image/kkomi.png" >
-<!--                 
-                    <div class="middle_sec_content_hover">
-
-                    </div> -->
                 </div>
             </div>
+            <div class="middle_pick_sec_div">
+                <div class="middle_pick_sec_cats_cover">
+                    <div class="middle_pick_sec_cats">
+                        <div class="middle_pick_sec_cats_img_div">
+                            <img class="middle_pick_sec_cats_img" src="/static/image/aangkko.jpg">
+                        </div>
+                        <div class="middle_pick_sec_cats_info_div">
+                            <div class="middle_pick_sec_cats_info">
+                                <span class="middle_pick_sec_cats_info_name">앙꼬</span><br>
+                                2017.09.20<br>
+                                폭풍점프 2단 옆차기.<br>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="middle_pick_sec_cats">
+                            <div class="middle_pick_sec_cats_img_div">
+                                <img class="middle_pick_sec_cats_img" src="/static/image/kkomi.png">
+                            </div>
+                            <div class="middle_pick_sec_cats_info_div">
+                                <div class="middle_pick_sec_cats_info">
+                                    <span class="middle_pick_sec_cats_info_name">꼬미</span><br>
+                                    2017.10.22 (A)<br>
+                                    잔재주가 많고 눈치가 빠름.<br>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="middle_pick_sec_cats">
+                            <div class="middle_pick_sec_cats_img_div">
+                                    <img class="middle_pick_sec_cats_img" src="/static/image/hhoppang.png">
+                            </div>
+                            <div class="middle_pick_sec_cats_info_div">
+                                    <div class="middle_pick_sec_cats_info">
+                                            <span class="middle_pick_sec_cats_info_name">호빵</span><br>
+                                            2017.10.22 (A)<br>
+                                            잔재주가 많고 눈치가 빠름.<br>
+                                    </div>
+                            </div>
+                    </div>
+                    <div class="middle_pick_sec_cats">
+                            <div class="middle_pick_sec_cats_img_div">
+                                <img class="middle_pick_sec_cats_img" src="/static/image/ruru.png">
+                            </div>
+                            <div class="middle_pick_sec_cats_info_div">
+                                <div class="middle_pick_sec_cats_info">
+                                        <span class="middle_pick_sec_cats_info_name">루루</span><br>
+                                        2017.10.22 (A)<br>
+                                        잔재주가 많고 눈치가 빠름.<br>
+                                </div>
+                            </div>
+                    </div>
+
+
+                </div>
+                <div class="middle_pick_sec_cats_cover">
+
+                </div>
+                <div class="middle_pick_sec_cats_cover">
+
+                </div>
+            </div>
         </div>
 
-       
     </div>
 
     <div class="bottom">
-        COPYRIGHT (C) 
-        MIDGO <br><br>
+        COPYRIGHT (C) MIDGO <br><br>
         <font style="font-weight:600;">Contact email</font><br>
         kkolayun@gmail.com
     </div>
@@ -1079,20 +1128,8 @@
                  console.log(e);
              });//비동기
         }
-
     </script>
 
-    <script type='text/javascript'>
-    function open_kakao_chat(){
-        //<![CDATA[
-      // 사용할 앱의 JavaScript 키를 설정해 주세요.
-      Kakao.init('2390cfbf1ae599f295c21a8d15e80cb1');
-      // 플러스친구 1:1채팅 버튼을 생성합니다.
-      Kakao.PlusFriend.chat({
-        plusFriendId: '_BGbxgj' // 플러스친구 홈 URL에 명시된 id로 설정합니다.
-      });
-    //]]>
-    }
-    </script>
+
 </body>
 </html>

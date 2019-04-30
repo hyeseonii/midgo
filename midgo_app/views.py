@@ -267,13 +267,55 @@ def unrecognize(request,user_id) :
         return redirect('/recognizeUserlist/')
 
 
-def pick(request):
+def model(request):
 
-        return render(request, "./pick.html")
+        return render(request, "./model.html")
 
-def study(request):
 
-        return render(request, "./study.html")
+from django.core.paginator import Paginator
+
+def study(request,category,page_idx):
+
+        user = request.user
+
+        if category == 'all' :
+                articles= Article.objects.all()
+        else :
+                articles= Article.objects.filter(category = category) 
+
+        print(articles)
+
+        paginator = Paginator(articles, 2)
+
+        start_idx = (page_idx-1) // 10 * 10 + 1
+        end_idx = (page_idx-1) // 10 * 10 + 10
+        if end_idx >=paginator.num_pages :
+                end_idx = paginator.num_pages
+        print(paginator.count)
+        print(paginator.num_pages)
+        print(paginator.page(page_idx))
+        page_range = range(start_idx, end_idx+1)
+        print(page_range)
+
+        p = paginator.page(page_idx)
+
+        prev_page_idx = page_idx - 1
+        next_page_idx = page_idx + 1 
+
+        context = {
+                        'user': user, 
+                        'login' : 'true', 
+                        'articles': p, 
+                        'page_range' :page_range, 
+                        'category':category, 
+                        'prev_page_idx' : prev_page_idx, 
+                        'next_page_idx' : next_page_idx, 
+                        'page_idx':page_idx,
+                        'num_pages':paginator.num_pages, 
+                        'article_count' : len(articles)
+                }
+
+        return render(request, "./study.html", context)
 
 
 
