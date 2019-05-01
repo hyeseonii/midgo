@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- include libraries(jQuery, bootstrap) -->
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
+
+    <!-- include summernote css/js -->
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.js"></script>
+    <!-- <script src="/static/js/summernote.js"></script> -->
+</head>
+<body>
+    
+    {{article.title}}</br>
+    {{article.category}}</br>
+    <div class="content">
+
+    </div>
+    <textarea id="article_content" hidden>
+        {{article.content}}
+    </textarea>
+    <button type="button" id="like_button" onclick="like();">{{is_liked}}</button>
+    <input type="text" value={{article.id}} id="article_id" hidden>
+
+
+    <script>
+        setTimeout(function(){
+            $(document).ready(function(){
+                console.log($("#article_content").val());
+                $(".content").html($("#article_content").val());
+            });
+        },100);
+
+        function like(){
+            var btn_text = $("#like_button").text();
+            console.log(btn_text);
+
+            var article_id = $("#article_id").val();
+            console.log(article_id);
+
+            if(btn_text =='좋아요'){
+                $("#like_button").text("했어요");
+
+                fetch("/main/study/board/like/" +String(article_id) + "/")
+                .then(e => e.json())
+                .then(e => {
+                    console.log(e);
+                });
+
+            }
+            else if(btn_text == '했어요'){
+                $("#like_button").text("좋아요");
+
+                fetch("/main/study/board/unlike/" +String(article_id) + "/")
+                .then(e => e.json())
+                .then(e => {
+                    console.log(e);
+                });
+
+            }
+        }
+    </script>
+  
+</body>
+</html>

@@ -10,6 +10,14 @@ urlpatterns = [
     path('main/model/',views.model),
     path('main/study/<str:category>/<int:page_idx>/',views.study),
 
+    path('main/study/board/addboard/', views.addboard),
+    path('main/study/board/addboard/write/',views.writeboard),
+    path('main/study/board/addboard/summernote_uploadImage/',views.summernote_uploadImage),
+    path('main/study/board/readboard/<int:board_id>/',views.readboard),
+
+    path('main/study/board/like/<int:board_id>/',views.like_board),
+    path('main/study/board/unlike/<int:board_id>/',views.unlike_board),
+
     path('check_notification/<int:notification_id>/', views.check_notification),
     path('delete_notification/<int:notification_id>/',views.delete_notification),
     path('delete_all_notification/',views.delete_all_notification),

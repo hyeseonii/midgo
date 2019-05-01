@@ -38,24 +38,6 @@ class Cat(models.Model) :
     def __str__(self) :
         return self.owner.username + " - " + self.name
 
-class Notification(models.Model) :
-
-    CATEGORY_CHOICES = {
-        ('reply', 'Reply'),
-        ('notice', 'Notice')
-    }
-
-    created_at = models.DateTimeField(auto_now_add=True)
-    content = models.TextField()
-    category = models.CharField(max_length = 30, choices=CATEGORY_CHOICES, null=True)
-    creator = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True, related_name='create_notifications')
-    receiver = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True, related_name='receive_notifications')
-    is_checked=models.BooleanField(default=False)
-    
-
-
-    def __str__(self) :
-        return self.category + "-" + str(self.created_at)
 
 class Article(models.Model) :
 
@@ -91,7 +73,7 @@ class Article(models.Model) :
 class ArticleImage(models.Model) :
     
     file = models.ImageField(upload_to = 'articleImage/')
-    article = models.ForeignKey(Article, on_delete=models.CASCADE, null=True, blank=True, related_name='aricleImages'),
+    article = models.ForeignKey(Article, on_delete=models.CASCADE, null=True, blank=True, related_name='aricleImages')
 
     def __str__(self) :
         return self.article.title
@@ -134,3 +116,27 @@ class SummerNoteImage(models.Model) :
 
     file = models.ImageField(upload_to='summernoteImage/')
     url = models.TextField(default='', null=True, blank=True)
+
+    def __str__(self) :
+        return self.file.name
+
+
+class Notification(models.Model) :
+
+    CATEGORY_CHOICES = {
+        ('reply', 'Reply'),
+        ('notice', 'Notice')
+    }
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    content = models.TextField()
+    category = models.CharField(max_length = 30, choices=CATEGORY_CHOICES, null=True)
+    creator = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True, related_name='create_notifications')
+    receiver = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True, related_name='receive_notifications')
+    is_checked=models.BooleanField(default=False)
+    article = models.ForeignKey(Article, on_delete =models.CASCADE, null=True, blank=True, related_name='article_notifications')
+    
+
+
+    def __str__(self) :
+        return self.category + "-" + str(self.created_at)

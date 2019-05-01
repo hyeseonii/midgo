@@ -29,7 +29,7 @@ def main(request):
         if not user.is_anonymous :
                 time_now = datetime.datetime.now()
 
-                notifications = Notification.objects.filter(created_at__range=[user.check_notification, time_now])
+                notifications = Notification.objects.filter(receiver=user)
                 notifications_count = 0
                 for notification in notifications :
                         if not notification.is_checked :
@@ -316,6 +316,135 @@ def study(request,category,page_idx):
                 }
 
         return render(request, "./study.html", context)
+
+        
+def addboard(request) :
+
+        return render(request, "./addboard.html")
+
+@csrf_exempt
+def summernote_uploadImage(request) :
+
+        if request.method =='POST' :
+                
+                print(request.FILES.getlist("uploadFile")[0])
+
+                new_summernoteImage = SummerNoteImage.objects.create(
+                        file = request.FILES.getlist('uploadFile')[0],
+                )
+                new_summernoteImage.save()
+
+                new_summernoteImage.url = new_summernoteImage.file.url
+                new_summernoteImage.save()
+                #result = {'url': url}
+                result ={'url': new_summernoteImage.url}
+                return JsonResponse(result)
+
+
+from bs4 import BeautifulSoup
+
+def writeboard(request) :
+
+        if request.method == 'POST' :
+
+                user = request.user
+                title = request.POST['title']
+                category = request.POST['category']
+                content = request.POST['editordata']
+                soup = BeautifulSoup(content, 'html.parser')
+
+                print(user)
+                print(title)
+                print(category)
+                print(content)
+                print(soup.find_all('img'))
+
+                new_article = Article.objects.create(
+                        creator = user,
+                        title = title,
+                        category = category,
+                        content = content,
+                )
+                new_article.save()
+
+
+                for link in soup.find_all('img') :
+                        print(link.get('src'))
+                        summernoteImage = SummerNoteImage.objects.get(url =link.get('src'))
+                        print(summernoteImage)
+                        new_article_image = ArticleImage.objects.create(
+                                file = summernoteImage.file,
+                                article = new_article,
+                        )
+                        new_article_image.save()
+
+                all_user = User.objects.all()
+                for receive_user in all_user :
+                        new_notification = Notification.objects.create(
+                                creator= user,
+                                receiver = receive_user,
+                                category = 'notice',
+                                content = title,
+                                article = new_article,
+                        )
+                        new_notification.save()
+
+
+        return redirect('/main/study/'+category+"/1/")
+
+
+def readboard (request,board_id) :
+
+        user = request.user
+
+        article = Article.objects.get(id = board_id)
+        article.view += 1
+        article.save()
+
+        try :
+                like = Like.objects.get(
+                        creator=user,
+                        article=article,
+                )
+                context ={'article':article, 'is_liked' :'했어요'}
+        except :
+                context ={'article':article, 'is_liked' :'좋아요'}
+       
+
+        return render(request, './readboard.html',context)
+
+def like_board(request, board_id) :
+
+        user=request.user
+
+        article = Article.objects.get(id=board_id)
+
+        new_like = Like.objects.create(
+                creator=user,
+                article=article,
+        )
+
+        new_like.save()
+
+        result ={"result" : "success"}
+
+        return JsonResponse(result)
+
+
+def unlike_board(request, board_id) :
+
+        user = request.user
+
+        article =Article.objects.get(id = board_id)
+
+        like = Like.objects.get(creator = user, article= article)
+
+        like.delete()
+
+        result = {"result": "success"}
+
+        return JsonResponse(result)
+
 
 
 

@@ -905,22 +905,22 @@
                 <div class="middle_sec_menu_cover">
                     <div class="middle_sec_menu">
                         <div class="middle_sec_menu_text">
-                            전체
+                            <a href="/main/study/all/1/" >전체</a>
                         </div>
                     </div>
                     <div class="middle_sec_menu">
                         <div class="middle_sec_menu_text">
-                            질병사전
+                            <a href="/main/study/veterinary_medicine/1/">질병사전</a>
                         </div>
                     </div>
                     <div class="middle_sec_menu">
                         <div class="middle_sec_menu_text">
-                            영양사전
+                            <a href="/main/study/nutrition/1/">영양사전</a>
                         </div>
                     </div>
                     <div class="middle_sec_menu">
                         <div class="middle_sec_menu_text">
-                            행동/심리
+                            <a href="/main/study/psychology/1/">행동/심리</a>
                         </div>
                     </div>
                 </div>
@@ -1025,7 +1025,10 @@
                                 </div>
                                 <div class="middle_sec_content_bottom_fir_cover3">
                                     <div class="middle_sec_content_bottom_fir_text">
+                                        <a href ="/main/study/board/readboard/{{article.id}}/">
                                         {{article.title}}
+                                        </a>
+                                        
                                     </div>
                                 </div>
                                 <div class="middle_sec_content_bottom_fir_cover4">
@@ -1058,7 +1061,7 @@
 
                     </div>
                     <div class="middle_sec_content_bottom_third_div">
-                        <button type="button" id="middle_sec_content_write_button">
+                        <button type="button" id="middle_sec_content_write_button" onclick="go_write();">
                             글쓰기
                         </button>
                     </div>
@@ -1324,6 +1327,10 @@
              .then(e => {
                  console.log(e);
              });//비동기
+        }
+
+        function go_write(){
+            window.location.href='/main/study/board/addboard/';
         }
     </script>
 

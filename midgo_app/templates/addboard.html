@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- include libraries(jQuery, bootstrap) -->
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
+
+    <!-- include summernote css/js -->
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.js"></script>
+    <!-- <script src="/static/js/summernote.js"></script> -->
+</head>
+<body>
+    <form method="POST" action="./write/">
+        {%csrf_token%}
+        <input type="text" id="title" name="title" >
+        <select name="category" id="category" size='3'>
+            <!-- <option value='공지사항'selected>공지사항</option> -->
+            <option value='veterinary_medicine' selected>질병사전</option>
+            <option value='nutrition'>영양사전</option>
+            <option value='psychology'>행동/심리</option>
+        </select>
+        <textarea id="summernote" name="editordata"></textarea>
+        <button type="submit" >등록</button>
+    </form>
+
+    <script>
+        $(document).ready(function() {
+            $('#summernote').summernote({
+                callbacks: {
+                    onImageUpload: function(files, editor, welEditable){
+                        sendFile(files[0],this);
+                    }
+                }
+            });
+        });
+
+        function sendFile(file, editor){
+            data= new FormData();
+            data.append("uploadFile",file);
+
+            $.ajax({
+                data:data,
+                type:"POST",
+                url:"./summernote_uploadImage/",
+                cache:false,
+                contentType: false,
+                processData: false,
+                success: function(data) {
+                    console.log("!!!");
+                    $(editor).summernote('editor.insertImage',data.url);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
