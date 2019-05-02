@@ -27,6 +27,36 @@
         {{article.content}}
     </textarea>
     <button type="button" id="like_button" onclick="like();">{{is_liked}}</button>
+    <br>
+
+    <input type="text" id="comment_input" >
+    <button type="button" id="comment_button" onclick="add_comment();">등록</button>
+    
+    <br>
+
+    <div class="middle_comment_div">
+    {% for comment in article.comments.all %}
+        <div class="middle_comment" id="comment_div_{{comment.id}}">
+            <span class="middle_comment_content" id="comment_content_{{comment.id}}">
+            {{comment.creator}} {{comment.content}} {{comment.created_at}} 
+            </span>
+            <button type="button" id="comment_button_{{comment.id}}" onclick="open_add_recomment(this);">답글</button>
+            {% if user.username == comment.creator.username %}
+            <button type="button" id="delete_comment_button_{{comment.id}}" onclick="delete_comment(this);">삭제</button>
+            {% endif %}
+            <br>
+        </div>
+
+
+        <div class='middle_recomment_div' id='comment_{{comment.id}}'>
+        {% for recomment in comment.recomments.all %}
+            <div class='middle_recomment'>
+                └{{recomment.creator}} {{recomment.content}} {{recomment.created_at}}<br>
+            </div>
+        {% endfor %}
+        </div>
+    {% endfor %}
+    </div>
     <input type="text" value={{article.id}} id="article_id" hidden>
 
 
@@ -66,7 +96,129 @@
 
             }
         }
+
+        function add_comment(){
+            var comment_text = $("#comment_input").val();
+            console.log(comment_text);
+
+            var formdata= new FormData();
+           
+            formdata.append('comment_text',comment_text);
+
+            fetch("./add_comment/",{
+                method:'POST',
+                body:formdata,
+                credentials:'same-origin',
+            })
+            .then(e => e.json())
+            .then(e => {
+                console.log(e);
+                console.log(e.comment_id)
+                
+                var creator = e.creator;
+                var content = e.content;
+                var created_at = e.created_at;
+                var comment_id = e.comment_id;
+
+                if(e.result =='success'){
+                    var div_start="<div class='middle_comment' id='comment_div_"+String(comment_id)+"'>";
+                    var div_content= creator + ' ' +content +' '+created_at
+                        + "<button type='button' id='comment_button_"
+                        + String(comment_id)
+                        + "' onclick='open_add_recomment(this);'>답글</button>"
+                        + "<button type='button' id='delete_comment_button_"
+                        + String(comment_id)
+                        + "' onclick='delete_comment(this);'>삭제</button>"
+                        +'<br>';
+                    var div_end ="</div>"
+
+                    var comment_div = div_start+div_content+div_end;
+                    $(".middle_comment_div").append(comment_div);
+
+                    $(".middle_comment_div").append("<div class='middle_recomment_div' id='comment_"+String(comment_id)+"'>{% for recomment in comment.Recomments.all %}<div class='middle_recomment'>└{{recomment.creator}} {{recomment.content}} {{recomment.created_at}}<br></div>{% endfor %}</div>");
+                }
+
+            });
+
+        }
+
+        function open_add_recomment(btn) {
+            console.log(btn.id.split('_')[2]);
+            var comment_id = btn.id.split('_')[2];
+
+            $("#recomment_input, #recomment_button").remove();
+
+            var input_div ="<input type='text' id='recomment_input'>";
+            var button_div = "<button type='button' id='recomment_button' onclick='add_recomment(" +String(comment_id) +")'>등록</button>";
+
+            $("#comment_"+String(comment_id)).prepend(input_div +  button_div);
+
+        }
+
+        function add_recomment(comment_id){
+            
+            var recomment_text = $("#recomment_input").val();
+            console.log(recomment_text);
+
+            var formdata= new FormData();
+           
+            formdata.append('recomment_text',recomment_text);
+            formdata.append('comment_id',comment_id);
+
+            fetch("./add_recomment/",{
+                method:'POST',
+                body:formdata,
+                credentials:'same-origin',
+            })
+            .then(e => e.json())
+            .then(e => {
+                console.log(e);
+                
+                var creator = e.creator;
+                var content = e.content;
+                var created_at = e.created_at
+
+                if(e.result =='success'){
+                    var div_start="<div class='middle_recomment'>";
+                    var div_content= '└'+creator + ' ' +content +' '+created_at+'<br>';
+                    var div_end ="</div>";
+
+                    var recomment_div = div_start+div_content+div_end;
+                    $("#comment_"+String(comment_id)).append(recomment_div);
+
+                    $("#recomment_input, #recomment_button").remove();
+                }
+
+            });     
+        }
+
+        function delete_comment(comment) {
+            var comment_id = comment.id.split("_")[3];
+            console.log(comment_id);
+
+            var formdata= new FormData();
+           
+            formdata.append('comment_id',comment_id);
+
+            fetch("./check_recomment/",{
+                method:'POST',
+                body:formdata,
+                credentials:'same-origin',
+            })
+            .then(e => e.json())
+            .then(e => {
+                console.log(e);
+                var user_id =e.user_id
+                if(e.result =='delete'){
+                    $("#comment_div_" +String(comment_id)).remove();
+                }
+                else if(e.result =='modify'){
+                    $("#comment_content_" + String(comment_id)).html(user_id+ " 삭제된 댓글입니다.");
+                }
+
+            });
+
+        }
     </script>
-  
 </body>
 </html>

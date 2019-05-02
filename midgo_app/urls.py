@@ -14,6 +14,11 @@ urlpatterns = [
     path('main/study/board/addboard/write/',views.writeboard),
     path('main/study/board/addboard/summernote_uploadImage/',views.summernote_uploadImage),
     path('main/study/board/readboard/<int:board_id>/',views.readboard),
+    path('main/study/board/readboard/<int:board_id>/add_comment/',views.add_comment),
+    path('main/study/board/readboard/<int:board_id>/add_recomment/',views.add_recomment),
+    path('main/study/board/readboard/<int:board_id>/check_recomment/',views.check_recomment),
+
+    
 
     path('main/study/board/like/<int:board_id>/',views.like_board),
     path('main/study/board/unlike/<int:board_id>/',views.unlike_board),

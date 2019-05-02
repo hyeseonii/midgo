@@ -285,6 +285,9 @@ def study(request,category,page_idx):
 
         print(articles)
 
+        # for article in articles :
+        #         print(article.comment_count)
+
         paginator = Paginator(articles, 2)
 
         start_idx = (page_idx-1) // 10 * 10 + 1
@@ -406,9 +409,9 @@ def readboard (request,board_id) :
                         creator=user,
                         article=article,
                 )
-                context ={'article':article, 'is_liked' :'했어요'}
+                context ={'article':article, 'is_liked' :'했어요','user':user}
         except :
-                context ={'article':article, 'is_liked' :'좋아요'}
+                context ={'article':article, 'is_liked' :'좋아요' ,'user': user}
        
 
         return render(request, './readboard.html',context)
@@ -446,5 +449,69 @@ def unlike_board(request, board_id) :
         return JsonResponse(result)
 
 
+@csrf_exempt
+def add_comment(request,board_id) :
+
+        user = request.user
+
+        article = Article.objects.get(id=board_id)
+        comment_text = request.POST['comment_text']
+
+        new_comment = Comment.objects.create(
+                creator=user,
+                article=article,
+                content=comment_text,
+        )
+        new_comment.save()
+
+        result = {"result":"success", "creator":new_comment.creator.username, "content":new_comment.content,"created_at":new_comment.created_at, 'comment_id':new_comment.id}
+
+        return JsonResponse(result)
 
 
+@csrf_exempt
+def add_recomment(request,board_id) :
+
+        user = request.user
+
+        # article = Article.objects.get(id=board_id)
+        recomment_text = request.POST['recomment_text']
+        comment_id = request.POST['comment_id']
+        
+        comment= Comment.objects.get(id=comment_id)
+        new_recomment = ReComment.objects.create(
+                creator=user,
+                comment=comment,
+                content=recomment_text,
+        )
+        new_recomment.save()
+
+        result = {"result":"success", "creator":new_recomment.creator.username, "content":new_recomment.content,"created_at":new_recomment.created_at}
+
+        return JsonResponse(result)
+
+@csrf_exempt
+def check_recomment(request, board_id) :
+
+        if request.method == 'POST' :
+
+                user= request.user
+
+                comment_id = request.POST['comment_id']
+                comment = Comment.objects.get(
+                        id=comment_id,
+                )
+
+                recomment_cnt = comment.recomment_count
+
+                if recomment_cnt ==0 :
+                        comment.delete()
+                        result = {"result": "delete", "user_id":user.username}
+                else :
+                        comment.content = "삭제된 댓글입니다."
+                        comment.save()
+                        result ={"result": "modify", "user_id":user.username }
+
+                
+
+                return JsonResponse(result)

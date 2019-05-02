@@ -1026,7 +1026,11 @@
                                 <div class="middle_sec_content_bottom_fir_cover3">
                                     <div class="middle_sec_content_bottom_fir_text">
                                         <a href ="/main/study/board/readboard/{{article.id}}/">
-                                        {{article.title}}
+                                        {% if article.comment_count > 0 %}
+                                            {{article.title}} ({{article.comment_count}})
+                                        {% else %}
+                                            {{article.title}}
+                                        {% endif %}
                                         </a>
                                         
                                     </div>

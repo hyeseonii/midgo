@@ -64,7 +64,11 @@ class Article(models.Model) :
 
     @property
     def comment_count(self) :
-        return self.comments.all().count()
+        recomment_cnt=0
+        for comment in self.comments.all():
+            recomment_cnt += comment.recomment_count
+
+        return self.comments.all().count()+recomment_cnt
 
     class Meta :
         ordering = ['-created_at']
@@ -86,31 +90,6 @@ class Like(models.Model) :
     def __str__(self) :
         return self.creator.username + " - " + self.article.title
 
-class Comment(models.Model) :
-    
-    creator = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
-    article = models.ForeignKey(Article, on_delete=models.CASCADE, null=True, blank=True, related_name='comments')
-    content = models.CharField(max_length=300, default='')
-    created_at = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self) :
-        return self.creator.username +" - "+self.article.title+ " - "+self.content
-
-    class Meta :
-        ordering = ['created_at']
-
-
-class ReComment(models.Model) :
-    creator = models.ForeignKey(User,on_delete=models.CASCADE, null=True, blank=True)
-    comment = models.ForeignKey(Comment, on_delete=models.CASCADE, null=True, blank=True, related_name='recomments')
-    content = models.CharField(max_length=300, default='')
-    created_at = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self) :
-        return self.creator.username + " - "+self.comment.article.title+ " - " + self.content
-    
-    class Meta :
-        ordering = ['created_at']
 
 class SummerNoteImage(models.Model) :
 
@@ -140,3 +119,35 @@ class Notification(models.Model) :
 
     def __str__(self) :
         return self.category + "-" + str(self.created_at)
+
+
+class Comment(models.Model) :
+
+    creator = models.ForeignKey(User,on_delete=models.CASCADE, null=True, blank=True)
+    article = models.ForeignKey(Article, on_delete = models.CASCADE, null=True, blank=True, related_name= 'comments')
+    content = models.CharField(max_length = 300, default ='')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self) :
+        return self.creator.username+ " - " + self.article.title+ "-" + self.content
+    
+    @property
+    def recomment_count(self) :
+        return self.recomments.all().count()
+    class Meta :
+        ordering = ['created_at']
+
+
+class ReComment(models.Model) :
+
+    creator = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    comment = models.ForeignKey(Comment, on_delete = models.CASCADE, null=True, blank=True, related_name= 'recomments')
+    content = models.CharField(max_length = 300, default ='')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self) :
+        return self.creator.username+ " - " + self.comment.article.title+ "-" + self.content
+    
+    class Meta :
+        ordering = ['created_at']
+
